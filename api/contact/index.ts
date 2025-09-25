@@ -1,4 +1,8 @@
-import { AzureFunction, Context, HttpRequest } from '@azure/functions';
+// Avoid importing '@azure/functions' types at build time in Next.js environment
+// because the Azure Functions types may not be available during Oryx builds.
+// Provide minimal local type aliases that match the usage in this file.
+type HttpRequest = { body?: any };
+type Context = { res?: { status?: number; body?: any } } & Record<string, any>;
 
 function sanitize(str: any) {
   if (!str) return '';
@@ -10,7 +14,7 @@ function sanitize(str: any) {
     .replace(/'/g, '&#39;');
 }
 
-const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
+const httpTrigger = async function (context: Context, req: HttpRequest): Promise<void> {
   const { name, email, message } = req.body || {};
   if (!email || !message) {
     context.res = {
