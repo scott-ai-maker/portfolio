@@ -25,17 +25,17 @@ export default function SiteHeader() {
   }, [theme]);
 
   return (
-    <header className="sticky top-0 z-40 backdrop-blur bg-white/60 dark:bg-slate-900/60 border-b border-slate-200 dark:border-slate-800">
+    <header className="sticky top-0 z-40 backdrop-blur" style={{ backgroundColor: 'rgba(7,16,41,0.6)', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
       <div className="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
-        <div className="text-lg font-semibold">Your Name</div>
+        <div className="text-lg font-semibold text-text">Your Name</div>
         <nav className="flex items-center gap-4">
           {sections.map((s) => (
-            <a key={s} href={s === 'home' ? '#top' : `#${s}`} className={`px-2 py-1 rounded ${active === s ? 'bg-primary text-white' : 'text-slate-700 dark:text-slate-300'}`}> {s}</a>
+            <a key={s} href={s === 'home' ? '#top' : `#${s}`} className={`px-2 py-1 rounded ${active === s ? 'btn-primary text-black' : 'text-muted'}`}> {s}</a>
           ))}
           <button
             aria-label="Toggle theme"
             onClick={() => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))}
-            className="ml-2 px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded"
+            className="ml-2 px-2 py-1 panel rounded"
           >
             {theme === 'dark' ? '🌙' : '☀️'}
           </button>

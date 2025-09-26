@@ -2,29 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --bg: #0f172a;
-  --panel: #0b1220;
-  --muted: #94a3b8;
-  --text: #e6eef8;
+:root{
+  --color-bg: #071029;
+  --color-panel: #0f1724;
+  --color-muted: #94a3b8;
+  --color-text: #e6eef8;
+  --color-primary: #00E0B8;
+  --color-accent: #7C5CFF;
 }
 
-html, body {
-  height: 100%;
-}
+html, body { height: 100%; }
 
+/* Use utility classes for background/text where possible; provide safe fallbacks */
 body {
-  @apply bg-white text-slate-900;
-  font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 }
 
-.dark body {
-  @apply bg-slate-900 text-slate-100;
-}
-
-.container {
-  max-width: 64rem;
-}
+.container { max-width: 64rem; margin-left: auto; margin-right: auto; padding: 0 1rem; }
 
 .sr-only {
   position: absolute !important;
@@ -32,4 +28,20 @@ body {
   overflow: hidden;
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap;
+}
+
+/* Small utilities for common panels */
+.panel {
+  background-color: var(--color-panel);
+  color: var(--color-text);
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 30px rgba(7,16,41,0.6);
+}
+
+.btn-primary{
+  background-color: var(--color-primary);
+  color: #052023;
+  padding: .5rem 1rem;
+  border-radius: .5rem;
+  box-shadow: 0 8px 20px rgba(0,224,184,0.08);
 }
