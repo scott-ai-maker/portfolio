@@ -30,7 +30,13 @@ export default function SiteHeader() {
         <div className="text-lg font-semibold text-text">Your Name</div>
         <nav className="flex items-center gap-4">
           {sections.map((s) => (
-            <a key={s} href={s === 'home' ? '#top' : `#${s}`} className={`px-2 py-1 rounded ${active === s ? 'btn-primary text-black' : 'text-muted'}`}> {s}</a>
+            <a
+              key={s}
+              href={s === 'home' ? '#top' : `#${s}`}
+              className={`px-2 py-1 rounded transition-colors duration-300 ${active === s ? 'btn-primary text-black' : 'text-muted hover:text-white hover:bg-gray-700'}`}
+            >
+              {s}
+            </a>
           ))}
           <button
             aria-label="Toggle theme"
