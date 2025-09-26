@@ -9,8 +9,13 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const theme = 'light'; // Ensure a consistent theme
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={theme} // Ensure className matches on server and client
+      style={{ colorScheme: theme }} // Ensure style matches on server and client
+    >
       <body>
         <Providers>
           <SiteHeader />
