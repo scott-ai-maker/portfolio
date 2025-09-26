@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf .next dist build && npm cache clean --force"
   },
   "dependencies": {
     "clsx": "^1.2.1",
