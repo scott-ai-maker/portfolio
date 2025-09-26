@@ -1,4 +1,5 @@
 "use client";
+import ThemeToggle from './ThemeToggle';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -38,13 +39,7 @@ export default function SiteHeader() {
               {s}
             </a>
           ))}
-          <button
-            aria-label="Toggle theme"
-            onClick={() => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))}
-            className="ml-2 px-2 py-1 panel rounded"
-          >
-            {theme === 'dark' ? '🌙' : '☀️'}
-          </button>
+          <ThemeToggle />
         </nav>
       </div>
     </header>

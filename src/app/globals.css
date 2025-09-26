@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
+:root {
   --color-bg: #071029;
   --color-panel: #0f1724;
   --color-muted: #94a3b8;
@@ -11,20 +11,27 @@
   --color-accent: #7C5CFF;
 }
 
-html, body { height: 100%; }
+html, body {
+  height: 100%;
+}
 
-/* Use utility classes for background/text where possible; provide safe fallbacks */
+/* Use Tailwind utility classes for dark mode */
 body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  @apply bg-white text-black dark:bg-gray-900 dark:text-gray-100;
   font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 }
 
-.container { max-width: 64rem; margin-left: auto; margin-right: auto; padding: 0 1rem; }
+.container {
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+}
 
 .sr-only {
   position: absolute !important;
-  height: 1px; width: 1px;
+  height: 1px;
+  width: 1px;
   overflow: hidden;
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap;
@@ -32,16 +39,14 @@ body {
 
 /* Small utilities for common panels */
 .panel {
-  background-color: var(--color-panel);
-  color: var(--color-text);
+  @apply bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200;
   border-radius: 0.5rem;
-  box-shadow: 0 8px 30px rgba(7,16,41,0.6);
+  box-shadow: 0 8px 30px rgba(7, 16, 41, 0.6);
 }
 
-.btn-primary{
-  background-color: var(--color-primary);
-  color: #052023;
-  padding: .5rem 1rem;
-  border-radius: .5rem;
-  box-shadow: 0 8px 20px rgba(0,224,184,0.08);
+.btn-primary {
+  @apply bg-teal-500 text-white dark:bg-teal-400;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 20px rgba(0, 224, 184, 0.08);
 }
