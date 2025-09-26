@@ -1,0 +1,32 @@
+name: Require Signed Commits
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  verify-signatures:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify commits are signed
+        run: |
+          set -e
+          echo "Checking last 50 commits for valid GPG signatures..."
+          # List commits in the event; fallback to HEAD range
+          RANGE=$(git rev-list --max-count=50 HEAD)
+          STATUS=0
+          for C in $RANGE; do
+            if git log --show-signature -1 $C | grep -q "gpg: Signature made"; then
+              echo "Signed: $C"
+            else
+              echo "Unsigned commit found: $C"
+              STATUS=1
+            fi
+          done
+          if [ "$STATUS" -ne 0 ]; then
+            echo "One or more commits are not signed. Please sign commits before pushing."
+            exit 1
+          fi
