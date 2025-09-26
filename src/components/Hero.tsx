@@ -1,14 +1,17 @@
+// components/Hero.tsx
 export default function Hero() {
   return (
-    <section id="home" className="py-20">
-      <div className="max-w-3xl mx-auto text-center">
-        <h1 className="text-4xl sm:text-5xl font-bold text-text">Your Name</h1>
-        <p className="mt-4 text-lg text-muted">Software engineer — building performant, accessible web apps.</p>
-        <div className="mt-8 flex justify-center gap-4">
-          <a href="#projects" className="btn-primary">View Projects</a>
-          <a href="#contact" className="px-5 py-3 border rounded text-text/80">Contact</a>
-        </div>
-      </div>
+    <section className="text-center space-y-6">
+      <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
+        AI Engineering with Precision & Clarity
+      </h1>
+      <p className="text-muted text-lg max-w-xl mx-auto">
+        Resilient systems, clean design, and employer-facing value — built by Scott.
+      </p>
+      <a href="#projects" className="inline-block px-6 py-3 bg-accent text-white rounded-lg hover:bg-blue-400 transition">
+        View Projects
+      </a>
     </section>
-  );
+  )
 }
+
