@@ -1,4 +1,4 @@
-const tech = ['TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Azure', 'GitHub Actions'];
+import { techStack } from '../data/techStack';
 
 export default function About() {
   return (
@@ -9,7 +9,7 @@ export default function About() {
 
         <h3 className="mt-6 font-medium text-text">Tech stack</h3>
         <ul className="mt-3 grid grid-cols-2 gap-2">
-          {tech.map((t) => (
+          {techStack.map((t) => (
             <li key={t} className="px-3 py-2 panel text-text text-sm">{t}</li>
           ))}
         </ul>

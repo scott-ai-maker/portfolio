@@ -1,0 +1,1 @@
+export const techStack = ['TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Azure', 'GitHub Actions'];
