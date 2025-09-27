@@ -269,28 +269,18 @@ export default async function Home() {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            AI Engineer, DevOps Specialist, and System Architect.
+            Scott Gordon – AI Engineer, DevOps Specialist, and System Architect.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Scott, an AI engineer and DevOps specialist based in Massachusetts. I design and implement scalable AI systems and infrastructure, enabling organizations to harness the power of artificial intelligence efficiently and reliably.
+            Welcome to my portfolio! I specialize in designing scalable AI systems and modernizing cloud infrastructure. With a recent pivot into AI engineering, I bring expertise in machine learning, cloud platforms, and DevOps to help organizations achieve operational excellence.
           </p>
           <div className="mt-6 flex gap-6">
-            <SocialLink href="#" aria-label="Follow on X" icon={XIcon} />
-            <SocialLink
-              href="#"
-              aria-label="Follow on Instagram"
-              icon={InstagramIcon}
-            />
-            <SocialLink
-              href="#"
-              aria-label="Follow on GitHub"
-              icon={GitHubIcon}
-            />
-            <SocialLink
-              href="#"
-              aria-label="Follow on LinkedIn"
-              icon={LinkedInIcon}
-            />
+            <SocialLink href="https://github.com/scott-ai-maker" aria-label="Follow on GitHub" icon={GitHubIcon} />
+            <SocialLink href="https://www.linkedin.com/in/sagordon-dev/" aria-label="Follow on LinkedIn" icon={LinkedInIcon} />
+            <SocialLink href="mailto:scott.gordon72@outlook.com" aria-label="Email Scott" icon={MailIcon} />
+          </div>
+          <div className="mt-8">
+            <Button href="#projects" variant="primary">Explore My Work</Button>
           </div>
         </div>
       </Container>
