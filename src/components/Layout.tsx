@@ -1,16 +1,19 @@
-// components/Layout.tsx
-import { ReactNode } from "react";
+import { Footer } from './Footer.tsx'
+import { Header } from './Header.tsx'
 
-export default function Layout({ children }: { children: ReactNode }) {
+export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-white dark:bg-primary text-gray-900 dark:text-gray-100 transition-colors duration-300">
-      <header className="sticky top-0 z-50 bg-white dark:bg-primary shadow-md">
-        {/* NavBar */}
-      </header>
-      <main className="px-4 md:px-12 py-section">{children}</main>
-      <footer className="text-center py-6 text-muted text-sm">
-        © {new Date().getFullYear()} Scott — AI Engineer
-      </footer>
-    </div>
+    <>
+      <div className="fixed inset-0 flex justify-center sm:px-8">
+        <div className="flex w-full max-w-7xl lg:px-8">
+          <div className="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20" />
+        </div>
+      </div>
+      <div className="relative flex w-full flex-col">
+        <Header />
+        <main className="flex-auto">{children}</main>
+        <Footer />
+      </div>
+    </>
   )
 }
