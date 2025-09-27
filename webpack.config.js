@@ -13,7 +13,7 @@ body {
 module.exports = {
   // ...existing code...
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx'], // Ensure file extensions are resolved
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.md'], // Added .md extension
   },
   module: {
     rules: [
@@ -27,6 +27,10 @@ module.exports = {
       {
         test: /\.css$/, // Ensure CSS loader is configured
         use: ['style-loader', 'css-loader', 'postcss-loader'],
+      },
+      {
+        test: /\.md$/, // Exclude Markdown files from being processed by Webpack
+        type: 'asset/source',
       },
     ],
   },

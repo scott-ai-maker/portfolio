@@ -1,12 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  experimental: {
-    // Removed 'appDir' as it is unrecognized
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.md$/,
+      type: 'asset/source',
+    });
+    return config;
   },
-  images: {
-    domains: ["images.unsplash.com"]
-  }
 };
 
-module.exports = nextConfig;
+export default nextConfig;

@@ -1,27 +1,22 @@
-import './globals.css';
-import { ReactNode } from 'react';
-import Providers from '../components/Providers';
-import SiteHeader from '../components/SiteHeader';
+import { Providers } from './providers.tsx'
+import { Layout } from '../components/Layout.tsx'
 
-export const metadata = {
-  title: 'Your Name — Portfolio',
-  description: 'Professional portfolio optimized for employer review.'
-};
+import '../styles/tailwind.css'
 
-export default function RootLayout({ children }: { children: ReactNode }) {
-  const theme = 'light'; // Ensure a consistent theme
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html
-      lang="en"
-      className={theme} // Ensure className matches on server and client
-      style={{ colorScheme: theme }} // Ensure style matches on server and client
-    >
-      <body>
+    <html lang="en" className="h-full antialiased" suppressHydrationWarning>
+      <body className="flex h-full bg-zinc-50 dark:bg-black">
         <Providers>
-          <SiteHeader />
-          <main className="min-h-screen px-6 py-10 max-w-5xl mx-auto">{children}</main>
+          <div className="flex w-full">
+            <Layout>{children}</Layout>
+          </div>
         </Providers>
       </body>
     </html>
-  );
+  )
 }
