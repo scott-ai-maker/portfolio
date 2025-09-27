@@ -15,5 +15,8 @@
     "X-Content-Type-Options": "nosniff",
     "Referrer-Policy": "no-referrer-when-downgrade",
     "X-Frame-Options": "DENY"
+  },
+  "platform": {
+    "nodeVersion": "20.18.1"
   }
 }
