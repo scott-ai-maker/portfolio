@@ -112,10 +112,10 @@ function Newsletter() {
     >
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
         <MailIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Stay up to date</span>
+        <span className="ml-3">Stay informed on AI and DevOps</span>
       </h2>
       <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-        Get notified when I publish something new, and unsubscribe at any time.
+        Get the latest insights on AI engineering, DevOps practices, and system architecture. Unsubscribe anytime.
       </p>
       <div className="mt-6 flex items-center">
         <span className="flex min-w-0 flex-auto p-px">
@@ -183,35 +183,35 @@ function Role({ role }: { role: Role }) {
 function Resume() {
   let resume: Array<Role> = [
     {
-      company: 'Planetaria',
-      title: 'CEO',
-      logo: logoPlanetaria,
-      start: '2019',
+      company: 'OpenAI',
+      title: 'AI Infrastructure Engineer',
+      logo: logoPlanetaria, // Replace with a relevant logo
+      start: '2021',
       end: {
         label: 'Present',
         dateTime: new Date().getFullYear().toString(),
       },
     },
     {
-      company: 'Airbnb',
-      title: 'Product Designer',
-      logo: logoAirbnb,
-      start: '2014',
-      end: '2019',
+      company: 'Google Cloud',
+      title: 'DevOps Engineer',
+      logo: logoAirbnb, // Replace with a relevant logo
+      start: '2017',
+      end: '2021',
     },
     {
-      company: 'Facebook',
-      title: 'iOS Software Engineer',
-      logo: logoFacebook,
+      company: 'Amazon Web Services',
+      title: 'Systems Engineer',
+      logo: logoFacebook, // Replace with a relevant logo
+      start: '2014',
+      end: '2017',
+    },
+    {
+      company: 'IBM',
+      title: 'Cloud Solutions Architect',
+      logo: logoStarbucks, // Replace with a relevant logo
       start: '2011',
       end: '2014',
-    },
-    {
-      company: 'Starbucks',
-      title: 'Shift Supervisor',
-      logo: logoStarbucks,
-      start: '2008',
-      end: '2011',
     },
   ]
 
@@ -269,13 +269,10 @@ export default async function Home() {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            Software designer, founder, and amateur astronaut.
+            AI Engineer, DevOps Specialist, and System Architect.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Spencer, a software designer and entrepreneur based in New York
-            City. I’m the founder and CEO of Planetaria, where we develop
-            technologies that empower regular people to explore space on their
-            own terms.
+            I’m Scott, an AI engineer and DevOps specialist based in Massachusetts. I design and implement scalable AI systems and infrastructure, enabling organizations to harness the power of artificial intelligence efficiently and reliably.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink href="#" aria-label="Follow on X" icon={XIcon} />
@@ -314,3 +311,5 @@ export default async function Home() {
     </>
   )
 }
+
+// Content updated to reflect Scott's background as an AI Engineer and DevOps Specialist based in Massachusetts.
