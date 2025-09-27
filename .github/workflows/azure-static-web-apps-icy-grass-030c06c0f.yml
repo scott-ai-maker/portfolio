@@ -34,8 +34,6 @@ jobs:
 
       - name: Build App
         run: |
-          nvm install 20.18.1
-          nvm use 20.18.1
           yarn install
           yarn build
 
