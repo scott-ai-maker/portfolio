@@ -28,9 +28,6 @@ jobs:
       - name: Set NODE_VERSION for Oryx
         run: echo "NODE_VERSION=20.18.1" >> $GITHUB_ENV
 
-      - name: Clear Oryx Cache
-        run: sudo rm -rf /tmp/oryx
-
       - name: Build App
         run: |
           npm install
@@ -43,7 +40,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
           app_build_command: "npm run build"
-          app_location: "/" # Root directory for Next.js
+          app_location: "/" # Explicitly specifying the app location for clarity
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
