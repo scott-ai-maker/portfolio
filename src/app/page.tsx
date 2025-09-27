@@ -272,7 +272,7 @@ export default async function Home() {
             Scott Gordon – AI Engineer, DevOps Specialist, and System Architect.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            Welcome to my portfolio! I specialize in designing scalable AI systems and modernizing cloud infrastructure. With expertise in AWS, Azure, and DevOps, I help organizations achieve operational excellence.
+            Welcome to my portfolio! I specialize in designing scalable AI systems and modernizing cloud infrastructure. With a recent pivot into AI engineering, I bring expertise in machine learning, cloud platforms, and DevOps to help organizations achieve operational excellence.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink href="https://github.com/scott-ai-maker" aria-label="Follow on GitHub" icon={GitHubIcon} />
