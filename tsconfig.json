@@ -9,8 +9,8 @@
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "module": "Node16",
+    "moduleResolution": "node16",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
@@ -22,10 +22,15 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "allowImportingTsExtensions": true,
+    "types": ["next"]
   },
   "exclude": [
-    "node_modules",
     ".next"
   ],
   "include": [
