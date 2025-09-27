@@ -20,17 +20,16 @@ jobs:
           submodules: true
           lfs: false
 
-      - name: Install Node.js
+      - name: Ensure Node.js Version
         uses: actions/setup-node@v3
         with:
           node-version: '20.18.1'
 
+      - name: Set NODE_VERSION for Oryx
+        run: echo "NODE_VERSION=20.18.1" >> $GITHUB_ENV
+
       - name: Clear Oryx Cache
         run: sudo rm -rf /tmp/oryx
-
-      - name: Set Node.js Version for Oryx
-        run: |
-          echo "NODE_VERSION=20.18.1" >> $GITHUB_ENV
 
       - name: Build App
         run: |
