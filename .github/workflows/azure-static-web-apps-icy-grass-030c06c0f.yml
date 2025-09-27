@@ -34,8 +34,8 @@ jobs:
 
       - name: Build App
         run: |
-          yarn install
-          yarn build
+          npm install
+          npm run build
 
       - name: Deploy to Azure Static Web Apps
         uses: Azure/static-web-apps-deploy@v1
