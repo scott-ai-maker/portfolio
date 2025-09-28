@@ -25,7 +25,10 @@
     ],
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": [
+        "src/*",
+        "src/*.tsx"
+      ]
     },
     "allowImportingTsExtensions": true,
     "types": ["next"]

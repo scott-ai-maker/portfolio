@@ -23,3 +23,5 @@ export function SimpleLayout({
     </Container>
   )
 }
+
+export default SimpleLayout

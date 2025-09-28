@@ -5,39 +5,39 @@ import { SimpleLayout } from '../../components/SimpleLayout.tsx';
 
 const projects = [
   {
-    name: 'Planetaria',
+    name: 'AI-Powered Chatbot',
     description:
-      'Creating technology to empower civilians to explore space on their own terms.',
-    link: { href: 'http://planetaria.tech', label: 'planetaria.tech' },
-    logo: '/images/logos/planetaria.svg',
+      'A conversational AI chatbot built using GPT models, showcasing natural language processing and deployment on cloud platforms.',
+    link: { href: 'https://github.com/scott-ai-maker/ai-powered-chatbot', label: 'github.com' },
+    logo: 'ai-powered-chatbot.png',
   },
   {
-    name: 'Animaginary',
+    name: 'Image Recognition System',
     description:
-      'High performance web animation library, hand-written in optimized WASM.',
-    link: { href: '#', label: 'github.com' },
-    logo: '/images/logos/animaginary.svg',
+      'An AI system for image classification and object detection using TensorFlow and PyTorch.',
+    link: { href: 'https://github.com/scott-ai-maker/image-recognition-system', label: 'github.com' },
+    logo: 'image-recognition-system.png',
   },
   {
-    name: 'HelioStream',
+    name: 'Predictive Analytics Platform',
     description:
-      'Real-time video streaming library, optimized for interstellar transmission.',
-    link: { href: '#', label: 'github.com' },
-    logo: '/images/logos/helio-stream.svg',
+      'A platform leveraging machine learning algorithms to forecast trends and analyze data.',
+    link: { href: 'https://github.com/scott-ai-maker/predictive-analytics-platform', label: 'github.com' },
+    logo: 'predictive-analytics-platform.png',
   },
   {
-    name: 'cosmOS',
+    name: 'AI-Powered Recommendation Engine',
     description:
-      'The operating system that powers our Planetaria space shuttles.',
-    link: { href: '#', label: 'github.com' },
-    logo: '/images/logos/cosmos.svg',
+      'A recommendation engine using collaborative filtering and deep learning techniques.',
+    link: { href: 'https://github.com/scott-ai-maker/ai-recommendation-engine', label: 'github.com' },
+    logo: 'ai-powered-recommendation-engine.png',
   },
   {
-    name: 'OpenShuttle',
+    name: 'Automated Machine Learning Pipeline',
     description:
-      'The schematics for the first rocket I designed that successfully made it to orbit.',
-    link: { href: '#', label: 'github.com' },
-    logo: '/images/logos/open-shuttle.svg',
+      'An end-to-end pipeline for automating machine learning workflows, including data preprocessing and model deployment.',
+    link: { href: 'https://github.com/scott-ai-maker/automated-ml-pipeline', label: 'github.com' },
+    logo: 'automated-machine-learning-pipeline.png',
   },
 ]
 
@@ -66,10 +66,11 @@ export default function ProjectsPage() {
           <Card as="li" key={project.name}>
             <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
               <Image
-                src={project.logo}
-                alt=""
+                src={`/images/logos/${project.logo}`}
+                alt={`Logo for ${project.name}`}
+                width={32}
+                height={32}
                 className="h-8 w-8"
-                unoptimized
               />
             </div>
             <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
