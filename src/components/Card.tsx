@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import clsx from 'clsx'
+import { UrlObject } from 'url'
 
 function ChevronRightIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -82,7 +83,7 @@ Card.Cta = function CardCta({ children, href }: { children: React.ReactNode; hre
 
   return (
     <Component
-      {...(href ? { href } : {})}
+      {...(href ? { href: href as string } : {})} // Ensure href is passed only when defined
       aria-hidden="true"
       className="relative z-10 mt-4 flex items-center text-sm font-medium text-teal-500"
     >
