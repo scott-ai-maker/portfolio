@@ -79,17 +79,27 @@ Card.Description = function CardDescription({
 }
 
 Card.Cta = function CardCta({ children, href }: { children: React.ReactNode; href?: string }) {
-  const Component = href ? Link : 'div';
+  if (href) {
+    return (
+      <Link
+        href={href}
+        aria-hidden="true"
+        className="relative z-10 mt-4 flex items-center text-sm font-medium text-teal-500"
+      >
+        {children}
+        <ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" />
+      </Link>
+    );
+  }
 
   return (
-    <Component
-      {...(href ? { href: href as string } : {})} // Ensure href is passed only when defined
+    <div
       aria-hidden="true"
       className="relative z-10 mt-4 flex items-center text-sm font-medium text-teal-500"
     >
       {children}
       <ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" />
-    </Component>
+    </div>
   );
 }
 
