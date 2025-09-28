@@ -30,6 +30,6 @@ jobs:
       - name: Publish Azure Function
         run: |
           cd contact-form-handler
-          func azure functionapp publish contact-form-handler-function-app
+          func azure functionapp publish contact-form-handler-function-app --javascript
 
       
