@@ -223,30 +223,44 @@ function Resume() {
 }
 
 function Photos() {
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
+  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2'];
+
+  const imageCredits = [
+    { src: image1, credit: 'Image by peoplecreations on Freepik', link: 'https://www.freepik.com/free-photo/business-executives-with-hand-stacked_1005855.htm' },
+    { src: image2, credit: 'Image by DC Studio on Freepik', link: 'https://www.freepik.com/free-photo/artificial-intelligence-possessing-engineer-spiraling-out-control_237236808.htm' },
+    { src: image3, credit: 'Image by DC Studio on Freepik', link: 'https://www.freepik.com/free-photo/server-energy-consumption-monitoring_134858675.htm#fromView=search&page=1&position=4&uuid=27d5b6e5-2dc7-4401-bd4a-f443d178ec7f&query=cloud+engineer' },
+  ];
 
   return (
     <div className="mt-16 sm:mt-20">
       <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        {[image1, image2, image3].map((image, imageIndex) => (
+        {imageCredits.map((image, imageIndex) => (
           <div
-            key={image} // Replaced `image.src` with `image`
+            key={`${image.src}-${imageIndex}`}
             className={clsx(
               'relative aspect-9/10 w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 sm:w-72 sm:rounded-2xl dark:bg-zinc-800',
               rotations[imageIndex % rotations.length],
             )}
           >
             <Image
-              src={image}
+              src={image.src}
               alt=""
               sizes="(min-width: 640px) 18rem, 11rem"
               className="absolute inset-0 h-full w-full object-cover"
             />
+            <a
+              href={image.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-xs opacity-0 hover:opacity-100 transition-opacity"
+            >
+              {image.credit}
+            </a>
           </div>
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 export default async function Home() {
