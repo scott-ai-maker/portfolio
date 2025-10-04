@@ -6,10 +6,6 @@ import { Button } from '../components/Button.tsx'
 import { Card } from '../components/Card.tsx'
 import { Container } from '../components/Container.tsx'
 import { XIcon, InstagramIcon, GitHubIcon, LinkedInIcon } from '../components/SocialIcons.tsx'
-import logoAirbnb from 'public/images/logos/airbnb.svg'
-import logoFacebook from 'public/images/logos/facebook.svg'
-import logoPlanetaria from 'public/images/logos/planetaria.svg'
-import logoStarbucks from 'public/images/logos/starbucks.svg'
 import image1 from 'public/images/photos/image-1.jpg'
 import image2 from 'public/images/photos/image-2.jpg'
 import image3 from 'public/images/photos/image-3.jpg'
@@ -17,6 +13,11 @@ import image4 from 'public/images/photos/image-4.jpg'
 import image5 from 'public/images/photos/image-5.jpg'
 import { getAllArticles } from '../lib/articles.ts'
 import { formatDate } from '../lib/formatDate.ts'
+import { useSelectedLayoutSegment } from 'next/navigation.js'
+
+// Use public folder path directly for Next.js Image
+const slalom = '/images/logos/slalom.jpeg'
+const vivsoftLogo = '/images/logos/vivsoft.jpg'
 
 function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -155,7 +156,7 @@ function Role({ role }: { role: Role }) {
   return (
     <li className="flex gap-4">
       <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-        <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
+        <Image src={role.logo} alt="" width={50} height={50} className="h-7 w-7" unoptimized />
       </div>
       <dl className="flex flex-auto flex-wrap gap-x-2">
         <dt className="sr-only">Company</dt>
@@ -183,35 +184,22 @@ function Role({ role }: { role: Role }) {
 function Resume() {
   let resume: Array<Role> = [
     {
-      company: 'OpenAI',
-      title: 'AI Infrastructure Engineer',
-      logo: logoPlanetaria, // Replace with a relevant logo
+      company: 'Slalom Consulting, Boston, MA',
+      title: 'Platform Engineer',
+      logo: slalom, // Use the imported slalom image
       start: '2021',
-      end: {
-        label: 'Present',
-        dateTime: new Date().getFullYear().toString(),
-      },
+      end: '2023',
+      // end: {
+      //   label: 'Present',
+      //   dateTime: new Date().getFullYear().toString(),
+      // },
     },
     {
-      company: 'Google Cloud',
-      title: 'DevOps Engineer',
-      logo: logoAirbnb, // Replace with a relevant logo
-      start: '2017',
-      end: '2021',
-    },
-    {
-      company: 'Amazon Web Services',
-      title: 'Systems Engineer',
-      logo: logoFacebook, // Replace with a relevant logo
-      start: '2014',
-      end: '2017',
-    },
-    {
-      company: 'IBM',
-      title: 'Cloud Solutions Architect',
-      logo: logoStarbucks, // Replace with a relevant logo
-      start: '2011',
-      end: '2014',
+      company: 'VivSoft, Herndon, VA',
+      title: 'Systems Engineer II',
+      logo: vivsoftLogo, // Replace with a relevant logo
+      start: '2024',
+      end: '2025',
     },
   ]
 
@@ -235,34 +223,51 @@ function Resume() {
 }
 
 function Photos() {
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
+  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2'];
+
+  const imageCredits = [
+    { src: image1, credit: 'Image by peoplecreations on Freepik', link: 'https://www.freepik.com/free-photo/business-executives-with-hand-stacked_1005855.htm' },
+    { src: image2, credit: 'Image by DC Studio on Freepik', link: 'https://www.freepik.com/free-photo/artificial-intelligence-possessing-engineer-spiraling-out-control_237236808.htm' },
+    { src: image3, credit: 'Image by DC Studio on Freepik', link: 'https://www.freepik.com/free-photo/server-energy-consumption-monitoring_134858675.htm#fromView=search&page=1&position=4&uuid=27d5b6e5-2dc7-4401-bd4a-f443d178ec7f&query=cloud+engineer' },
+  ];
 
   return (
     <div className="mt-16 sm:mt-20">
       <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        {[image1, image2, image3, image4, image5].map((image, imageIndex) => (
+        {imageCredits.map((image, imageIndex) => (
           <div
-            key={image} // Replaced `image.src` with `image`
+            key={`${image.src}-${imageIndex}`}
             className={clsx(
               'relative aspect-9/10 w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 sm:w-72 sm:rounded-2xl dark:bg-zinc-800',
               rotations[imageIndex % rotations.length],
             )}
           >
             <Image
-              src={image}
+              src={image.src}
               alt=""
               sizes="(min-width: 640px) 18rem, 11rem"
               className="absolute inset-0 h-full w-full object-cover"
             />
+            <a
+              href={image.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-xs opacity-0 hover:opacity-100 transition-opacity"
+            >
+              {image.credit}
+            </a>
           </div>
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 export default async function Home() {
-  let articles = await getAllArticles()
+  let articles = [
+    { slug: 'continuous-integration-and-deployment-explained', content: 'Content for CI/CD article...' },
+    { slug: 'how-machine-learning-models-work', content: 'Content for ML article...' },
+  ];
 
   return (
     <>
@@ -299,7 +304,5 @@ export default async function Home() {
         </div>
       </Container>
     </>
-  )
+  );
 }
-
-// Content updated to reflect Scott's background as an AI Engineer and DevOps Specialist based in Massachusetts.
