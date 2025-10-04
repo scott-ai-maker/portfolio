@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "contact-form-handler",
   "version": "1.0.0",
   "description": "",
   "main": "src/functions/*.js",
@@ -8,9 +8,8 @@
     "test": "echo \"No tests yet...\""
   },
   "dependencies": {
-    "@azure/data-tables": "^13.3.1",
-    "@azure/functions": "^4.0.0",
-    "@sendgrid/mail": "^8.1.6"
+    "@azure/communication-email": "^1.0.0",
+    "@azure/data-tables": "^1.0.0"
   },
   "devDependencies": {
     "azure-functions-core-tools": "^4.x"

@@ -2,6 +2,9 @@
   "IsEncrypted": false,
   "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "FUNCTIONS_WORKER_RUNTIME": "node"
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "ACS_CONNECTION_STRING": "endpoint=https://nextjs-portfolio-cs1343.unitedstates.communication.azure.com/;accesskey=83QT4x1h4wqRYrhGsub6oO7oBedwXrYkJdwKp65mipEex1F0c4VrJQQJ99BIACULyCpdSJgJAAAAAZCSP0f7",
+    "SENDER_EMAIL": "contact@mail.scottgordonportfolio.com",
+    "RECIPIENT_EMAIL": "scott.gordon72@outlook.com"
   }
 }

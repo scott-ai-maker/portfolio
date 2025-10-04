@@ -1,8 +1,10 @@
 const { TableClient, AzureNamedKeyCredential } = require("@azure/data-tables");
-const sgMail = require("@sendgrid/mail");
+const { EmailClient } = require("@azure/communication-email");
 
 module.exports = async function (context, req) {
+    context.log("HandleContactForm function started");
     try {
+        context.log("Request body:", req.body);
         // Validate and parse form data
         const { name, email, message } = req.body;
         if (!name || !email || !message) {
@@ -13,15 +15,20 @@ module.exports = async function (context, req) {
             return;
         }
 
-        // Send email notification
-        sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+        // Send email notification using ACS
+        const connectionString = process.env.ACS_CONNECTION_STRING;
+        const emailClient = new EmailClient(connectionString);
         const emailMessage = {
-            to: process.env.NOTIFICATION_EMAIL, // Your email address
-            from: process.env.SENDGRID_SENDER_EMAIL, // Verified sender email
-            subject: "New Contact Form Submission",
-            text: `You have a new contact form submission:\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`,
+            sender: process.env.ACS_SENDER_EMAIL, // Verified sender email
+            content: {
+                subject: "New Contact Form Submission",
+                plainText: `You have a new contact form submission:\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`,
+            },
+            recipients: {
+                to: [{ email: process.env.NOTIFICATION_EMAIL }],
+            },
         };
-        await sgMail.send(emailMessage);
+        await emailClient.send(emailMessage);
 
         // Store data in Azure Table Storage
         const tableName = process.env.TABLE_NAME;
