@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from 'react';
 import { Container } from '../../components/Container.tsx'
 import { GitHubIcon, LinkedInIcon } from '../../components/SocialIcons.tsx';
 
@@ -15,6 +18,38 @@ const socialLinks = [
 ];
 
 export default function Contact() {
+  const [status, setStatus] = useState('');
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setStatus('');
+
+    const formData = {
+      name: (event.currentTarget.elements.namedItem('name') as HTMLInputElement).value,
+      email: event.currentTarget.email.value,
+      message: event.currentTarget.message.value,
+    };
+
+    try {
+      const response = await fetch('http://localhost:8080/api/HandleContactForm', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus('Message sent successfully!');
+        event.currentTarget.reset();
+      } else {
+        setStatus('Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      setStatus('An error occurred. Please try again later.');
+    }
+  };
+
   return (
     <Container className="mt-16">
       <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
@@ -33,7 +68,7 @@ export default function Contact() {
           </div>
         ))}
       </div>
-      <form action="/thank-you" method="POST" className="mt-10 space-y-6">
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-zinc-800 dark:text-zinc-100">
             Name
@@ -77,6 +112,7 @@ export default function Contact() {
           Send Message
         </button>
       </form>
+      {status && <p className="mt-4 text-sm text-zinc-600 dark:text-zinc-400">{status}</p>}
     </Container>
   );
 }
