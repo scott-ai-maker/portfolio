@@ -14,7 +14,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -31,7 +31,7 @@
       ]
     },
     "allowImportingTsExtensions": true,
-    "types": ["next"]
+    "types": ["next", "node"]
   },
   "exclude": [
     ".next"

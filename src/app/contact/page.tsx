@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from 'react';
-import { Container } from '../../components/Container.tsx'
+import React, { useState } from 'react';
+import { Container } from '../../components/Container.tsx';
 import { GitHubIcon, LinkedInIcon } from '../../components/SocialIcons.tsx';
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:7071';
 
 const socialLinks = [
   {
@@ -24,14 +26,20 @@ export default function Contact() {
     event.preventDefault();
     setStatus('');
 
-    const formData = {
-      name: (event.currentTarget.elements.namedItem('name') as HTMLInputElement).value,
-      email: event.currentTarget.email.value,
-      message: event.currentTarget.message.value,
-    };
+    const name = (event.currentTarget.elements.namedItem('name') as HTMLInputElement).value;
+    const email = (event.currentTarget.elements.namedItem('email') as HTMLInputElement).value;
+    const message = (event.currentTarget.elements.namedItem('message') as HTMLTextAreaElement).value;
+
+    // Client-side validation
+    if (!name || !email || !message) {
+      setStatus('All fields are required.');
+      return;
+    }
+
+    const formData = { name, email, message };
 
     try {
-      const response = await fetch('http://localhost:8080/api/HandleContactForm', {
+      const response = await fetch(`${API_URL}/api/HandleContactForm`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -68,49 +76,53 @@ export default function Contact() {
           </div>
         ))}
       </div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium text-zinc-800 dark:text-zinc-100">
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            className="mt-1 block w-full rounded-md border border-zinc-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100"
-          />
+      <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+        <div className="space-y-4">
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              className="mt-1 block w-full px-3 py-2 rounded-md border border-zinc-300 shadow-sm focus:border-teal-500 focus:ring-1 focus:ring-teal-500 sm:text-sm dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100 dark:focus:border-teal-400"
+            />
+          </div>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              className="mt-1 block w-full px-3 py-2 rounded-md border border-zinc-300 shadow-sm focus:border-teal-500 focus:ring-1 focus:ring-teal-500 sm:text-sm dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100 dark:focus:border-teal-400"
+            />
+          </div>
+          <div>
+            <label htmlFor="message" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows={4}
+              required
+              className="mt-1 block w-full px-3 py-2 rounded-md border border-zinc-300 shadow-sm focus:border-teal-500 focus:ring-1 focus:ring-teal-500 sm:text-sm dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100 dark:focus:border-teal-400"
+            />
+          </div>
         </div>
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-zinc-800 dark:text-zinc-100">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            className="mt-1 block w-full rounded-md border border-zinc-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100"
-          />
+        <div className="flex justify-start">
+          <button
+            type="submit"
+            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition-colors duration-200"
+          >
+            Send Message
+          </button>
         </div>
-        <div>
-          <label htmlFor="message" className="block text-sm font-medium text-zinc-800 dark:text-zinc-100">
-            Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            rows={4}
-            required
-            className="mt-1 block w-full rounded-md border border-zinc-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100"
-          />
-        </div>
-        <button
-          type="submit"
-          className="inline-flex items-center rounded-md border border-transparent bg-teal-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
-        >
-          Send Message
-        </button>
       </form>
       {status && <p className="mt-4 text-sm text-zinc-600 dark:text-zinc-400">{status}</p>}
     </Container>

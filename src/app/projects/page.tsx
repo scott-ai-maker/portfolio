@@ -3,20 +3,56 @@ import Image from 'next/image';
 import { Card } from '../../components/Card.tsx';
 import { SimpleLayout } from '../../components/SimpleLayout.tsx';
 
-const projects = [
+interface Project {
+  name: string;
+  description: string;
+  link: {
+    href: string;
+    label: string;
+  };
+  demoLink?: {
+    href: string;
+    label: string;
+  };
+  logo: string;
+  technologies?: string[];
+  features?: string[];
+}
+
+const projects: Project[] = [
   {
-    name: 'AI-Powered Chatbot',
+    name: 'AI-Powered Chatbot (RAG System)',
     description:
-      'A conversational AI chatbot built using GPT models, showcasing natural language processing and deployment on cloud platforms.',
+      'Enterprise-grade RAG system with Azure OpenAI integration, JWT authentication, Redis caching, and rate limiting. Deployed on Azure Container Apps with full CI/CD pipeline.',
     link: { href: 'https://github.com/scott-ai-maker/ai-powered-chatbot', label: 'github.com' },
+    demoLink: { href: 'https://ai-career-mentor-frontend.agreeablecoast-963be1b8.eastus2.azurecontainerapps.io/', label: 'Live Demo' },
     logo: 'ai-powered-chatbot.png',
+    technologies: ['Python', 'FastAPI', 'Azure OpenAI', 'RAG', 'Docker', 'Azure Container Apps'],
+    features: [
+      'RAG (Retrieval-Augmented Generation) system',
+      'Azure OpenAI integration',
+      'Enterprise security with JWT authentication',
+      'Redis caching for performance',
+      'Rate limiting and monitoring',
+      'Full Azure deployment with Container Apps'
+    ]
   },
   {
-    name: 'Image Recognition System',
+    name: 'AI Image Analyzer',
     description:
-      'An AI system for image classification and object detection using TensorFlow and PyTorch.',
-    link: { href: 'https://github.com/scott-ai-maker/image-recognition-system', label: 'github.com' },
+      'Advanced computer vision application with real-time image processing, featuring drag-and-drop uploads, color analysis, object detection, and face detection with modern React frontend.',
+    link: { href: 'https://github.com/scott-ai-maker/ai-image-analyzer', label: 'github.com' },
+    demoLink: { href: 'https://web-image-analyzer.nicesea-5e74ee97.eastus2.azurecontainerapps.io/', label: 'Live Demo' },
     logo: 'image-recognition-system.png',
+    technologies: ['Python', 'FastAPI', 'React', 'Computer Vision', 'PIL/OpenCV', 'Azure Container Apps'],
+    features: [
+      'Real computer vision processing',
+      'Drag-and-drop image uploads',
+      'Color analysis, object detection, face detection',
+      'Modern React frontend with portfolio styling',
+      'Enterprise patterns (RBAC, monitoring, auto-scaling)',
+      'CI/CD pipelines with GitHub Actions'
+    ]
   },
   {
     name: 'Predictive Analytics Platform',
@@ -77,10 +113,58 @@ export default function ProjectsPage() {
               <Card.Link href={project.link.href}>{project.name}</Card.Link>
             </h2>
             <Card.Description>{project.description}</Card.Description>
-            <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
-              <LinkIcon className="h-6 w-6 flex-none" />
-              <span className="ml-2">{project.link.label}</span>
-            </p>
+            
+            {project.technologies && (
+              <div className="mt-4">
+                <h3 className="text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">Tech Stack:</h3>
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech) => (
+                    <span 
+                      key={tech}
+                      className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-300"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {project.features && (
+              <div className="mt-4">
+                <h3 className="text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">Key Features:</h3>
+                <ul className="text-sm text-zinc-600 dark:text-zinc-400 space-y-1">
+                  {project.features.slice(0, 3).map((feature, index) => (
+                    <li key={index} className="flex items-start">
+                      <span className="text-teal-500 mr-2">✓</span>
+                      {feature}
+                    </li>
+                  ))}
+                  {project.features.length > 3 && (
+                    <li className="text-xs text-zinc-500 dark:text-zinc-500 italic">
+                      +{project.features.length - 3} more features
+                    </li>
+                  )}
+                </ul>
+              </div>
+            )}
+
+            <div className="relative z-10 mt-6 space-y-2">
+              <p className="flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
+                <LinkIcon className="h-6 w-6 flex-none" />
+                <span className="ml-2">{project.link.label}</span>
+              </p>
+              {project.demoLink && (
+                <p className="flex text-sm font-medium text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">
+                  <a href={project.demoLink.href} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                    <svg className="h-6 w-6 flex-none" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                    </svg>
+                    <span className="ml-2">{project.demoLink.label}</span>
+                  </a>
+                </p>
+              )}
+            </div>
           </Card>
         ))}
       </ul>
