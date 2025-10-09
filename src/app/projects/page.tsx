@@ -110,12 +110,12 @@ export default function ProjectsPage() {
               />
             </div>
             <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-              <Card.Link href={project.link.href}>{project.name}</Card.Link>
+              {project.name}
             </h2>
             <Card.Description>{project.description}</Card.Description>
             
             {project.technologies && (
-              <div className="mt-4">
+              <div className="relative z-10 mt-4">
                 <h3 className="text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">Tech Stack:</h3>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
@@ -131,7 +131,7 @@ export default function ProjectsPage() {
             )}
 
             {project.features && (
-              <div className="mt-4">
+              <div className="relative z-10 mt-4">
                 <h3 className="text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">Key Features:</h3>
                 <ul className="text-sm text-zinc-600 dark:text-zinc-400 space-y-1">
                   {project.features.slice(0, 3).map((feature, index) => (
@@ -149,20 +149,28 @@ export default function ProjectsPage() {
               </div>
             )}
 
-            <div className="relative z-10 mt-6 space-y-2">
-              <p className="flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
+            <div className="relative z-30 mt-6 space-y-2">
+              <a 
+                href={project.link.href} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex text-sm font-medium text-zinc-600 hover:text-teal-600 dark:text-zinc-300 dark:hover:text-teal-400 transition-colors"
+              >
                 <LinkIcon className="h-6 w-6 flex-none" />
                 <span className="ml-2">{project.link.label}</span>
-              </p>
+              </a>
               {project.demoLink && (
-                <p className="flex text-sm font-medium text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300">
-                  <a href={project.demoLink.href} target="_blank" rel="noopener noreferrer" className="flex items-center">
-                    <svg className="h-6 w-6 flex-none" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-                    </svg>
-                    <span className="ml-2">{project.demoLink.label}</span>
-                  </a>
-                </p>
+                <a 
+                  href={project.demoLink.href} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex text-sm font-medium text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300 transition-colors"
+                >
+                  <svg className="h-6 w-6 flex-none" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                  </svg>
+                  <span className="ml-2">{project.demoLink.label}</span>
+                </a>
               )}
             </div>
           </Card>
