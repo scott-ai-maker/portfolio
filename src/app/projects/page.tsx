@@ -38,6 +38,23 @@ const projects: Project[] = [
     ]
   },
   {
+    name: 'AI Chat Assistant',
+    description:
+      'Interactive conversational AI assistant built with Gradio and Google Gemini API, featuring multi-turn conversations with context retention, streaming responses, and an intuitive chat interface deployed on Hugging Face Spaces.',
+    link: { href: 'https://github.com/scott-ai-maker/ai-chat-assistant', label: 'github.com' },
+    demoLink: { href: 'https://huggingface.co/spaces/scott-aiengineer/ai-chat-assistant', label: 'Live Demo' },
+    logo: 'ai-chat-assistant.png',
+    technologies: ['Python', 'Gradio', 'Google Gemini API', 'Hugging Face Spaces'],
+    features: [
+      'Real-time conversational AI with Google Gemini',
+      'Context-aware multi-turn conversations',
+      'Streaming response generation',
+      'Modern Gradio chat interface',
+      'Chat history and session management',
+      'Deployed on Hugging Face Spaces'
+    ]
+  },
+  {
     name: 'AI Image Analyzer',
     description:
       'Advanced computer vision application with real-time image processing, featuring drag-and-drop uploads, color analysis, object detection, and face detection with modern React frontend.',
