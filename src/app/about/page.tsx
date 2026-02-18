@@ -5,7 +5,7 @@ import type { Metadata } from 'next'
 
 import { Container } from '../../components/Container.tsx'
 import { XIcon, InstagramIcon, GitHubIcon, LinkedInIcon } from '../../components/SocialIcons.tsx'
-import portraitImage from '../../../public/images/portrait.jpg'
+import portraitImage from '../../../public/images/avatar.jpg'
 import { siteConfig } from '@/lib/site'
 
 export const metadata: Metadata = {

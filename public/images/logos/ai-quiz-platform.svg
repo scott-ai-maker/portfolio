@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AI Quiz Platform logo">
-  <rect width="64" height="64" rx="14" fill="#0f766e"/>
-  <rect x="14" y="14" width="36" height="36" rx="8" fill="#ffffff" opacity="0.9"/>
-  <path d="M24 28h16M24 34h10M24 40h8" stroke="#0f766e" stroke-width="3" stroke-linecap="round"/>
-  <circle cx="43" cy="40" r="5" fill="#0f766e"/>
-  <path d="M41 40l1.4 1.4L45 38.8" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>

@@ -25,7 +25,7 @@ const projects: Project[] = [
     description:
       'Production-ready microservices quiz platform with independent services for users, quizzes, and results, featuring secure APIs, Docker orchestration, and scalable service boundaries.',
     link: { href: 'https://github.com/scott-ai-maker/ai-quiz-platform', label: 'github.com' },
-    logo: 'ai-quiz-platform.svg',
+    logo: 'ai-quiz-platform-mark.svg',
     technologies: ['JavaScript', 'Node.js', 'Express', 'MongoDB', 'Docker', 'Microservices'],
     features: [
       'Three independently deployable services (user, quiz, results)',
@@ -40,7 +40,7 @@ const projects: Project[] = [
     description:
       'End-to-end DevOps demonstration with FastAPI, Terraform, AKS, Helm, and GitHub Actions showing infrastructure as code, secure deployments, and cloud-native operations on Azure.',
     link: { href: 'https://github.com/scott-ai-maker/devops-project', label: 'github.com' },
-    logo: 'devops-project.svg',
+    logo: 'devops-project-mark.svg',
     technologies: ['Python', 'FastAPI', 'Terraform', 'AKS', 'Helm', 'GitHub Actions', 'Azure'],
     features: [
       'Terraform-managed Azure infrastructure and AKS deployment',
@@ -55,7 +55,7 @@ const projects: Project[] = [
     description:
       'Multimodal image captioning toolkit using BLIP and BLIP-2 models, with interactive web UI, batch processing for local files, and automated webpage image captioning workflows.',
     link: { href: 'https://github.com/scott-ai-maker/ai-image-captioner', label: 'github.com' },
-    logo: 'ai-image-captioner.svg',
+    logo: 'ai-image-captioner-mark.svg',
     technologies: ['Python', 'Gradio', 'Transformers', 'PyTorch', 'BLIP', 'BLIP-2'],
     features: [
       'Interactive Gradio web interface for real-time captioning',
@@ -71,7 +71,7 @@ const projects: Project[] = [
       'Enterprise-grade RAG system with Azure OpenAI integration, JWT authentication, Redis caching, and rate limiting. Deployed on Azure Container Apps with full CI/CD pipeline.',
     link: { href: 'https://github.com/scott-ai-maker/ai-powered-chatbot', label: 'github.com' },
     demoLink: { href: 'https://ai-career-mentor-frontend.agreeablecoast-963be1b8.eastus2.azurecontainerapps.io/', label: 'Live Demo' },
-    logo: 'ai-powered-chatbot.png',
+    logo: 'ai-powered-chatbot-mark.svg',
     technologies: ['Python', 'FastAPI', 'Azure OpenAI', 'RAG', 'Docker', 'Azure Container Apps'],
     features: [
       'RAG (Retrieval-Augmented Generation) system',
@@ -88,7 +88,7 @@ const projects: Project[] = [
       'Interactive conversational AI assistant built with Gradio and Google Gemini API, featuring multi-turn conversations with context retention, streaming responses, and an intuitive chat interface deployed on Hugging Face Spaces.',
     link: { href: 'https://github.com/scott-ai-maker/ai-chat-assistant', label: 'github.com' },
     demoLink: { href: 'https://huggingface.co/spaces/scott-aiengineer/ai-chat-assistant', label: 'Live Demo' },
-    logo: 'ai-chat-assistant.png',
+    logo: 'ai-chat-assistant-mark.svg',
     technologies: ['Python', 'Gradio', 'Google Gemini API', 'Hugging Face Spaces'],
     features: [
       'Real-time conversational AI with Google Gemini',
@@ -105,7 +105,7 @@ const projects: Project[] = [
       'Advanced computer vision application with real-time image processing, featuring drag-and-drop uploads, color analysis, object detection, and face detection with modern React frontend.',
     link: { href: 'https://github.com/scott-ai-maker/ai-image-analyzer', label: 'github.com' },
     demoLink: { href: 'https://web-image-analyzer.nicesea-5e74ee97.eastus2.azurecontainerapps.io/', label: 'Live Demo' },
-    logo: 'ai-image-analyzer.png',
+    logo: 'ai-image-analyzer-mark.svg',
     technologies: ['Python', 'FastAPI', 'React', 'Computer Vision', 'PIL/OpenCV', 'Azure Container Apps'],
     features: [
       'Real computer vision processing',

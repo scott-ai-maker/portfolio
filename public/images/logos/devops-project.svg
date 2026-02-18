@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="DevOps Project logo">
-  <rect width="64" height="64" rx="14" fill="#1d4ed8"/>
-  <path d="M18 22h28a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4V26a4 4 0 0 1 4-4Z" fill="#ffffff" opacity="0.92"/>
-  <path d="M20 46h24" stroke="#93c5fd" stroke-width="3" stroke-linecap="round"/>
-  <path d="M26 32h12" stroke="#1d4ed8" stroke-width="3" stroke-linecap="round"/>
-  <path d="m34 28 4 4-4 4" fill="none" stroke="#1d4ed8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
