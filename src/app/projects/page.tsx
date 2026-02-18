@@ -1,32 +1,7 @@
 import Image from 'next/image';
-import type { Metadata } from 'next';
 
 import { Card } from '../../components/Card.tsx';
 import { SimpleLayout } from '../../components/SimpleLayout.tsx';
-import { siteConfig } from '@/lib/site';
-
-export const metadata: Metadata = {
-  title: 'Projects',
-  description:
-    'Selected AI, DevOps, and cloud engineering projects by Scott Gordon, including live demos and source code.',
-  alternates: {
-    canonical: '/projects',
-  },
-  openGraph: {
-    title: 'Projects | Scott Gordon Portfolio',
-    description:
-      'Selected AI, DevOps, and cloud engineering projects with architecture details, demos, and code.',
-    url: '/projects',
-    siteName: siteConfig.name,
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Projects | Scott Gordon Portfolio',
-    description:
-      'Selected AI, DevOps, and cloud engineering projects with architecture details, demos, and code.',
-  },
-};
 
 interface Project {
   name: string;
@@ -50,7 +25,7 @@ const projects: Project[] = [
     description:
       'Production-ready microservices quiz platform with independent services for users, quizzes, and results, featuring secure APIs, Docker orchestration, and scalable service boundaries.',
     link: { href: 'https://github.com/scott-ai-maker/ai-quiz-platform', label: 'github.com' },
-    logo: 'ai-quiz-platform.png',
+    logo: 'ai-quiz-platform.svg',
     technologies: ['JavaScript', 'Node.js', 'Express', 'MongoDB', 'Docker', 'Microservices'],
     features: [
       'Three independently deployable services (user, quiz, results)',
@@ -65,7 +40,7 @@ const projects: Project[] = [
     description:
       'End-to-end DevOps demonstration with FastAPI, Terraform, AKS, Helm, and GitHub Actions showing infrastructure as code, secure deployments, and cloud-native operations on Azure.',
     link: { href: 'https://github.com/scott-ai-maker/devops-project', label: 'github.com' },
-    logo: 'devops-project.png',
+    logo: 'devops-project.svg',
     technologies: ['Python', 'FastAPI', 'Terraform', 'AKS', 'Helm', 'GitHub Actions', 'Azure'],
     features: [
       'Terraform-managed Azure infrastructure and AKS deployment',
@@ -80,7 +55,7 @@ const projects: Project[] = [
     description:
       'Multimodal image captioning toolkit using BLIP and BLIP-2 models, with interactive web UI, batch processing for local files, and automated webpage image captioning workflows.',
     link: { href: 'https://github.com/scott-ai-maker/ai-image-captioner', label: 'github.com' },
-    logo: 'ai-image-captioner.png',
+    logo: 'ai-image-captioner.svg',
     technologies: ['Python', 'Gradio', 'Transformers', 'PyTorch', 'BLIP', 'BLIP-2'],
     features: [
       'Interactive Gradio web interface for real-time captioning',
