@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
+import type { Metadata } from 'next'
 
 import { Button } from '../components/Button.tsx'
 import { Card } from '../components/Card.tsx'
@@ -14,6 +15,30 @@ import image5 from 'public/images/photos/image-5.jpg'
 import { getAllArticles } from '../lib/articles.ts'
 import { formatDate } from '../lib/formatDate.ts'
 import { useSelectedLayoutSegment } from 'next/navigation.js'
+import { absoluteUrl, siteConfig } from '@/lib/site'
+
+export const metadata: Metadata = {
+  title: 'Home',
+  description:
+    'Scott Gordon builds AI systems, DevOps platforms, and cloud-native solutions. Explore projects, articles, and engineering experience.',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Scott Gordon | AI Engineer, DevOps Specialist, and System Architect',
+    description:
+      'Explore AI engineering projects, cloud architecture work, and technical writing by Scott Gordon.',
+    url: '/',
+    siteName: siteConfig.name,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Scott Gordon | AI Engineer, DevOps Specialist, and System Architect',
+    description:
+      'Explore AI engineering projects, cloud architecture work, and technical writing by Scott Gordon.',
+  },
+}
 
 // Use public folder path directly for Next.js Image
 const slalom = '/images/logos/slalom.jpeg'
@@ -264,6 +289,25 @@ function Photos() {
 }
 
 export default async function Home() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Person',
+        name: 'Scott Gordon',
+        url: absoluteUrl('/'),
+        jobTitle: 'AI Engineer, DevOps Specialist, and System Architect',
+        sameAs: [siteConfig.social.github, siteConfig.social.linkedin],
+      },
+      {
+        '@type': 'WebSite',
+        name: siteConfig.name,
+        url: absoluteUrl('/'),
+        description: siteConfig.description,
+      },
+    ],
+  }
+
   let articles = [
     { slug: 'continuous-integration-and-deployment-explained', content: 'Content for CI/CD article...' },
     { slug: 'how-machine-learning-models-work', content: 'Content for ML article...' },
@@ -271,6 +315,10 @@ export default async function Home() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">

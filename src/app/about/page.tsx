@@ -1,10 +1,35 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx';
+import type { Metadata } from 'next'
 
 import { Container } from '../../components/Container.tsx'
 import { XIcon, InstagramIcon, GitHubIcon, LinkedInIcon } from '../../components/SocialIcons.tsx'
 import portraitImage from '../../../public/images/portrait.jpg'
+import { siteConfig } from '@/lib/site'
+
+export const metadata: Metadata = {
+  title: 'About',
+  description:
+    'About Scott Gordon: AI engineer and DevOps specialist focused on resilient cloud systems and practical AI adoption.',
+  alternates: {
+    canonical: '/about',
+  },
+  openGraph: {
+    title: 'About | Scott Gordon Portfolio',
+    description:
+      'Learn about Scott Gordon’s experience building cloud-native and AI-enabled systems.',
+    url: '/about',
+    siteName: siteConfig.name,
+    type: 'profile',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About | Scott Gordon Portfolio',
+    description:
+      'Learn about Scott Gordon’s experience building cloud-native and AI-enabled systems.',
+  },
+}
 
 function SocialLink({
   className,

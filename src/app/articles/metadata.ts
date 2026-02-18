@@ -1,6 +1,7 @@
-// Move metadata to a separate file
-export const metadata = {
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
   title: 'Articles',
   description:
-    'All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order.',
-};
+    'Long-form technical articles on software engineering, architecture, and practical technology lessons.',
+}

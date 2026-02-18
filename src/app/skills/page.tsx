@@ -1,4 +1,23 @@
 import { Container } from '../../components/Container.tsx'
+import type { Metadata } from 'next'
+import { siteConfig } from '@/lib/site'
+
+export const metadata: Metadata = {
+  title: 'Skills',
+  description:
+    'Technical skills across AI engineering, cloud platforms, infrastructure as code, and DevOps automation.',
+  alternates: {
+    canonical: '/skills',
+  },
+  openGraph: {
+    title: 'Skills | Scott Gordon Portfolio',
+    description:
+      'AI, cloud, and DevOps skills used to build secure, scalable, production-ready systems.',
+    url: '/skills',
+    siteName: siteConfig.name,
+    type: 'website',
+  },
+}
 
 const skills = [
   {

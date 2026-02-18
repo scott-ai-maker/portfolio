@@ -1,13 +1,17 @@
 import SimpleLayout from '@/components/SimpleLayout';
 import { blogPostsBySlug } from '@/lib/blogPosts';
 import { formatDate } from '@/lib/formatDate';
+import { buildBlogPostMetadata } from '@/lib/seo';
 
 const post = blogPostsBySlug['ai-is-a-tool-for-humanity'];
 
-export const metadata = {
+export const metadata = buildBlogPostMetadata({
   title: post.title,
   description: post.description,
-};
+  slug: post.slug,
+  publishedAt: post.publishedAt,
+  updatedAt: post.updatedAt,
+});
 
 export default function AIIsAToolForHumanity() {
   return (

@@ -1,5 +1,24 @@
 import { Container } from '../../components/Container.tsx'
 import { Role } from '../../components/Role.tsx'
+import type { Metadata } from 'next'
+import { siteConfig } from '@/lib/site'
+
+export const metadata: Metadata = {
+  title: 'Experience',
+  description:
+    'Professional experience across AI engineering, DevOps, and cloud platform modernization.',
+  alternates: {
+    canonical: '/experience',
+  },
+  openGraph: {
+    title: 'Experience | Scott Gordon Portfolio',
+    description:
+      'Career highlights and delivery experience across cloud infrastructure, automation, and AI systems.',
+    url: '/experience',
+    siteName: siteConfig.name,
+    type: 'website',
+  },
+}
 
 export default function Experience() {
   const roles = [

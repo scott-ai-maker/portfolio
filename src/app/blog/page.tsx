@@ -1,6 +1,31 @@
 import { Container } from '../../components/Container.tsx'
 import { Card } from '../../components/Card.tsx'
 import { blogPosts } from '@/lib/blogPosts'
+import type { Metadata } from 'next'
+import { siteConfig } from '@/lib/site'
+
+export const metadata: Metadata = {
+  title: 'Blog',
+  description:
+    'Plain-language essays on AI, software engineering, and DevOps by Scott Gordon.',
+  alternates: {
+    canonical: '/blog',
+  },
+  openGraph: {
+    title: 'Blog | Scott Gordon Portfolio',
+    description:
+      'Plain-language essays on AI, software engineering, and DevOps by Scott Gordon.',
+    url: '/blog',
+    siteName: siteConfig.name,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog | Scott Gordon Portfolio',
+    description:
+      'Plain-language essays on AI, software engineering, and DevOps by Scott Gordon.',
+  },
+}
 
 function formatMonthYear(dateString: string) {
   return new Date(`${dateString}T00:00:00Z`).toLocaleDateString('en-US', {
