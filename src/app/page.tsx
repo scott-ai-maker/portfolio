@@ -7,23 +7,26 @@ import { Button } from '../components/Button.tsx'
 import { Card } from '../components/Card.tsx'
 import { Container } from '../components/Container.tsx'
 import {
-  XIcon,
-  InstagramIcon,
   GitHubIcon,
   LinkedInIcon,
   CredlyIcon,
 } from '../components/SocialIcons.tsx'
-import image4 from 'public/images/photos/image-4.jpg'
-import image5 from 'public/images/photos/image-5.jpg'
-import { getAllArticles } from '../lib/articles.ts'
+import { blogPosts } from '../lib/blogPosts.ts'
 import { formatDate } from '../lib/formatDate.ts'
-import { useSelectedLayoutSegment } from 'next/navigation.js'
 import { absoluteUrl, siteConfig } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'Home',
+  title: 'AI Engineer, DevOps & Cloud Architect | Scott Gordon',
   description:
-    'Scott Gordon builds AI systems, DevOps platforms, and cloud-native solutions. Explore projects, articles, and engineering experience.',
+    'Scott Gordon is an AI engineer building production AI systems, DevOps platforms, and cloud architecture. Explore projects, technical writing, and engineering experience.',
+  keywords: [
+    'AI engineering',
+    'DevOps',
+    'cloud architecture',
+    'MLOps',
+    'platform engineering',
+    'Scott Gordon',
+  ],
   alternates: {
     canonical: '/',
   },
@@ -43,7 +46,6 @@ export const metadata: Metadata = {
   },
 }
 
-// Use public folder path directly for Next.js Image
 const slalom = '/images/logos/slalom.jpeg'
 const vivsoftLogo = '/images/logos/vivsoft.jpg'
 
@@ -93,33 +95,6 @@ function BriefcaseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   )
 }
 
-function ArrowDownIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
-      <path
-        d="M4.75 8.75 8 12.25m0 0 3.25-3.5M8 12.25v-8.5"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
-}
-
-function Article({ article }: { article: { slug: string; content: string } }) {
-  return (
-    <Card as="article">
-      <Card.Title href={`/articles/${article.slug}`}>
-        {article.slug}
-      </Card.Title>
-      <Card.Description>
-        {article.content.substring(0, 100)}...
-      </Card.Description>
-      <Card.Cta>Read article</Card.Cta>
-    </Card>
-  )
-}
-
 function SocialLink({
   icon: Icon,
   ...props
@@ -133,46 +108,37 @@ function SocialLink({
   )
 }
 
-function Newsletter() {
+type FeaturedPost = {
+  slug: string
+  title: string
+  description: string
+  publishedAt: string
+  updatedAt?: string
+}
+
+function FeaturedPostCard({ post }: { post: FeaturedPost }) {
   return (
-    <form
-      action="/thank-you"
-      className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
-    >
-      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-        <MailIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Stay informed on AI and DevOps</span>
-      </h2>
-      <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-        Get the latest insights on AI engineering, DevOps practices, and system architecture. Unsubscribe anytime.
-      </p>
-      <div className="mt-6 flex items-center">
-        <span className="flex min-w-0 flex-auto p-px">
-          <input
-            type="email"
-            placeholder="Email address"
-            aria-label="Email address"
-            required
-            className="w-full appearance-none rounded-[calc(var(--radius-md)-1px)] bg-white px-3 py-[calc(--spacing(2)-1px)] shadow-md shadow-zinc-800/5 outline outline-zinc-900/10 placeholder:text-zinc-400 focus:ring-4 focus:ring-teal-500/10 focus:outline-teal-500 sm:text-sm dark:bg-zinc-700/15 dark:text-zinc-200 dark:outline-zinc-700 dark:placeholder:text-zinc-500 dark:focus:ring-teal-400/10 dark:focus:outline-teal-400"
-          />
-        </span>
-        <Button type="submit" className="ml-4 flex-none">
-          Join
-        </Button>
-      </div>
-    </form>
+    <Card as="article">
+      <Card.Eyebrow as="time" dateTime={post.publishedAt} decorate>
+        Published {formatDate(post.publishedAt)}
+        {post.updatedAt ? ` · Updated ${formatDate(post.updatedAt)}` : ''}
+      </Card.Eyebrow>
+      <Card.Title href={`/blog/${post.slug}`}>{post.title}</Card.Title>
+      <Card.Description>{post.description}</Card.Description>
+      <Card.Cta href={`/blog/${post.slug}`}>Read article</Card.Cta>
+    </Card>
   )
 }
 
-interface Role {
+type WorkRole = {
   company: string
   title: string
-  logo: string // Replaced ImageProps['src'] with string
+  logo: string
   start: string | { label: string; dateTime: string }
   end: string | { label: string; dateTime: string }
 }
 
-function Role({ role }: { role: Role }) {
+function WorkRoleItem({ role }: { role: WorkRole }) {
   let startLabel =
     typeof role.start === 'string' ? role.start : role.start.label
   let startDate =
@@ -210,22 +176,18 @@ function Role({ role }: { role: Role }) {
 }
 
 function Resume() {
-  let resume: Array<Role> = [
+  let resume: Array<WorkRole> = [
     {
       company: 'Slalom Consulting, Boston, MA',
       title: 'Platform Engineer',
-      logo: slalom, // Use the imported slalom image
+      logo: slalom,
       start: '2021',
       end: '2023',
-      // end: {
-      //   label: 'Present',
-      //   dateTime: new Date().getFullYear().toString(),
-      // },
     },
     {
       company: 'VivSoft, Herndon, VA',
       title: 'Systems Engineer II',
-      logo: vivsoftLogo, // Replace with a relevant logo
+      logo: vivsoftLogo,
       start: '2024',
       end: '2025',
     },
@@ -239,19 +201,18 @@ function Resume() {
       </h2>
       <ol className="mt-6 space-y-4">
         {resume.map((role, roleIndex) => (
-          <Role key={roleIndex} role={role} />
+          <WorkRoleItem key={role.company} role={role} />
         ))}
       </ol>
-      <Button href="#" variant="secondary" className="group mt-6 w-full">
-        Download CV
-        <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
+      <Button href="/experience" variant="secondary" className="mt-6 w-full">
+        View full experience
       </Button>
     </div>
   )
 }
 
 function Photos() {
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2'];
+  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
 
   const portfolioImages = [
     {
@@ -278,7 +239,7 @@ function Photos() {
       fallbackSrc: '/images/photos/image-3-352.png',
       alt: 'System architecture blueprint showing secure services, APIs, and automation links.',
     },
-  ];
+  ]
 
   return (
     <div className="mt-16 sm:mt-20">
@@ -316,7 +277,7 @@ function Photos() {
         ))}
       </div>
     </div>
-  );
+  )
 }
 
 export default async function Home() {
@@ -339,10 +300,36 @@ export default async function Home() {
     ],
   }
 
-  let articles = [
-    { slug: 'continuous-integration-and-deployment-explained', content: 'Content for CI/CD article...' },
-    { slug: 'how-machine-learning-models-work', content: 'Content for ML article...' },
-  ];
+  const topicPriority = [
+    'ai engineering',
+    'ai',
+    'machine learning',
+    'devops',
+    'cloud',
+    'deployment',
+  ]
+
+  const getRelevanceScore = (post: FeaturedPost) => {
+    const searchable = `${post.title} ${post.description}`.toLowerCase()
+    return topicPriority.reduce(
+      (score, topic, index) =>
+        searchable.includes(topic)
+          ? score + (topicPriority.length - index)
+          : score,
+      0,
+    )
+  }
+
+  const featuredPosts = [...blogPosts]
+    .sort((a, b) => {
+      const relevanceDelta = getRelevanceScore(b) - getRelevanceScore(a)
+      if (relevanceDelta !== 0) return relevanceDelta
+
+      return (
+        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+      )
+    })
+    .slice(0, 6)
 
   return (
     <>
@@ -350,39 +337,98 @@ export default async function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Container className="mt-9">
-        <div className="max-w-2xl">
+      <Container className="mt-16 sm:mt-20">
+        <div className="max-w-3xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            Scott Gordon – AI Engineer, DevOps Specialist, and System Architect.
+            AI engineer building reliable products with DevOps and cloud architecture.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            Welcome to my portfolio! I specialize in designing scalable AI systems and modernizing cloud infrastructure. With a recent pivot into AI engineering, I bring expertise in machine learning, cloud platforms, and DevOps to help organizations achieve operational excellence.
+            I design and deliver production AI systems with modern DevOps,
+            platform engineering, and cloud-native architecture. Explore recent
+            writing, projects, and hands-on experience shipping dependable
+            software.
           </p>
           <div className="mt-6 flex gap-6">
-            <SocialLink href={siteConfig.social.github} aria-label="Follow on GitHub" icon={GitHubIcon} />
-            <SocialLink href={siteConfig.social.linkedin} aria-label="Follow on LinkedIn" icon={LinkedInIcon} />
-            <SocialLink href={siteConfig.social.credly} aria-label="View Credly profile" icon={CredlyIcon} />
-            <SocialLink href="mailto:scott.gordon72@outlook.com" aria-label="Email Scott" icon={MailIcon} />
+            <SocialLink
+              href={siteConfig.social.github}
+              aria-label="Follow on GitHub"
+              icon={GitHubIcon}
+            />
+            <SocialLink
+              href={siteConfig.social.linkedin}
+              aria-label="Follow on LinkedIn"
+              icon={LinkedInIcon}
+            />
+            <SocialLink
+              href={siteConfig.social.credly}
+              aria-label="View Credly profile"
+              icon={CredlyIcon}
+            />
+            <SocialLink
+              href="mailto:scott.gordon72@outlook.com"
+              aria-label="Email Scott"
+              icon={MailIcon}
+            />
           </div>
-          <div className="mt-8">
-            <Button href="#projects" variant="primary">Explore My Work</Button>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Button href="/projects" variant="primary">Explore projects</Button>
+            <Button href="/blog" variant="secondary">Read the blog</Button>
           </div>
         </div>
       </Container>
+
       <Photos />
+
       <Container className="mt-24 md:mt-28">
-        <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
-          <div className="flex flex-col gap-16">
-            {articles.map((article) => (
-              <Article key={article.slug} article={article} />
-            ))}
+        <section aria-labelledby="latest-posts-heading">
+        <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-16 lg:max-w-none lg:grid-cols-3 lg:gap-x-12">
+          <div className="lg:col-span-2">
+            <h2 id="latest-posts-heading" className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
+              Latest blog posts
+            </h2>
+            <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400">
+              Recent essays on AI engineering, DevOps, cloud architecture, and
+              practical software delivery.
+            </p>
+            <div className="mt-10 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-8">
+              {featuredPosts.map((post) => (
+                <FeaturedPostCard key={post.slug} post={post} />
+              ))}
+            </div>
+            <div className="mt-10">
+              <Button href="/blog" variant="secondary">View all posts</Button>
+            </div>
           </div>
-          <div className="space-y-10 lg:pl-16 xl:pl-24">
-            <Newsletter />
+
+          <div className="space-y-8">
             <Resume />
+
+            <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
+              <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+                Explore
+              </h2>
+              <ul className="mt-4 space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
+                <li>
+                  <Link className="transition hover:text-teal-500" href="/about">
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link className="transition hover:text-teal-500" href="/skills">
+                    Skills
+                  </Link>
+                </li>
+                <li>
+                  <Link className="transition hover:text-teal-500" href="/experience">
+                    Experience
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
+        </section>
       </Container>
     </>
-  );
+  )
 }
