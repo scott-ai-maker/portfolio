@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Visible Edge logo">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f766e" />
+      <stop offset="1" stop-color="#115e59" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)" />
+  <path d="M12 18h14l6 20 6-20h14L38 46H26L12 18Z" fill="#ffffff" opacity="0.95" />
+  <path d="M36 24h16v5H41v4h10v5H41v4h11v5H36V24Z" fill="#99f6e4" />
+  <path d="M17 49h30" stroke="#5eead4" stroke-width="3" stroke-linecap="round" />
+</svg>

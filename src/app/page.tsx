@@ -16,9 +16,9 @@ import { formatDate } from '../lib/formatDate.ts'
 import { absoluteUrl, siteConfig } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'AI Engineer, DevOps & Cloud Architect | Scott Gordon',
+  title: 'AI Engineer | Cloud Platform Specialist',
   description:
-    'Scott Gordon is an AI engineer building production AI systems, DevOps platforms, and cloud architecture. Explore projects, technical writing, and engineering experience.',
+    'Scott Gordon is an AI engineer and cloud platform specialist building production AI systems, resilient cloud infrastructure, and DevOps automation.',
   keywords: [
     'AI engineering',
     'DevOps',
@@ -31,46 +31,24 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Scott Gordon | AI Engineer, DevOps Specialist, and System Architect',
+    title: 'Scott Gordon | AI Engineer and Cloud Platform Specialist',
     description:
-      'Explore AI engineering projects, cloud architecture work, and technical writing by Scott Gordon.',
+      'Explore AI engineering projects, cloud platform work, and technical writing by Scott Gordon.',
     url: '/',
     siteName: siteConfig.name,
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Scott Gordon | AI Engineer, DevOps Specialist, and System Architect',
+    title: 'Scott Gordon | AI Engineer and Cloud Platform Specialist',
     description:
-      'Explore AI engineering projects, cloud architecture work, and technical writing by Scott Gordon.',
+      'Explore AI engineering projects, cloud platform work, and technical writing by Scott Gordon.',
   },
 }
 
+const visibleEdgeLogo = '/images/logos/visible-edge.svg'
 const slalom = '/images/logos/slalom.jpeg'
 const vivsoftLogo = '/images/logos/vivsoft.jpg'
-
-function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      {...props}
-    >
-      <path
-        d="M2.75 7.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
-        className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"
-      />
-      <path
-        d="m4 6 6.024 5.479a2.915 2.915 0 0 0 3.952 0L20 6"
-        className="stroke-zinc-400 dark:stroke-zinc-500"
-      />
-    </svg>
-  )
-}
 
 function BriefcaseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -178,18 +156,25 @@ function WorkRoleItem({ role }: { role: WorkRole }) {
 function Resume() {
   let resume: Array<WorkRole> = [
     {
-      company: 'Slalom Consulting, Boston, MA',
-      title: 'Platform Engineer',
-      logo: slalom,
-      start: '2021',
-      end: '2023',
+      company: 'Visible Edge',
+      title: 'AI, ML and DS Specialist',
+      logo: visibleEdgeLogo,
+      start: '2025',
+      end: { label: 'Present', dateTime: '2026' },
     },
     {
-      company: 'VivSoft, Herndon, VA',
+      company: 'VivSoft',
       title: 'Systems Engineer II',
       logo: vivsoftLogo,
       start: '2024',
       end: '2025',
+    },
+    {
+      company: 'Slalom Consulting',
+      title: 'Platform Engineer',
+      logo: slalom,
+      start: '2021',
+      end: '2023',
     },
   ]
 
@@ -200,7 +185,7 @@ function Resume() {
         <span className="ml-3">Work</span>
       </h2>
       <ol className="mt-6 space-y-4">
-        {resume.map((role, roleIndex) => (
+        {resume.map((role) => (
           <WorkRoleItem key={role.company} role={role} />
         ))}
       </ol>
@@ -285,13 +270,6 @@ export default async function Home() {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'Person',
-        name: 'Scott Gordon',
-        url: absoluteUrl('/'),
-        jobTitle: 'AI Engineer, DevOps Specialist, and System Architect',
-        sameAs: [siteConfig.social.github, siteConfig.social.linkedin],
-      },
-      {
         '@type': 'WebSite',
         name: siteConfig.name,
         url: absoluteUrl('/'),
@@ -340,13 +318,14 @@ export default async function Home() {
       <Container className="mt-16 sm:mt-20">
         <div className="max-w-3xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            AI engineer building reliable products with DevOps and cloud architecture.
+            AI Engineer and Cloud Platform Specialist building reliable, production-grade systems.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I design and deliver production AI systems with modern DevOps,
-            platform engineering, and cloud-native architecture. Explore recent
-            writing, projects, and hands-on experience shipping dependable
-            software.
+            I deliver resilient cloud-native infrastructure and production AI
+            systems for commercial and federal use cases. My work combines
+            Azure and AWS platform engineering, CI/CD automation, Terraform,
+            and practical GenAI implementation with LangChain, Transformers,
+            and vector search.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
@@ -363,11 +342,6 @@ export default async function Home() {
               href={siteConfig.social.credly}
               aria-label="View Credly profile"
               icon={CredlyIcon}
-            />
-            <SocialLink
-              href="mailto:scott.gordon72@outlook.com"
-              aria-label="Email Scott"
-              icon={MailIcon}
             />
           </div>
           <div className="mt-8 flex flex-wrap gap-4">

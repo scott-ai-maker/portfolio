@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import clsx from 'clsx';
+import clsx from 'clsx'
 import type { Metadata } from 'next'
 
 import { Container } from '../../components/Container.tsx'
@@ -55,17 +55,6 @@ function SocialLink({
   )
 }
 
-function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
-      <path
-        fillRule="evenodd"
-        d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z"
-      />
-    </svg>
-  )
-}
-
 export default function About() {
   return (
     <Container className="mt-16 sm:mt-32">
@@ -82,17 +71,17 @@ export default function About() {
         </div>
         <div className="lg:order-first lg:row-span-2">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            I’m Scott Gordon. I live in Fitchburg, MA, where I design scalable AI systems and modernize cloud infrastructure.
+            I’m Scott Gordon, and I build GenAI solutions and modern cloud platforms.
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
-              With a strong background in cloud engineering and DevOps, I specialize in delivering resilient, cloud-native solutions for commercial and government clients. My recent pivot into AI engineering has allowed me to integrate machine learning into scalable systems, enabling organizations to harness the power of artificial intelligence efficiently.
+              I’m a cloud and platform engineer transitioning into AI engineering, with a proven record of delivering resilient, cloud-native infrastructure for commercial and federal clients. I focus on production readiness, automation, and clear operational design so teams can move quickly without sacrificing reliability.
             </p>
             <p>
-              At VivSoft, I supported federal contracts on Azure by provisioning secure environments, optimizing system performance, and ensuring compliance with government standards. At Slalom Consulting, I led platform modernization for a major gas pipeline operator, utilizing AWS, Terraform, and Docker to streamline CI/CD pipelines and automate infrastructure deployment.
+              My experience spans Azure and AWS environments, CI/CD automation, and infrastructure as code with Terraform. At VivSoft, I provisioned secure Azure platforms for federal programs and automated operations with GitHub Actions, PowerShell, and cloud tooling. At Slalom Consulting, I modernized infrastructure for a major gas pipeline operator using AWS, Terraform, and Docker.
             </p>
             <p>
-              I excel at bridging legacy systems with modern cloud architecture, meticulously documenting operational workflows, and collaborating with cross-functional teams to accelerate delivery and ensure long-term reliability.
+              I also completed a WIOA-approved Artificial Intelligence Technologies program (375 hours), with hands-on work in LangChain, Transformers, NLP, CNNs, and AI application workflows. I enjoy translating complex AI and platform engineering concepts into practical systems that teams can adopt quickly and responsibly.
             </p>
           </div>
         </div>
@@ -106,13 +95,6 @@ export default function About() {
             </SocialLink>
             <SocialLink href={siteConfig.social.credly} icon={CredlyIcon} className="mt-4">
               View Credly profile
-            </SocialLink>
-            <SocialLink
-              href="mailto:scott.gordon72@outlook.com"
-              icon={MailIcon}
-              className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
-            >
-              scott.gordon72@outlook.com
             </SocialLink>
           </ul>
         </div>

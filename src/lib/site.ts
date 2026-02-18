@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: 'Scott Gordon Portfolio',
-  title: 'Scott Gordon | AI Engineer, DevOps Specialist, and System Architect',
+  title: 'Scott Gordon | AI Engineer and Cloud Platform Specialist',
   description:
-    'Portfolio of Scott Gordon featuring AI engineering projects, cloud architecture work, and plain-language technical writing on AI and DevOps.',
+    'Portfolio of Scott Gordon featuring AI engineering, cloud platform modernization, and practical technical writing on AI, DevOps, and infrastructure.',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
   ogImage: '/images/avatar.jpg',
   social: {
@@ -13,10 +13,13 @@ export const siteConfig = {
   keywords: [
     'Scott Gordon',
     'AI Engineer',
+    'Cloud Platform Specialist',
     'DevOps Engineer',
-    'System Architect',
     'Machine Learning',
     'Cloud Architecture',
+    'Azure',
+    'AWS',
+    'Terraform',
     'MLOps',
     'Portfolio',
   ],

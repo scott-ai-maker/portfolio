@@ -55,7 +55,6 @@ export function Footer() {
                 <NavLink href="/projects">Projects</NavLink>
                 <NavLink href="/experience">Experience</NavLink>
                 <NavLink href="/skills">Skills</NavLink>
-                <NavLink href="/contact">Contact</NavLink>
                 <NavLink href="/blog">Blog</NavLink>
                 <div className="ml-2 flex items-center gap-3 border-l border-zinc-200 pl-4 dark:border-zinc-700/50">
                   <SocialLink

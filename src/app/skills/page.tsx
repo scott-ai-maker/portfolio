@@ -22,38 +22,43 @@ export const metadata: Metadata = {
 
 const skills = [
   {
-    category: 'AI Engineering Core Skills',
+    category: 'Generative AI & LLMs',
     items: [
-      'Machine Learning',
-      'Deep Learning',
+      'LangChain',
+      'LlamaIndex',
+      'Transformers',
+      'Hugging Face',
+      'Retrieval-Augmented Generation (RAG)',
       'Natural Language Processing (NLP)',
-      'Computer Vision',
-      'Data Preprocessing and Feature Engineering',
-      'Model Deployment and Monitoring',
-      'Reinforcement Learning',
-      'Generative AI',
+      'Convolutional Neural Networks (CNNs)',
+      'Vector Search',
     ],
   },
   {
     category: 'Cloud & Containerization',
-    items: ['AWS', 'Azure', 'GCP', 'Docker', 'Kubernetes'],
+    items: ['Azure', 'AWS', 'GCP', 'Docker', 'Kubernetes'],
   },
   {
     category: 'CI/CD & Version Control',
-    items: ['Jenkins', 'GitLab CI/CD', 'CircleCI', 'Git', 'GitHub Actions'],
+    items: ['GitHub Actions', 'CircleCI', 'GitLab CI/CD', 'Git'],
   },
   {
-    category: 'Configuration Management',
-    items: ['Terraform'],
+    category: 'IaC & Automation',
+    items: ['Terraform', 'Python', 'PowerShell', 'Bash'],
   },
   {
-    category: 'Monitoring & Scripting',
-    items: ['Python', 'Bash'],
+    category: 'Monitoring & Operations',
+    items: ['Linux Administration', 'ServiceNow (SNOW)', 'Jira', 'Confluence'],
   },
-  {
-    category: 'Programming Tools & Database',
-    items: ['Jira', 'Confluence', 'Slack', 'Linux System Administration', 'SQL/NoSQL'],
-  },
+]
+
+const certifications = [
+  'IBM AI Developer Certification',
+  'Microsoft Certified: Azure Fundamentals (2020)',
+  'AWS Certified Solutions Architect – Associate (2022)',
+  'Python for Data Science and AI (2023)',
+  'DevOps & SRE Fundamentals – Linux Foundation (2023)',
+  'Containers for Developers – Linux Foundation (2024)',
 ]
 
 export default function Skills() {
@@ -110,10 +115,18 @@ export default function Skills() {
 
       <section className="mt-8 rounded-2xl border border-zinc-200/80 bg-zinc-50/70 p-6 ring-1 ring-zinc-900/5 dark:border-zinc-700/60 dark:bg-zinc-900/40 dark:ring-white/10">
         <h2 className="text-xl font-semibold text-zinc-800 dark:text-zinc-100">
-          Certifications & Badges
+          Certifications & Education
         </h2>
-        <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400">
-          Professional certifications and verifiable technical badges are available through my Credly profile.
+        <ul className="mt-4 grid gap-2 text-sm text-zinc-700 dark:text-zinc-300 sm:grid-cols-2">
+          {certifications.map((certification) => (
+            <li key={certification} className="flex items-start gap-2">
+              <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-accent" aria-hidden="true" />
+              <span>{certification}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-5 text-sm text-zinc-600 dark:text-zinc-400">
+          Visible Edge Institute – Artificial Intelligence Technologies Program (Oct 2025 – Jan 2026, 375 hours) and B.S. in Information Technology from the University of Phoenix.
         </p>
         <div className="mt-4">
           <Button

@@ -1,11 +1,23 @@
-export function Role({ role }: { role: { company: string; title: string; start: string; end: string; description: string[] } }) {
+import Image from 'next/image'
+
+export function Role({ role }: { role: { company: string; title: string; start: string; end: string; description: string[]; logo?: string } }) {
   return (
     <article className="rounded-2xl border border-zinc-200/80 bg-gradient-to-br from-teal-50/40 via-white to-white p-6 shadow-sm ring-1 ring-zinc-900/5 transition-colors hover:border-teal-200 dark:border-zinc-700/60 dark:from-teal-950/15 dark:via-zinc-900 dark:to-zinc-900 dark:ring-white/10 dark:hover:border-teal-700/40">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <p className="inline-flex items-center rounded-full bg-teal-100/80 px-2.5 py-1 text-xs font-medium text-teal-800 dark:bg-teal-900/30 dark:text-teal-300">
-            {role.company}
-          </p>
+          <div className="inline-flex items-center gap-2 rounded-full bg-teal-100/80 px-2.5 py-1 text-xs font-medium text-teal-800 dark:bg-teal-900/30 dark:text-teal-300">
+            {role.logo ? (
+              <Image
+                src={role.logo}
+                alt=""
+                width={16}
+                height={16}
+                className="h-4 w-4 rounded-sm"
+                unoptimized
+              />
+            ) : null}
+            <span>{role.company}</span>
+          </div>
           <h2 className="mt-3 text-xl font-semibold text-zinc-800 dark:text-zinc-100">
             {role.title}
           </h2>

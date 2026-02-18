@@ -21,10 +21,29 @@ export const metadata: Metadata = {
 }
 
 export default function Experience() {
+  const visibleEdgeLogo = '/images/logos/visible-edge.svg'
+  const vivsoftLogo = '/images/logos/vivsoft.jpg'
+  const slalomLogo = '/images/logos/slalom.jpeg'
+
   const roles = [
+    {
+      company: 'Visible Edge',
+      title: 'AI, ML and DS Specialist',
+      logo: visibleEdgeLogo,
+      start: '2025',
+      end: 'Present',
+      description: [
+        'Develop and deliver AI literacy programs that help professionals build foundational and applied AI skills.',
+        'Design hands-on training in machine learning, data science, and emerging tools using practical workflows.',
+        'Advise organizations on AI strategy and workforce upskilling to align technical efforts with business value.',
+        'Build accessible learning paths that demystify AI concepts for technical and non-technical audiences.',
+        'Promote ethical and responsible AI practices aligned with organizational goals and compliance needs.',
+      ],
+    },
     {
       company: 'VivSoft',
       title: 'Systems Engineer II',
+      logo: vivsoftLogo,
       start: '2024',
       end: '2025',
       description: [
@@ -42,6 +61,7 @@ export default function Experience() {
     {
       company: 'Slalom Consulting',
       title: 'Platform Engineer',
+      logo: slalomLogo,
       start: '2021',
       end: '2023',
       description: [
@@ -54,6 +74,31 @@ export default function Experience() {
         'Contributed to Slalom’s internal knowledge base by sharing best practices in platform engineering and cloud operations.',
       ],
     },
+  ]
+
+  const education = [
+    {
+      title: 'Visible Edge Institute – Artificial Intelligence Technologies Program',
+      period: 'Oct 2025 – Jan 2026 (375 hours)',
+      details: [
+        'Coursework included LangChain (Intro and Advanced), Transformers, NLP, CNNs, and Fuzzy Logic.',
+        'Completed hands-on AI and machine learning projects aligned to production-oriented workflows.',
+      ],
+    },
+    {
+      title: 'B.S. in Information Technology – University of Phoenix',
+      period: '',
+      details: [],
+    },
+  ]
+
+  const certifications = [
+    'IBM AI Developer Certification',
+    'Microsoft Certified: Azure Fundamentals (2020)',
+    'AWS Certified Solutions Architect – Associate (2022)',
+    'Python for Data Science and AI (2023)',
+    'DevOps & SRE Fundamentals – Linux Foundation (2023)',
+    'Containers for Developers – Linux Foundation (2024)',
   ]
 
   const totalYears = `${roles[roles.length - 1].start} - ${roles[0].end}`
@@ -85,6 +130,46 @@ export default function Experience() {
           <Role key={index} role={role} />
         ))}
       </div>
+
+      <section className="mt-12 rounded-2xl border border-zinc-200/80 bg-zinc-50/70 p-6 ring-1 ring-zinc-900/5 dark:border-zinc-700/60 dark:bg-zinc-900/40 dark:ring-white/10">
+        <h2 className="text-2xl font-semibold text-zinc-800 dark:text-zinc-100">
+          Education & Certifications
+        </h2>
+
+        <div className="mt-6 space-y-6">
+          {education.map((entry) => (
+            <article key={entry.title}>
+              <h3 className="text-base font-semibold text-zinc-800 dark:text-zinc-100">
+                {entry.title}
+              </h3>
+              {entry.period ? (
+                <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+                  {entry.period}
+                </p>
+              ) : null}
+              {entry.details.length > 0 ? (
+                <ul className="mt-3 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
+                  {entry.details.map((detail) => (
+                    <li key={detail} className="flex items-start gap-2">
+                      <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-accent" aria-hidden="true" />
+                      <span>{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </article>
+          ))}
+        </div>
+
+        <ul className="mt-8 grid gap-2 text-sm text-zinc-700 dark:text-zinc-300 sm:grid-cols-2">
+          {certifications.map((certification) => (
+            <li key={certification} className="flex items-start gap-2">
+              <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-accent" aria-hidden="true" />
+              <span>{certification}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
     </Container>
   )
 }
