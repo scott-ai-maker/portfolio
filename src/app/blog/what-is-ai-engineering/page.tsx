@@ -1,47 +1,57 @@
 import SimpleLayout from '@/components/SimpleLayout';
+import { blogPostsBySlug } from '@/lib/blogPosts';
+import { formatDate } from '@/lib/formatDate';
+
+const post = blogPostsBySlug['what-is-ai-engineering'];
 
 export const metadata = {
-  title: 'What is AI Engineering?',
-  description: 'An introduction to the field of AI Engineering and its significance in modern technology.',
+  title: post.title,
+  description: post.description,
 };
 
 export default function WhatIsAIEngineering() {
   return (
-    <SimpleLayout title="What is AI Engineering?" intro="An introduction to the field of AI Engineering and its significance in modern technology.">
-      <p>
-        AI Engineering is an interdisciplinary field that combines principles of software engineering, data science, and machine learning to develop robust and scalable AI systems.
+    <SimpleLayout title={post.title} intro={post.description}>
+      <p className="text-sm text-zinc-500 dark:text-zinc-400">
+        <time dateTime={post.publishedAt}>Published {formatDate(post.publishedAt)}</time>
+        {post.updatedAt && (
+          <>
+            {' '}·{' '}
+            <time dateTime={post.updatedAt}>Updated {formatDate(post.updatedAt)}</time>
+          </>
+        )}
       </p>
 
       <p>
-        It focuses on creating solutions that are not only innovative but also reliable, maintainable, and aligned with business objectives.
+        A good way to understand AI engineering is to compare it with building a bridge. A scientist may discover a new material in the lab. An engineer asks a different question: can families drive across this every day, safely, in rain, at night, for twenty years?
       </p>
 
       <p>
-        The role of an AI Engineer is multifaceted, involving tasks such as designing algorithms, building data pipelines, and deploying machine learning models.
+        In AI, we often begin with a demo that looks brilliant for ten minutes. AI engineering is the craft of turning that demo into a dependable product that behaves well on Monday morning, not just conference day.
       </p>
 
       <p>
-        They work closely with data scientists to transform experimental models into production-ready systems. Tools like <a href="https://www.tensorflow.org/" target="_blank">TensorFlow</a> and <a href="https://pytorch.org/" target="_blank">PyTorch</a> are commonly used in this field.
+        That means handling many practical details: data quality, latency, monitoring, model updates, privacy controls, and fallbacks when the model is uncertain. None of this is glamorous, but this is where trust is won.
       </p>
 
       <p>
-        One of the key challenges in AI Engineering is ensuring the ethical use of AI. Engineers must address issues such as bias in algorithms, data privacy, and the transparency of AI decisions.
+        A useful mental model is this: data science discovers signals; AI engineering delivers reliable decisions. One finds what might work; the other ensures it keeps working under real-world pressure.
       </p>
 
       <p>
-        Frameworks like the <a href="https://www.oecd.org/going-digital/ai/principles/" target="_blank">OECD AI Principles</a> provide guidelines for responsible AI development.
+        The ethical side is not a side quest. If a system is biased, opaque, or unsafe, it is not "almost done." It is unfinished engineering. A product is only complete when technical performance and human impact are both acceptable.
       </p>
 
       <p>
-        As AI continues to evolve, the demand for skilled AI Engineers is growing rapidly. Industries ranging from healthcare to finance are leveraging AI to solve complex problems and drive innovation.
+        A practical checklist helps: Can we explain outputs? Can users contest mistakes? Can we detect drift quickly? Can we shut the system down safely when it misbehaves? If the answer is no, keep building.
       </p>
 
       <p>
-        For those interested in pursuing a career in this field, resources like the <a href="https://ai.google/education/" target="_blank">Google AI Education</a> platform offer valuable learning opportunities.
+        So what is AI engineering, really? It is applied humility. You assume the world is messy, users are diverse, and systems fail. Then you design anyway—with tests, guardrails, and clear accountability.
       </p>
 
       <p>
-        In conclusion, AI Engineering is a dynamic and impactful field that plays a critical role in shaping the future of technology. By combining technical expertise with ethical considerations, AI Engineers have the opportunity to create systems that benefit society and drive progress across various domains.
+        The future of AI will not be decided by model size alone. It will be decided by engineering quality: whether we build systems that are understandable, maintainable, and genuinely useful to people.
       </p>
     </SimpleLayout>
   );

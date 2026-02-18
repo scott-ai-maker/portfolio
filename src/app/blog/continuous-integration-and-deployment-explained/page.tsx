@@ -1,47 +1,57 @@
 import SimpleLayout from '@/components/SimpleLayout';
+import { blogPostsBySlug } from '@/lib/blogPosts';
+import { formatDate } from '@/lib/formatDate';
+
+const post = blogPostsBySlug['continuous-integration-and-deployment-explained'];
 
 export const metadata = {
-  title: 'Continuous Integration and Deployment Explained',
-  description: 'Understanding the principles and benefits of CI/CD in modern software development.',
+  title: post.title,
+  description: post.description,
 };
 
 export default function ContinuousIntegrationAndDeploymentExplained() {
   return (
-    <SimpleLayout title="Continuous Integration and Deployment Explained" intro="Understanding the principles and benefits of CI/CD in modern software development.">
-      <p>
-        Continuous Integration (CI) and Continuous Deployment (CD) are cornerstone practices in modern software development.
+    <SimpleLayout title={post.title} intro={post.description}>
+      <p className="text-sm text-zinc-500 dark:text-zinc-400">
+        <time dateTime={post.publishedAt}>Published {formatDate(post.publishedAt)}</time>
+        {post.updatedAt && (
+          <>
+            {' '}·{' '}
+            <time dateTime={post.updatedAt}>Updated {formatDate(post.updatedAt)}</time>
+          </>
+        )}
       </p>
 
       <p>
-        CI involves automatically testing and integrating code changes into a shared repository, ensuring that the codebase remains stable and functional. This practice minimizes integration challenges and fosters a culture of collaboration among developers.
+        CI/CD sounds complicated because the words are long. The idea is simple: check your work early, and release small improvements often.
       </p>
 
       <p>
-        Continuous Deployment (CD) extends CI by automating the release of code to production environments. This ensures that new features, bug fixes, and updates are delivered to users quickly and reliably.
+        Continuous Integration means developers merge code frequently and let automated checks run every time. If a change breaks something, you find out in minutes instead of two weeks later.
       </p>
 
       <p>
-        Together, CI/CD reduces the time to market, enhances product quality, and allows teams to respond to customer feedback more effectively.
+        Continuous Deployment means passing changes can move to production through a safe, repeatable pipeline. No midnight copy-paste rituals, no guessing which step was missed.
       </p>
 
       <p>
-        The benefits of CI/CD are numerous. By automating repetitive tasks, teams can focus on innovation rather than manual processes. Moreover, CI/CD pipelines enable early detection of bugs, reducing the cost and effort required to fix them.
+        Think of it like daily instrument checks on an airplane. You do small checks all the time so you never discover a giant surprise right before takeoff.
       </p>
 
       <p>
-        For example, tools like <a href="https://www.jenkins.io/" target="_blank">Jenkins</a> and <a href="https://circleci.com/" target="_blank">CircleCI</a> are widely used to implement CI/CD workflows.
+        The practical benefits are straightforward: fewer large failures, faster recovery, and lower stress. Small changes are easier to review, easier to test, and easier to roll back.
       </p>
 
       <p>
-        Adopting CI/CD requires a cultural shift within organizations. Teams must embrace automation, prioritize testing, and foster open communication.
+        But tools are only part of it. CI/CD works best when teams agree on quality gates, write meaningful tests, and treat failures as learning signals rather than blame events.
       </p>
 
       <p>
-        Resources like the <a href="https://12factor.net/" target="_blank">12-Factor App methodology</a> provide valuable guidelines for building CI/CD-friendly applications.
+        A strong pipeline usually includes: build checks, unit tests, integration tests, security scans, staged rollouts, and clear observability after release.
       </p>
 
       <p>
-        In conclusion, CI/CD is not just a technical practice but a strategic advantage. Organizations that invest in CI/CD pipelines are better equipped to navigate the fast-paced world of software development, delivering value to their users while maintaining high standards of quality and reliability.
+        In short, CI/CD is not a trend. It is engineering hygiene. It turns software delivery from a risky event into a routine habit, and that habit compounds into reliability.
       </p>
     </SimpleLayout>
   );

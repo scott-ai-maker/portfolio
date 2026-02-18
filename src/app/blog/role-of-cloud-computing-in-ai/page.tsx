@@ -1,51 +1,57 @@
 import SimpleLayout from '@/components/SimpleLayout';
+import { blogPostsBySlug } from '@/lib/blogPosts';
+import { formatDate } from '@/lib/formatDate';
+
+const post = blogPostsBySlug['role-of-cloud-computing-in-ai'];
 
 export const metadata = {
-  title: 'The Role of Cloud Computing in AI',
-  description: 'Exploring how cloud computing enables the development and deployment of AI applications.',
+  title: post.title,
+  description: post.description,
 };
 
 export default function TheRoleOfCloudComputingInAI() {
   return (
-    <SimpleLayout title="The Role of Cloud Computing in AI" intro="Exploring how cloud computing enables the development and deployment of AI applications.">
-      <p>
-        Cloud computing has become a cornerstone of modern AI development, offering scalable and cost-effective resources for training and deploying machine learning models.
+    <SimpleLayout title={post.title} intro={post.description}>
+      <p className="text-sm text-zinc-500 dark:text-zinc-400">
+        <time dateTime={post.publishedAt}>Published {formatDate(post.publishedAt)}</time>
+        {post.updatedAt && (
+          <>
+            {' '}·{' '}
+            <time dateTime={post.updatedAt}>Updated {formatDate(post.updatedAt)}</time>
+          </>
+        )}
       </p>
 
       <p>
-        By leveraging the cloud, organizations can access powerful computational resources, such as GPUs and TPUs, without the need for significant upfront investments.
+        AI needs computation the way a city needs electricity. Sometimes you need a little. Sometimes you need a lot, suddenly. Cloud computing works like a power grid for software: shared, elastic, and available on demand.
       </p>
 
       <p>
-        Leading cloud providers like <a href="https://aws.amazon.com/" target="_blank">AWS</a>, <a href="https://cloud.google.com/" target="_blank">Google Cloud</a>, and <a href="https://azure.microsoft.com/" target="_blank">Microsoft Azure</a> offer a range of AI services, including pre-built machine learning models, data storage solutions, and tools for natural language processing and computer vision.
+        Before cloud platforms, teams had to buy hardware up front, guess capacity months ahead, and wait for procurement. That is a slow way to discover fast ideas. In AI work, experimentation speed matters.
       </p>
 
       <p>
-        These platforms enable developers to integrate AI capabilities into their applications with minimal effort.
+        With cloud services, small teams can train models, run batch jobs, and serve predictions globally without owning a data center. That lowers the barrier to entry and lets people spend more time on the problem itself.
       </p>
 
       <p>
-        One of the key advantages of cloud computing is its ability to support collaboration. Teams can work on AI projects from anywhere in the world, sharing resources and insights in real time.
+        The big benefit is optionality. You can start simple, scale when demand rises, and scale back when it falls. Paying for what you use is often wiser than buying for peak load that only happens once a month.
       </p>
 
       <p>
-        Tools like <a href="https://colab.research.google.com/" target="_blank">Google Colab</a> and <a href="https://databricks.com/" target="_blank">Databricks</a> facilitate collaborative development and experimentation.
+        Cloud systems also make collaboration easier: shared datasets, reproducible environments, and observable pipelines. In plain terms, fewer "works on my machine" conversations and more "we can trace exactly what happened." 
       </p>
 
       <p>
-        However, adopting cloud computing for AI also comes with challenges. Organizations must consider data security, compliance, and the cost of cloud services.
+        Of course, cloud is not automatically better. Costs can climb quietly, vendor lock-in can limit choices, and weak security practices can create real risk. Good engineering means planning for these tradeoffs from day one.
       </p>
 
       <p>
-        Best practices, such as implementing robust encryption and optimizing resource usage, can help mitigate these concerns.
+        The practical strategy is simple: track usage, automate shutdown of idle resources, isolate sensitive data, and keep architecture portable where possible.
       </p>
 
       <p>
-        In conclusion, cloud computing is a powerful enabler of AI innovation. By providing the infrastructure and tools needed to develop and deploy AI applications, the cloud empowers businesses to stay competitive in a rapidly evolving technological landscape.
-      </p>
-
-      <p>
-        For those looking to explore this field further, resources like the <a href="https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/" target="_blank">Designing Data-Intensive Applications</a> book offer valuable insights.
+        In the end, cloud computing is useful for AI for the same reason a laboratory is useful for science: it gives you the instruments, space, and repeatability to turn ideas into reliable results.
       </p>
     </SimpleLayout>
   );

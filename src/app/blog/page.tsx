@@ -1,38 +1,23 @@
 import { Container } from '../../components/Container.tsx'
 import { Card } from '../../components/Card.tsx'
+import { blogPosts } from '@/lib/blogPosts'
 
-const articles = [
-  {
-    title: 'What is AI Engineering?',
-    description:
-      'An introduction to AI engineering, explaining its importance and how it powers modern applications.',
-    link: '/blog/what-is-ai-engineering',
-  },
-  {
-    title: 'DevOps Principles for Beginners',
-    description:
-      'A beginner-friendly guide to understanding DevOps principles and their role in software development.',
-    link: '/blog/devops-principles-for-beginners',
-  },
-  {
-    title: 'How Machine Learning Models Work',
-    description:
-      'A simplified explanation of how machine learning models are trained and used to make predictions.',
-    link: '/blog/how-machine-learning-models-work',
-  },
-  {
-    title: 'The Role of Cloud Computing in AI',
-    description:
-      'Exploring how cloud platforms enable scalable AI solutions and why they are essential for AI engineers.',
-    link: '/blog/role-of-cloud-computing-in-ai',
-  },
-  {
-    title: 'Continuous Integration and Deployment Explained',
-    description:
-      'Breaking down CI/CD pipelines and their importance in modern software development.',
-    link: '/blog/continuous-integration-and-deployment-explained',
-  },
-]
+function formatMonthYear(dateString: string) {
+  return new Date(`${dateString}T00:00:00Z`).toLocaleDateString('en-US', {
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  })
+}
+
+function formatLongDate(dateString: string) {
+  return new Date(`${dateString}T00:00:00Z`).toLocaleDateString('en-US', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  })
+}
 
 export default function Blog() {
   return (
@@ -41,14 +26,27 @@ export default function Blog() {
         Blog
       </h1>
       <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-        Explore articles on AI engineering and DevOps principles, written for a broad audience.
+        Explore plain-language essays on AI, engineering, and building useful systems for people.
       </p>
       <div className="mt-10 grid grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8">
-        {articles.map((article, index) => (
-          <Card key={index}>
-            <Card.Title href={article.link}>{article.title}</Card.Title>
+        {blogPosts.map((article) => (
+          <Card key={article.slug}>
+            <Card.Eyebrow as="div" decorate>
+              <time dateTime={article.publishedAt}>
+                Published {formatMonthYear(article.publishedAt)}
+              </time>
+              {article.updatedAt && (
+                <>
+                  {' '}·{' '}
+                  <time dateTime={article.updatedAt}>
+                    Updated {formatLongDate(article.updatedAt)}
+                  </time>
+                </>
+              )}
+            </Card.Eyebrow>
+            <Card.Title href={`/blog/${article.slug}`}>{article.title}</Card.Title>
             <Card.Description>{article.description}</Card.Description>
-            <Card.Cta href={article.link}>Read More</Card.Cta>
+            <Card.Cta href={`/blog/${article.slug}`}>Read More</Card.Cta>
           </Card>
         ))}
       </div>

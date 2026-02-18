@@ -1,53 +1,56 @@
 import SimpleLayout from '@/components/SimpleLayout';
+import { blogPostsBySlug } from '@/lib/blogPosts';
+import { formatDate } from '@/lib/formatDate';
+
+const post = blogPostsBySlug['devops-principles-for-beginners'];
 
 export const metadata = {
-  title: 'DevOps Principles for Beginners',
-  description: 'An overview of fundamental DevOps principles and their importance in modern software development.',
+  title: post.title,
+  description: post.description,
 };
 
 export default function DevOpsPrinciplesForBeginners() {
   return (
-    <SimpleLayout title="DevOps Principles for Beginners" intro="An overview of fundamental DevOps principles and their importance in modern software development.">
-      <p>
-        DevOps is a transformative approach that bridges the gap between software development (Dev) and IT operations (Ops).
+    <SimpleLayout title={post.title} intro={post.description}>
+      <p className="text-sm text-zinc-500 dark:text-zinc-400">
+        <time dateTime={post.publishedAt}>Published {formatDate(post.publishedAt)}</time>
+        {post.updatedAt && (
+          <>
+            {' '}·{' '}
+            <time dateTime={post.updatedAt}>Updated {formatDate(post.updatedAt)}</time>
+          </>
+        )}
       </p>
 
       <p>
-        By fostering collaboration and communication, DevOps aims to shorten the development lifecycle while ensuring the continuous delivery of high-quality software.
+        DevOps sounds like a technology, but it is really a team habit. It is what happens when the people who write software and the people who run software stop throwing problems over a wall.
       </p>
 
       <p>
-        At its core, DevOps is built on several key principles:
+        Think of a restaurant kitchen. If chefs, servers, and dishwashers do not coordinate, customers wait, orders go wrong, and everyone blames everyone. Software teams are the same.
+      </p>
+
+      <p>
+        DevOps fixes that by tightening the feedback loop. Build small changes, test quickly, deploy safely, observe behavior, learn, and improve. Repeat.
       </p>
 
       <ul>
-        <li><strong>Collaboration:</strong> Breaking down silos between teams to enhance communication and shared responsibility.</li>
-
-        <li><strong>Automation:</strong> Streamlining repetitive tasks such as testing, deployment, and monitoring to improve efficiency.</li>
-
-        <li><strong>Continuous Integration and Delivery:</strong> Ensuring that code changes are integrated and deployed frequently and reliably.</li>
-
-        <li><strong>Monitoring and Feedback:</strong> Using tools like <a href="https://grafana.com/" target="_blank">Grafana</a> and <a href="https://www.datadoghq.com/" target="_blank">Datadog</a> to gain insights into system performance and user behavior.</li>
+        <li><strong>Shared ownership:</strong> The same team owns both feature delivery and operational reliability.</li>
+        <li><strong>Automation:</strong> Machines do repetitive checks so humans can focus on judgment and design.</li>
+        <li><strong>Small batch changes:</strong> Tiny releases are easier to review, test, and roll back.</li>
+        <li><strong>Fast feedback:</strong> Monitoring and alerting reveal problems while they are still small.</li>
       </ul>
 
       <p>
-        For beginners, understanding these principles is the first step toward adopting DevOps practices.
+        Beginners often ask, "Which tool should we install first?" That is the wrong first question. Start with behavior: daily collaboration, clear ownership, and visible reliability goals.
       </p>
 
       <p>
-        Resources like the <a href="https://www.devopsdays.org/" target="_blank">DevOps Days</a> conferences and the <a href="https://www.phoenixprojectbook.com/" target="_blank">Phoenix Project</a> book provide valuable insights into the DevOps culture and its implementation.
+        Then pick tools that support that behavior. A fancy pipeline cannot rescue a fragmented team, but a healthy team can do excellent work even with modest tooling.
       </p>
 
       <p>
-        Implementing DevOps requires a cultural shift within organizations. Teams must embrace a mindset of continuous improvement and be open to adopting new tools and methodologies.
-      </p>
-
-      <p>
-        Popular tools like <a href="https://www.terraform.io/" target="_blank">Terraform</a> for infrastructure as code and <a href="https://kubernetes.io/" target="_blank">Kubernetes</a> for container orchestration are integral to modern DevOps workflows.
-      </p>
-
-      <p>
-        In conclusion, DevOps is not just a set of practices but a philosophy that drives innovation and efficiency. By adopting DevOps, organizations can deliver better software faster, adapt to changing market demands, and create a more collaborative and productive work environment.
+        The real promise of DevOps is not speed for its own sake. It is confidence: the confidence that you can ship value quickly without gambling with your users&apos; trust.
       </p>
     </SimpleLayout>
   );

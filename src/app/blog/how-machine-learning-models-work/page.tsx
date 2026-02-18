@@ -1,43 +1,53 @@
 import SimpleLayout from '@/components/SimpleLayout';
+import { blogPostsBySlug } from '@/lib/blogPosts';
+import { formatDate } from '@/lib/formatDate';
+
+const post = blogPostsBySlug['how-machine-learning-models-work'];
 
 export const metadata = {
-  title: 'How Machine Learning Models Work',
-  description: 'A detailed explanation of how machine learning models are trained and used to make predictions.',
+  title: post.title,
+  description: post.description,
 };
 
 export default function HowMachineLearningModelsWork() {
   return (
-    <SimpleLayout title="How Machine Learning Models Work" intro="A detailed explanation of how machine learning models are trained and used to make predictions.">
-      <p>
-        Machine learning models are at the heart of modern AI systems. These models are algorithms designed to learn patterns from data and make predictions or decisions without explicit programming.
+    <SimpleLayout title={post.title} intro={post.description}>
+      <p className="text-sm text-zinc-500 dark:text-zinc-400">
+        <time dateTime={post.publishedAt}>Published {formatDate(post.publishedAt)}</time>
+        {post.updatedAt && (
+          <>
+            {' '}·{' '}
+            <time dateTime={post.updatedAt}>Updated {formatDate(post.updatedAt)}</time>
+          </>
+        )}
       </p>
 
       <p>
-        The process of building a machine learning model involves several key stages:
-      </p>
-
-      <ul>
-        <li><strong>Data Collection:</strong> Gathering high-quality, relevant data is the foundation of any machine learning project. Platforms like <a href="https://www.kaggle.com/" target="_blank">Kaggle</a> provide datasets for experimentation.</li>
-
-        <li><strong>Data Preprocessing:</strong> Cleaning and transforming data to ensure it is suitable for training. Techniques like normalization and handling missing values are crucial.</li>
-
-        <li><strong>Model Training:</strong> Using algorithms such as decision trees, neural networks, or support vector machines to learn from the data. Optimization techniques like <a href="https://en.wikipedia.org/wiki/Gradient_descent" target="_blank">gradient descent</a> adjust the model's parameters to minimize errors.</li>
-
-        <li><strong>Validation:</strong> Evaluating the model's performance on unseen data to ensure it generalizes well. Metrics like accuracy, precision, and recall are commonly used.</li>
-
-        <li><strong>Deployment:</strong> Integrating the trained model into real-world applications, such as recommendation systems or fraud detection tools.</li>
-      </ul>
-
-      <p>
-        Understanding these stages is essential for building reliable and effective AI systems. Developers must also consider ethical implications, such as bias in data and the transparency of model decisions.
+        People often say machine learning is magic. It is not magic. It is curve fitting with feedback.
       </p>
 
       <p>
-        Resources like the <a href="https://ml-cheatsheet.readthedocs.io/en/latest/" target="_blank">Machine Learning Cheat Sheet</a> offer valuable guidance for beginners and experts alike.
+        Imagine you are trying to predict tomorrow&apos;s temperature. You look at past days, humidity, wind, and season, then draw a rule that best matches what happened before. That rule is the model.
       </p>
 
       <p>
-        In conclusion, machine learning models are powerful tools that can solve complex problems across various domains. By following best practices in data preprocessing, model selection, and evaluation, developers can create systems that deliver meaningful insights and drive innovation.
+        Training is the process of adjusting that rule so prediction errors get smaller. If the model guesses badly, we nudge internal parameters. If it improves, we keep going. After many small corrections, the model becomes useful.
+      </p>
+
+      <p>
+        The most important lesson is that data quality sets the ceiling. If your examples are noisy, biased, or incomplete, no clever algorithm will rescue you. Bad ingredients make bad soup.
+      </p>
+
+      <p>
+        We then test on new data the model has never seen. This is crucial. A student who memorizes yesterday&apos;s answers is not educated; neither is a model that only memorizes training rows.
+      </p>
+
+      <p>
+        In production, models continue to meet reality. User behavior changes, markets shift, sensors drift. So a reliable system monitors performance, flags anomalies, and retrains on better data when needed.
+      </p>
+
+      <p>
+        Once you see this clearly, machine learning becomes less mystical and more practical. It is a disciplined loop: collect examples, fit a rule, test honestly, deploy carefully, and keep learning from feedback.
       </p>
     </SimpleLayout>
   );
