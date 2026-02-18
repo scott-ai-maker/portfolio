@@ -60,7 +60,7 @@ const projects: Project[] = [
       'Advanced computer vision application with real-time image processing, featuring drag-and-drop uploads, color analysis, object detection, and face detection with modern React frontend.',
     link: { href: 'https://github.com/scott-ai-maker/ai-image-analyzer', label: 'github.com' },
     demoLink: { href: 'https://web-image-analyzer.nicesea-5e74ee97.eastus2.azurecontainerapps.io/', label: 'Live Demo' },
-    logo: 'image-recognition-system.png',
+    logo: 'ai-image-analyzer.png',
     technologies: ['Python', 'FastAPI', 'React', 'Computer Vision', 'PIL/OpenCV', 'Azure Container Apps'],
     features: [
       'Real computer vision processing',
@@ -70,28 +70,7 @@ const projects: Project[] = [
       'Enterprise patterns (RBAC, monitoring, auto-scaling)',
       'CI/CD pipelines with GitHub Actions'
     ]
-  },
-  {
-    name: 'Predictive Analytics Platform',
-    description:
-      'A platform leveraging machine learning algorithms to forecast trends and analyze data.',
-    link: { href: 'https://github.com/scott-ai-maker/predictive-analytics-platform', label: 'github.com' },
-    logo: 'predictive-analytics-platform.png',
-  },
-  {
-    name: 'AI-Powered Recommendation Engine',
-    description:
-      'A recommendation engine using collaborative filtering and deep learning techniques.',
-    link: { href: 'https://github.com/scott-ai-maker/ai-recommendation-engine', label: 'github.com' },
-    logo: 'ai-powered-recommendation-engine.png',
-  },
-  {
-    name: 'Automated Machine Learning Pipeline',
-    description:
-      'An end-to-end pipeline for automating machine learning workflows, including data preprocessing and model deployment.',
-    link: { href: 'https://github.com/scott-ai-maker/automated-ml-pipeline', label: 'github.com' },
-    logo: 'automated-machine-learning-pipeline.png',
-  },
+  }
 ]
 
 function LinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
