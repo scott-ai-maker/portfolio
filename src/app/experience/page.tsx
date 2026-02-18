@@ -56,12 +56,31 @@ export default function Experience() {
     },
   ]
 
+  const totalYears = `${roles[roles.length - 1].start} - ${roles[0].end}`
+
   return (
-    <Container className="mt-16">
-      <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
-        Professional Experience
-      </h1>
-      <div className="mt-6 space-y-10">
+    <Container className="mt-16 sm:mt-24">
+      <header className="max-w-3xl">
+        <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
+          Professional Experience
+        </h1>
+        <div className="mt-4 h-1.5 w-24 rounded-full bg-gradient-to-r from-teal-500 via-accent to-teal-400" />
+        <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+          Hands-on delivery across cloud infrastructure, automation, and AI-ready platform modernization.
+        </p>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <span className="inline-flex items-center rounded-full bg-teal-100 px-3 py-1 text-xs font-medium text-teal-800 dark:bg-teal-900/30 dark:text-teal-300">
+            {roles.length} Roles
+          </span>
+          <span className="inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-sky-700 dark:bg-accent/20 dark:text-sky-300">
+            {totalYears}
+          </span>
+          <span className="inline-flex items-center rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
+            Cloud, DevOps, AI
+          </span>
+        </div>
+      </header>
+      <div className="mt-10 space-y-8">
         {roles.map((role, index) => (
           <Role key={index} role={role} />
         ))}
