@@ -1,6 +1,5 @@
-import SimpleLayout from '@/components/SimpleLayout';
+import BlogPostLayout from '@/components/BlogPostLayout';
 import { blogPostsBySlug } from '@/lib/blogPosts';
-import { formatDate } from '@/lib/formatDate';
 import { buildBlogPostMetadata } from '@/lib/seo';
 
 const post = blogPostsBySlug['ai-is-a-tool-for-humanity'];
@@ -15,20 +14,7 @@ export const metadata = buildBlogPostMetadata({
 
 export default function AIIsAToolForHumanity() {
   return (
-    <SimpleLayout
-      title={post.title}
-      intro={post.description}
-    >
-      <p className="text-sm text-zinc-500 dark:text-zinc-400">
-        <time dateTime={post.publishedAt}>Published {formatDate(post.publishedAt)}</time>
-        {post.updatedAt && (
-          <>
-            {' '}·{' '}
-            <time dateTime={post.updatedAt}>Updated {formatDate(post.updatedAt)}</time>
-          </>
-        )}
-      </p>
-
+    <BlogPostLayout post={post}>
       <p>
         Let us begin with a simple idea: a tool does not have a mission of its own. A hammer does not wake up and decide to build a house. A microscope does not become curious by itself. A tool extends a human hand, a human eye, a human question.
       </p>
@@ -76,6 +62,6 @@ export default function AIIsAToolForHumanity() {
       <p>
         Tools are mirrors of intention. If we build with care, govern with wisdom, and educate broadly, AI can become one of the most useful instruments we have ever made—an instrument for better medicine, better learning, better work, and a better shared future.
       </p>
-    </SimpleLayout>
+    </BlogPostLayout>
   );
 }

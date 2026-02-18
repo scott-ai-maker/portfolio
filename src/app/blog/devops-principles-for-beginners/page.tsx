@@ -1,6 +1,5 @@
-import SimpleLayout from '@/components/SimpleLayout';
+import BlogPostLayout from '@/components/BlogPostLayout';
 import { blogPostsBySlug } from '@/lib/blogPosts';
-import { formatDate } from '@/lib/formatDate';
 import { buildBlogPostMetadata } from '@/lib/seo';
 
 const post = blogPostsBySlug['devops-principles-for-beginners'];
@@ -15,17 +14,7 @@ export const metadata = buildBlogPostMetadata({
 
 export default function DevOpsPrinciplesForBeginners() {
   return (
-    <SimpleLayout title={post.title} intro={post.description}>
-      <p className="text-sm text-zinc-500 dark:text-zinc-400">
-        <time dateTime={post.publishedAt}>Published {formatDate(post.publishedAt)}</time>
-        {post.updatedAt && (
-          <>
-            {' '}·{' '}
-            <time dateTime={post.updatedAt}>Updated {formatDate(post.updatedAt)}</time>
-          </>
-        )}
-      </p>
-
+    <BlogPostLayout post={post}>
       <p>
         DevOps sounds like a technology, but it is really a team habit. It is what happens when the people who write software and the people who run software stop throwing problems over a wall.
       </p>
@@ -56,6 +45,6 @@ export default function DevOpsPrinciplesForBeginners() {
       <p>
         The real promise of DevOps is not speed for its own sake. It is confidence: the confidence that you can ship value quickly without gambling with your users&apos; trust.
       </p>
-    </SimpleLayout>
+    </BlogPostLayout>
   );
 }

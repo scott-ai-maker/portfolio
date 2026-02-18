@@ -1,6 +1,5 @@
-import SimpleLayout from '@/components/SimpleLayout';
+import BlogPostLayout from '@/components/BlogPostLayout';
 import { blogPostsBySlug } from '@/lib/blogPosts';
-import { formatDate } from '@/lib/formatDate';
 import { buildBlogPostMetadata } from '@/lib/seo';
 
 const post = blogPostsBySlug['continuous-integration-and-deployment-explained'];
@@ -15,17 +14,7 @@ export const metadata = buildBlogPostMetadata({
 
 export default function ContinuousIntegrationAndDeploymentExplained() {
   return (
-    <SimpleLayout title={post.title} intro={post.description}>
-      <p className="text-sm text-zinc-500 dark:text-zinc-400">
-        <time dateTime={post.publishedAt}>Published {formatDate(post.publishedAt)}</time>
-        {post.updatedAt && (
-          <>
-            {' '}·{' '}
-            <time dateTime={post.updatedAt}>Updated {formatDate(post.updatedAt)}</time>
-          </>
-        )}
-      </p>
-
+    <BlogPostLayout post={post}>
       <p>
         CI/CD sounds complicated because the words are long. The idea is simple: check your work early, and release small improvements often.
       </p>
@@ -57,6 +46,6 @@ export default function ContinuousIntegrationAndDeploymentExplained() {
       <p>
         In short, CI/CD is not a trend. It is engineering hygiene. It turns software delivery from a risky event into a routine habit, and that habit compounds into reliability.
       </p>
-    </SimpleLayout>
+    </BlogPostLayout>
   );
 }

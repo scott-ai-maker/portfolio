@@ -1,6 +1,5 @@
-import SimpleLayout from '@/components/SimpleLayout';
+import BlogPostLayout from '@/components/BlogPostLayout';
 import { blogPostsBySlug } from '@/lib/blogPosts';
-import { formatDate } from '@/lib/formatDate';
 import { buildBlogPostMetadata } from '@/lib/seo';
 
 const post = blogPostsBySlug['what-is-ai-engineering'];
@@ -15,17 +14,7 @@ export const metadata = buildBlogPostMetadata({
 
 export default function WhatIsAIEngineering() {
   return (
-    <SimpleLayout title={post.title} intro={post.description}>
-      <p className="text-sm text-zinc-500 dark:text-zinc-400">
-        <time dateTime={post.publishedAt}>Published {formatDate(post.publishedAt)}</time>
-        {post.updatedAt && (
-          <>
-            {' '}·{' '}
-            <time dateTime={post.updatedAt}>Updated {formatDate(post.updatedAt)}</time>
-          </>
-        )}
-      </p>
-
+    <BlogPostLayout post={post}>
       <p>
         A good way to understand AI engineering is to compare it with building a bridge. A scientist may discover a new material in the lab. An engineer asks a different question: can families drive across this every day, safely, in rain, at night, for twenty years?
       </p>
@@ -57,6 +46,6 @@ export default function WhatIsAIEngineering() {
       <p>
         The future of AI will not be decided by model size alone. It will be decided by engineering quality: whether we build systems that are understandable, maintainable, and genuinely useful to people.
       </p>
-    </SimpleLayout>
+    </BlogPostLayout>
   );
 }

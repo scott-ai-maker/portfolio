@@ -1,6 +1,5 @@
-import SimpleLayout from '@/components/SimpleLayout';
+import BlogPostLayout from '@/components/BlogPostLayout';
 import { blogPostsBySlug } from '@/lib/blogPosts';
-import { formatDate } from '@/lib/formatDate';
 import { buildBlogPostMetadata } from '@/lib/seo';
 
 const post = blogPostsBySlug['how-machine-learning-models-work'];
@@ -15,17 +14,7 @@ export const metadata = buildBlogPostMetadata({
 
 export default function HowMachineLearningModelsWork() {
   return (
-    <SimpleLayout title={post.title} intro={post.description}>
-      <p className="text-sm text-zinc-500 dark:text-zinc-400">
-        <time dateTime={post.publishedAt}>Published {formatDate(post.publishedAt)}</time>
-        {post.updatedAt && (
-          <>
-            {' '}·{' '}
-            <time dateTime={post.updatedAt}>Updated {formatDate(post.updatedAt)}</time>
-          </>
-        )}
-      </p>
-
+    <BlogPostLayout post={post}>
       <p>
         People often say machine learning is magic. It is not magic. It is curve fitting with feedback.
       </p>
@@ -53,6 +42,6 @@ export default function HowMachineLearningModelsWork() {
       <p>
         Once you see this clearly, machine learning becomes less mystical and more practical. It is a disciplined loop: collect examples, fit a rule, test honestly, deploy carefully, and keep learning from feedback.
       </p>
-    </SimpleLayout>
+    </BlogPostLayout>
   );
 }

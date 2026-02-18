@@ -1,6 +1,5 @@
-import SimpleLayout from '@/components/SimpleLayout';
+import BlogPostLayout from '@/components/BlogPostLayout';
 import { blogPostsBySlug } from '@/lib/blogPosts';
-import { formatDate } from '@/lib/formatDate';
 import { buildBlogPostMetadata } from '@/lib/seo';
 
 const post = blogPostsBySlug['role-of-cloud-computing-in-ai'];
@@ -15,17 +14,7 @@ export const metadata = buildBlogPostMetadata({
 
 export default function TheRoleOfCloudComputingInAI() {
   return (
-    <SimpleLayout title={post.title} intro={post.description}>
-      <p className="text-sm text-zinc-500 dark:text-zinc-400">
-        <time dateTime={post.publishedAt}>Published {formatDate(post.publishedAt)}</time>
-        {post.updatedAt && (
-          <>
-            {' '}·{' '}
-            <time dateTime={post.updatedAt}>Updated {formatDate(post.updatedAt)}</time>
-          </>
-        )}
-      </p>
-
+    <BlogPostLayout post={post}>
       <p>
         AI needs computation the way a city needs electricity. Sometimes you need a little. Sometimes you need a lot, suddenly. Cloud computing works like a power grid for software: shared, elastic, and available on demand.
       </p>
@@ -57,6 +46,6 @@ export default function TheRoleOfCloudComputingInAI() {
       <p>
         In the end, cloud computing is useful for AI for the same reason a laboratory is useful for science: it gives you the instruments, space, and repeatability to turn ideas into reliable results.
       </p>
-    </SimpleLayout>
+    </BlogPostLayout>
   );
 }
