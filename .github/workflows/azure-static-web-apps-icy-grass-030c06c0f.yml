@@ -30,7 +30,7 @@ jobs:
 
       - name: Build App
         run: |
-          npm install
+          npm ci
           npm run build
 
       - name: Deploy to Azure Static Web Apps
@@ -40,7 +40,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
           production_branch: "main"
-          app_build_command: "npm run build"
+          app_build_command: "npm ci && npm run build"
           app_location: "/" # Explicitly specifying the app location for clarity
 
   close_pull_request_job:
