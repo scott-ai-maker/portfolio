@@ -1,0 +1,38 @@
+<svg width="900" height="1000" viewBox="0 0 900 1000" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Systems Architecture Map</title>
+  <desc id="desc">Layered architecture diagram linking security, APIs, data, and runtime services.</desc>
+  <defs>
+    <linearGradient id="bg" x1="70" y1="70" x2="840" y2="960" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827"/>
+      <stop offset="0.48" stop-color="#312E81"/>
+      <stop offset="1" stop-color="#1E3A8A"/>
+    </linearGradient>
+    <linearGradient id="wire" x1="170" y1="320" x2="760" y2="670" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C4B5FD"/>
+      <stop offset="1" stop-color="#93C5FD"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="1000" rx="44" fill="url(#bg)"/>
+  <rect x="58" y="56" width="784" height="888" rx="30" fill="#0F172A" fill-opacity="0.28"/>
+
+  <rect x="140" y="190" width="620" height="120" rx="20" fill="#1E1B4B" stroke="#A5B4FC" stroke-opacity="0.55"/>
+  <rect x="140" y="370" width="280" height="140" rx="20" fill="#1E1B4B" stroke="#A5B4FC" stroke-opacity="0.55"/>
+  <rect x="480" y="370" width="280" height="140" rx="20" fill="#1E1B4B" stroke="#A5B4FC" stroke-opacity="0.55"/>
+  <rect x="140" y="570" width="620" height="150" rx="20" fill="#172554" stroke="#93C5FD" stroke-opacity="0.6"/>
+
+  <path d="M450 310V370M300 510V570M600 510V570" stroke="url(#wire)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M420 440H480" stroke="url(#wire)" stroke-width="7" stroke-linecap="round" stroke-dasharray="10 12"/>
+
+  <circle cx="450" cy="370" r="11" fill="#C4B5FD"/>
+  <circle cx="300" cy="570" r="10" fill="#93C5FD"/>
+  <circle cx="600" cy="570" r="10" fill="#93C5FD"/>
+
+  <text x="182" y="258" fill="#E0E7FF" font-size="30" font-family="Inter, Arial, sans-serif">Interface + API Gateway</text>
+  <text x="170" y="448" fill="#E0E7FF" font-size="28" font-family="Inter, Arial, sans-serif">Security</text>
+  <text x="520" y="448" fill="#E0E7FF" font-size="28" font-family="Inter, Arial, sans-serif">Services</text>
+  <text x="170" y="655" fill="#DBEAFE" font-size="30" font-family="Inter, Arial, sans-serif">Data, Telemetry, and Automation Backbone</text>
+
+  <text x="92" y="890" fill="#E0E7FF" font-size="44" font-family="Inter, Arial, sans-serif" letter-spacing="1">SYSTEM ARCHITECTURE</text>
+  <text x="92" y="930" fill="#BFDBFE" font-size="22" font-family="Inter, Arial, sans-serif" opacity="0.95">secure design • scalable platforms • production excellence</text>
+</svg>

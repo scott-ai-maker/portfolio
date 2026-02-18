@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "clean": "rm -rf .next dist build && npm cache clean --force"
+    "clean": "rm -rf .next dist build && npm cache clean --force",
+    "generate:gallery-assets": "node scripts/generate-gallery-assets.mjs"
   },
   "dependencies": {
     "@azure/communication-email": "^1.0.0",

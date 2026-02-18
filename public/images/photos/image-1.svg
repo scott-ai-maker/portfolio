@@ -1,0 +1,48 @@
+<svg width="900" height="1000" viewBox="0 0 900 1000" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">AI Signal Graph</title>
+  <desc id="desc">A stylized neural graph with flowing paths and luminous nodes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="60" y1="40" x2="840" y2="960" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="0.52" stop-color="#1D4ED8"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
+    </linearGradient>
+    <linearGradient id="flow" x1="160" y1="180" x2="760" y2="820" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22D3EE"/>
+      <stop offset="1" stop-color="#C4B5FD"/>
+    </linearGradient>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="900" height="1000" rx="44" fill="url(#bg)"/>
+  <rect x="48" y="48" width="804" height="904" rx="30" fill="#020617" fill-opacity="0.24"/>
+
+  <path d="M130 790C255 705 310 520 450 510C600 500 640 650 772 600" stroke="url(#flow)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M150 220C300 250 330 430 470 430C625 430 650 270 760 280" stroke="url(#flow)" stroke-width="8" stroke-linecap="round" opacity="0.92"/>
+  <path d="M170 470C280 390 360 360 450 430C560 510 640 560 760 530" stroke="url(#flow)" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+
+  <g filter="url(#softGlow)">
+    <circle cx="150" cy="220" r="12" fill="#67E8F9"/>
+    <circle cx="290" cy="300" r="10" fill="#A5B4FC"/>
+    <circle cx="450" cy="430" r="15" fill="#F0ABFC"/>
+    <circle cx="620" cy="430" r="11" fill="#93C5FD"/>
+    <circle cx="760" cy="280" r="12" fill="#67E8F9"/>
+
+    <circle cx="170" cy="470" r="11" fill="#67E8F9"/>
+    <circle cx="450" cy="510" r="13" fill="#F0ABFC"/>
+    <circle cx="760" cy="530" r="10" fill="#93C5FD"/>
+
+    <circle cx="130" cy="790" r="12" fill="#67E8F9"/>
+    <circle cx="450" cy="670" r="10" fill="#A5B4FC"/>
+    <circle cx="772" cy="600" r="11" fill="#93C5FD"/>
+  </g>
+
+  <text x="92" y="890" fill="#E2E8F0" font-size="44" font-family="Inter, Arial, sans-serif" letter-spacing="1">AI ENGINEERING</text>
+  <text x="92" y="930" fill="#BAE6FD" font-size="22" font-family="Inter, Arial, sans-serif" opacity="0.9">models • orchestration • intelligent systems</text>
+</svg>

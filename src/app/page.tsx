@@ -7,9 +7,6 @@ import { Button } from '../components/Button.tsx'
 import { Card } from '../components/Card.tsx'
 import { Container } from '../components/Container.tsx'
 import { XIcon, InstagramIcon, GitHubIcon, LinkedInIcon } from '../components/SocialIcons.tsx'
-import image1 from 'public/images/photos/image-1.jpg'
-import image2 from 'public/images/photos/image-2.jpg'
-import image3 from 'public/images/photos/image-3.jpg'
 import image4 from 'public/images/photos/image-4.jpg'
 import image5 from 'public/images/photos/image-5.jpg'
 import { getAllArticles } from '../lib/articles.ts'
@@ -250,37 +247,65 @@ function Resume() {
 function Photos() {
   let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2'];
 
-  const imageCredits = [
-    { src: image1, credit: 'Image by peoplecreations on Freepik', link: 'https://www.freepik.com/free-photo/business-executives-with-hand-stacked_1005855.htm' },
-    { src: image2, credit: 'Image by DC Studio on Freepik', link: 'https://www.freepik.com/free-photo/artificial-intelligence-possessing-engineer-spiraling-out-control_237236808.htm' },
-    { src: image3, credit: 'Image by DC Studio on Freepik', link: 'https://www.freepik.com/free-photo/server-energy-consumption-monitoring_134858675.htm#fromView=search&page=1&position=4&uuid=27d5b6e5-2dc7-4401-bd4a-f443d178ec7f&query=cloud+engineer' },
+  const portfolioImages = [
+    {
+      webpSrcSet:
+        '/images/photos/image-1-352.webp 352w, /images/photos/image-1-576.webp 576w',
+      pngSrcSet:
+        '/images/photos/image-1-352.png 352w, /images/photos/image-1-576.png 576w',
+      fallbackSrc: '/images/photos/image-1-352.png',
+      alt: 'Abstract AI neural network with connected nodes and signal flow.',
+    },
+    {
+      webpSrcSet:
+        '/images/photos/image-2-352.webp 352w, /images/photos/image-2-576.webp 576w',
+      pngSrcSet:
+        '/images/photos/image-2-352.png 352w, /images/photos/image-2-576.png 576w',
+      fallbackSrc: '/images/photos/image-2-352.png',
+      alt: 'Cloud and DevOps pipeline illustration with deployment flow and observability metrics.',
+    },
+    {
+      webpSrcSet:
+        '/images/photos/image-3-352.webp 352w, /images/photos/image-3-576.webp 576w',
+      pngSrcSet:
+        '/images/photos/image-3-352.png 352w, /images/photos/image-3-576.png 576w',
+      fallbackSrc: '/images/photos/image-3-352.png',
+      alt: 'System architecture blueprint showing secure services, APIs, and automation links.',
+    },
   ];
 
   return (
     <div className="mt-16 sm:mt-20">
       <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        {imageCredits.map((image, imageIndex) => (
+        {portfolioImages.map((image, imageIndex) => (
           <div
-            key={`${image.src}-${imageIndex}`}
+            key={`${image.fallbackSrc}-${imageIndex}`}
             className={clsx(
               'relative aspect-9/10 w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 sm:w-72 sm:rounded-2xl dark:bg-zinc-800',
               rotations[imageIndex % rotations.length],
             )}
           >
-            <Image
-              src={image.src}
-              alt=""
-              sizes="(min-width: 640px) 18rem, 11rem"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-            <a
-              href={image.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-xs opacity-0 hover:opacity-100 transition-opacity"
-            >
-              {image.credit}
-            </a>
+            <picture>
+              <source
+                type="image/webp"
+                srcSet={image.webpSrcSet}
+                sizes="(min-width: 640px) 18rem, 11rem"
+              />
+              <source
+                type="image/png"
+                srcSet={image.pngSrcSet}
+                sizes="(min-width: 640px) 18rem, 11rem"
+              />
+              <img
+                src={image.fallbackSrc}
+                srcSet={image.pngSrcSet}
+                sizes="(min-width: 640px) 18rem, 11rem"
+                alt={image.alt}
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </picture>
           </div>
         ))}
       </div>
