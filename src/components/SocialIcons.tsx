@@ -34,3 +34,15 @@ export function LinkedInIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
     </svg>
   )
 }
+
+export function CredlyIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12 2.5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19ZM8.72 11.84a1 1 0 0 0-1.44 1.38l2.02 2.1a1 1 0 0 0 1.42.02l5.03-4.94a1 1 0 1 0-1.4-1.43l-4.31 4.24-1.32-1.37Z"
+      />
+    </svg>
+  )
+}

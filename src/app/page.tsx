@@ -6,7 +6,13 @@ import type { Metadata } from 'next'
 import { Button } from '../components/Button.tsx'
 import { Card } from '../components/Card.tsx'
 import { Container } from '../components/Container.tsx'
-import { XIcon, InstagramIcon, GitHubIcon, LinkedInIcon } from '../components/SocialIcons.tsx'
+import {
+  XIcon,
+  InstagramIcon,
+  GitHubIcon,
+  LinkedInIcon,
+  CredlyIcon,
+} from '../components/SocialIcons.tsx'
 import image4 from 'public/images/photos/image-4.jpg'
 import image5 from 'public/images/photos/image-5.jpg'
 import { getAllArticles } from '../lib/articles.ts'
@@ -353,8 +359,9 @@ export default async function Home() {
             Welcome to my portfolio! I specialize in designing scalable AI systems and modernizing cloud infrastructure. With a recent pivot into AI engineering, I bring expertise in machine learning, cloud platforms, and DevOps to help organizations achieve operational excellence.
           </p>
           <div className="mt-6 flex gap-6">
-            <SocialLink href="https://github.com/scott-ai-maker" aria-label="Follow on GitHub" icon={GitHubIcon} />
-            <SocialLink href="https://www.linkedin.com/in/sagordon-dev/" aria-label="Follow on LinkedIn" icon={LinkedInIcon} />
+            <SocialLink href={siteConfig.social.github} aria-label="Follow on GitHub" icon={GitHubIcon} />
+            <SocialLink href={siteConfig.social.linkedin} aria-label="Follow on LinkedIn" icon={LinkedInIcon} />
+            <SocialLink href={siteConfig.social.credly} aria-label="View Credly profile" icon={CredlyIcon} />
             <SocialLink href="mailto:scott.gordon72@outlook.com" aria-label="Email Scott" icon={MailIcon} />
           </div>
           <div className="mt-8">

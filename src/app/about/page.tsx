@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import type { Metadata } from 'next'
 
 import { Container } from '../../components/Container.tsx'
-import { XIcon, InstagramIcon, GitHubIcon, LinkedInIcon } from '../../components/SocialIcons.tsx'
+import { GitHubIcon, LinkedInIcon, CredlyIcon } from '../../components/SocialIcons.tsx'
 import portraitImage from '../../../public/images/avatar.jpg'
 import { siteConfig } from '@/lib/site'
 
@@ -98,17 +98,14 @@ export default function About() {
         </div>
         <div className="lg:pl-20">
           <ul role="list">
-            <SocialLink href="#" icon={XIcon}>
-              Follow on X
-            </SocialLink>
-            <SocialLink href="#" icon={InstagramIcon} className="mt-4">
-              Follow on Instagram
-            </SocialLink>
-            <SocialLink href="#" icon={GitHubIcon} className="mt-4">
+            <SocialLink href={siteConfig.social.github} icon={GitHubIcon}>
               Follow on GitHub
             </SocialLink>
-            <SocialLink href="#" icon={LinkedInIcon} className="mt-4">
+            <SocialLink href={siteConfig.social.linkedin} icon={LinkedInIcon} className="mt-4">
               Follow on LinkedIn
+            </SocialLink>
+            <SocialLink href={siteConfig.social.credly} icon={CredlyIcon} className="mt-4">
+              View Credly profile
             </SocialLink>
             <SocialLink
               href="mailto:scott.gordon72@outlook.com"
