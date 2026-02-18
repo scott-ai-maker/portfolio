@@ -21,6 +21,51 @@ interface Project {
 
 const projects: Project[] = [
   {
+    name: 'AI Quiz Platform',
+    description:
+      'Production-ready microservices quiz platform with independent services for users, quizzes, and results, featuring secure APIs, Docker orchestration, and scalable service boundaries.',
+    link: { href: 'https://github.com/scott-ai-maker/ai-quiz-platform', label: 'github.com' },
+    logo: 'ai-quiz-platform.png',
+    technologies: ['JavaScript', 'Node.js', 'Express', 'MongoDB', 'Docker', 'Microservices'],
+    features: [
+      'Three independently deployable services (user, quiz, results)',
+      'Security controls with Helmet, CORS, and rate limiting',
+      'Docker Compose orchestration for local and deployment workflows',
+      'Service health monitoring and API-first architecture',
+      'Designed for independent scaling by service domain'
+    ]
+  },
+  {
+    name: 'DevOps Project',
+    description:
+      'End-to-end DevOps demonstration with FastAPI, Terraform, AKS, Helm, and GitHub Actions showing infrastructure as code, secure deployments, and cloud-native operations on Azure.',
+    link: { href: 'https://github.com/scott-ai-maker/devops-project', label: 'github.com' },
+    logo: 'devops-project.png',
+    technologies: ['Python', 'FastAPI', 'Terraform', 'AKS', 'Helm', 'GitHub Actions', 'Azure'],
+    features: [
+      'Terraform-managed Azure infrastructure and AKS deployment',
+      'Helm-based Kubernetes packaging and release workflow',
+      'CI/CD pipeline with automated build and deployment steps',
+      'Operational endpoints for health checks and metrics',
+      'Security best practices with Key Vault, RBAC, and non-root containers'
+    ]
+  },
+  {
+    name: 'AI Image Captioner',
+    description:
+      'Multimodal image captioning toolkit using BLIP and BLIP-2 models, with interactive web UI, batch processing for local files, and automated webpage image captioning workflows.',
+    link: { href: 'https://github.com/scott-ai-maker/ai-image-captioner', label: 'github.com' },
+    logo: 'ai-image-captioner.png',
+    technologies: ['Python', 'Gradio', 'Transformers', 'PyTorch', 'BLIP', 'BLIP-2'],
+    features: [
+      'Interactive Gradio web interface for real-time captioning',
+      'Multiple model options for speed vs quality tradeoffs',
+      'Batch caption generation for local image directories',
+      'Automated URL scraping and caption generation pipeline',
+      'Clear scripts and docs for quick local setup'
+    ]
+  },
+  {
     name: 'AI-Powered Chatbot (RAG System)',
     description:
       'Enterprise-grade RAG system with Azure OpenAI integration, JWT authentication, Redis caching, and rate limiting. Deployed on Azure Container Apps with full CI/CD pipeline.',
