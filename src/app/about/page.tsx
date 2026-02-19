@@ -9,16 +9,16 @@ import portraitImage from '../../../public/images/avatar.jpg'
 import { siteConfig } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'About',
+  title: 'About | AI Engineer and Platform Engineer',
   description:
-    'About Scott Gordon: AI engineer and DevOps specialist focused on resilient cloud systems and practical AI adoption.',
+    'About Scott Gordon: AI engineer and platform engineer building production AI systems, resilient cloud infrastructure, and reliable delivery pipelines.',
   alternates: {
     canonical: '/about',
   },
   openGraph: {
     title: 'About | Scott Gordon Portfolio',
     description:
-      'Learn about Scott Gordon’s experience building cloud-native and AI-enabled systems.',
+      'Learn about Scott Gordon’s experience building production AI systems and cloud-native platforms.',
     url: '/about',
     siteName: siteConfig.name,
     type: 'profile',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'About | Scott Gordon Portfolio',
     description:
-      'Learn about Scott Gordon’s experience building cloud-native and AI-enabled systems.',
+      'Learn about Scott Gordon’s experience building production AI systems and cloud-native platforms.',
   },
 }
 
@@ -71,17 +71,17 @@ export default function About() {
         </div>
         <div className="lg:order-first lg:row-span-2">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            I’m Scott Gordon, and I build GenAI solutions and modern cloud platforms.
+            I’m Scott Gordon, and I build production AI systems and cloud platforms.
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
-              I’m a cloud and platform engineer transitioning into AI engineering, with a proven record of delivering resilient, cloud-native infrastructure for commercial and federal clients. I focus on production readiness, automation, and clear operational design so teams can move quickly without sacrificing reliability.
+              I’m an AI and platform engineer focused on shipping systems that hold up in production. My work spans cloud infrastructure, API services, retrieval workflows, and delivery automation, with an emphasis on reliability, security, and operational clarity.
             </p>
             <p>
-              My experience spans Azure and AWS environments, CI/CD automation, and infrastructure as code with Terraform. At VivSoft, I provisioned secure Azure platforms for federal programs and automated operations with GitHub Actions, PowerShell, and cloud tooling. At Slalom Consulting, I modernized infrastructure for a major gas pipeline operator using AWS, Terraform, and Docker.
+              Across Azure and AWS environments, I design and operate systems with Terraform, Kubernetes, FastAPI, and CI/CD pipelines. At VivSoft, I supported secure Azure delivery for federal programs and automated operations with GitHub Actions and scripting. At Slalom Consulting, I helped modernize cloud infrastructure and deployment workflows for enterprise clients.
             </p>
             <p>
-              I also completed a WIOA-approved Artificial Intelligence Technologies program (375 hours), with hands-on work in LangChain, Transformers, NLP, CNNs, and AI application workflows. I enjoy translating complex AI and platform engineering concepts into practical systems that teams can adopt quickly and responsibly.
+              I combine platform engineering discipline with practical AI implementation, including LangChain, Transformers, vector search, and production-minded application design. I enjoy turning complex technical ideas into maintainable systems teams can adopt quickly and improve over time.
             </p>
           </div>
         </div>

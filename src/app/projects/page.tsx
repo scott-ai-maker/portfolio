@@ -1,7 +1,26 @@
 import Image from 'next/image';
+import type { Metadata } from 'next';
 
 import { Card } from '../../components/Card.tsx';
 import { SimpleLayout } from '../../components/SimpleLayout.tsx';
+import { siteConfig } from '@/lib/site';
+
+export const metadata: Metadata = {
+  title: 'Projects',
+  description:
+    'Flagship AI and platform engineering projects covering architecture, deployment automation, security controls, and production operations.',
+  alternates: {
+    canonical: '/projects',
+  },
+  openGraph: {
+    title: 'Projects | Scott Gordon Portfolio',
+    description:
+      'Explore production-focused AI and cloud platform projects by Scott Gordon.',
+    url: '/projects',
+    siteName: siteConfig.name,
+    type: 'website',
+  },
+};
 
 interface Project {
   name: string;
@@ -17,13 +36,85 @@ interface Project {
   logo: string;
   technologies?: string[];
   features?: string[];
+  impactMetrics?: string[];
+  architectureLinks?: Array<{
+    href: string;
+    label: string;
+    type: string;
+  }>;
 }
 
 const projects: Project[] = [
   {
+    name: 'AI-Powered Chatbot (RAG System)',
+    description:
+      'Production-focused RAG assistant built to answer domain-specific questions with grounded responses, secure access, and cloud deployment patterns suitable for enterprise workloads.',
+    link: { href: 'https://github.com/scott-ai-maker/ai-powered-chatbot', label: 'github.com' },
+    demoLink: { href: 'https://ai-career-mentor-frontend.agreeablecoast-963be1b8.eastus2.azurecontainerapps.io/', label: 'Live Demo' },
+    logo: 'ai-powered-chatbot-mark.svg',
+    technologies: ['Python', 'FastAPI', 'Azure OpenAI', 'RAG', 'Docker', 'Azure Container Apps'],
+    features: [
+      'Retrieval-augmented generation pipeline for grounded answers',
+      'JWT authentication and rate limiting for secure API access',
+      'Redis caching to reduce response latency and repeated token usage',
+      'Containerized deployment on Azure Container Apps',
+      'CI/CD workflow for repeatable builds and releases',
+      'Operational monitoring and health-check endpoints'
+    ],
+    impactMetrics: [
+      'p95 latency — Measured: pending | Est: ~1.4s cached, ~2.9s full RAG path',
+      'Grounded-answer quality — Measured: pending | Est: ~78-85% relevance/citation pass rate',
+      'Deployment frequency — Measured: pending | Est: 3-6 production releases/month'
+    ],
+    architectureLinks: [
+      {
+        href: 'https://github.com/scott-ai-maker/ai-powered-chatbot/blob/main/ARCHITECTURE.md',
+        label: 'Architecture doc',
+        type: 'System Doc'
+      },
+      {
+        href: 'https://github.com/scott-ai-maker/ai-powered-chatbot/blob/main/README.md',
+        label: 'README system diagram',
+        type: 'Mermaid'
+      }
+    ]
+  },
+  {
+    name: 'DevOps Project',
+    description:
+      'End-to-end platform engineering project that provisions Azure infrastructure, packages services for Kubernetes, and automates deployment through a repeatable CI/CD workflow.',
+    link: { href: 'https://github.com/scott-ai-maker/devops-project', label: 'github.com' },
+    logo: 'devops-project-mark.svg',
+    technologies: ['Python', 'FastAPI', 'Terraform', 'AKS', 'Helm', 'GitHub Actions', 'Azure'],
+    features: [
+      'Terraform-managed Azure infrastructure and AKS cluster setup',
+      'Helm chart packaging for versioned Kubernetes releases',
+      'GitHub Actions pipeline for build, validation, and deployment',
+      'Health and readiness endpoints for operational confidence',
+      'Security controls with Key Vault, RBAC, and non-root containers'
+    ],
+    impactMetrics: [
+      'Provisioning time — Measured: pending | Est: ~40-55 min initial, ~10-18 min incremental',
+      'Pipeline success rate — Measured: pending | Est: ~92-97% on routine runs',
+      'Lead time to prod — Measured: pending | Est: same day to 1 business day'
+    ],
+    architectureLinks: [
+      {
+        href: 'https://github.com/scott-ai-maker/devops-project/blob/main/README.md',
+        label: 'README architecture diagram',
+        type: 'ASCII'
+      },
+      {
+        href: 'https://github.com/scott-ai-maker/devops-project/blob/main/DEPLOYMENT_GUIDE.md',
+        label: 'Deployment architecture guide',
+        type: 'Guide'
+      }
+    ]
+  },
+  {
     name: 'AI Quiz Platform',
     description:
-      'Production-ready microservices quiz platform with independent services for users, quizzes, and results, featuring secure APIs, Docker orchestration, and scalable service boundaries.',
+      'Microservices-based assessment platform designed to separate user, quiz, and results domains, with secure APIs and deployment workflows that support independent scaling.',
     link: { href: 'https://github.com/scott-ai-maker/ai-quiz-platform', label: 'github.com' },
     logo: 'ai-quiz-platform-mark.svg',
     technologies: ['JavaScript', 'Node.js', 'Express', 'MongoDB', 'Docker', 'Microservices'],
@@ -33,27 +124,46 @@ const projects: Project[] = [
       'Docker Compose orchestration for local and deployment workflows',
       'Service health monitoring and API-first architecture',
       'Designed for independent scaling by service domain'
+    ],
+    impactMetrics: [
+      'API p95 latency — Measured: pending | Est: ~120-220ms at 50-100 combined RPS',
+      '5xx error rate under load — Measured: pending | Est: ~0.3-0.8% in stress windows',
+      'MTTR — Measured: pending | Est: ~15-25 min for common restart/failure scenarios'
+    ],
+    architectureLinks: [
+      {
+        href: 'https://github.com/scott-ai-maker/ai-quiz-platform/blob/main/ARCHITECTURE.md',
+        label: 'Architecture doc',
+        type: 'System Doc'
+      },
+      {
+        href: 'https://github.com/scott-ai-maker/ai-quiz-platform/blob/main/README.md',
+        label: 'README architecture overview',
+        type: 'Overview'
+      }
     ]
   },
   {
-    name: 'DevOps Project',
+    name: 'AI Image Analyzer',
     description:
-      'End-to-end DevOps demonstration with FastAPI, Terraform, AKS, Helm, and GitHub Actions showing infrastructure as code, secure deployments, and cloud-native operations on Azure.',
-    link: { href: 'https://github.com/scott-ai-maker/devops-project', label: 'github.com' },
-    logo: 'devops-project-mark.svg',
-    technologies: ['Python', 'FastAPI', 'Terraform', 'AKS', 'Helm', 'GitHub Actions', 'Azure'],
+      'Computer vision web application for image inspection workflows, combining backend analysis services with a modern frontend and cloud-native deployment practices.',
+    link: { href: 'https://github.com/scott-ai-maker/ai-image-analyzer', label: 'github.com' },
+    demoLink: { href: 'https://web-image-analyzer.nicesea-5e74ee97.eastus2.azurecontainerapps.io/', label: 'Live Demo' },
+    logo: 'ai-image-analyzer-mark.svg',
+    technologies: ['Python', 'FastAPI', 'React', 'Computer Vision', 'PIL/OpenCV', 'Azure Container Apps'],
     features: [
-      'Terraform-managed Azure infrastructure and AKS deployment',
-      'Helm-based Kubernetes packaging and release workflow',
-      'CI/CD pipeline with automated build and deployment steps',
-      'Operational endpoints for health checks and metrics',
-      'Security best practices with Key Vault, RBAC, and non-root containers'
+      'Image analysis for color profiling, object detection, and face detection',
+      'Drag-and-drop upload flow for quick interactive testing',
+      'Frontend and API separation for maintainable architecture',
+      'Containerized cloud deployment with autoscaling support',
+      'CI/CD automation using GitHub Actions',
+      'Production-minded controls for reliability and operations'
     ]
   },
   {
     name: 'AI Image Captioner',
     description:
-      'Multimodal image captioning toolkit using BLIP and BLIP-2 models, with interactive web UI, batch processing for local files, and automated webpage image captioning workflows.',
+      'Multimodal captioning toolkit that compares BLIP-family models and supports both interactive and batch workflows for practical image-to-text generation tasks.',
     link: { href: 'https://github.com/scott-ai-maker/ai-image-captioner', label: 'github.com' },
     logo: 'ai-image-captioner-mark.svg',
     technologies: ['Python', 'Gradio', 'Transformers', 'PyTorch', 'BLIP', 'BLIP-2'],
@@ -66,26 +176,9 @@ const projects: Project[] = [
     ]
   },
   {
-    name: 'AI-Powered Chatbot (RAG System)',
-    description:
-      'Enterprise-grade RAG system with Azure OpenAI integration, JWT authentication, Redis caching, and rate limiting. Deployed on Azure Container Apps with full CI/CD pipeline.',
-    link: { href: 'https://github.com/scott-ai-maker/ai-powered-chatbot', label: 'github.com' },
-    demoLink: { href: 'https://ai-career-mentor-frontend.agreeablecoast-963be1b8.eastus2.azurecontainerapps.io/', label: 'Live Demo' },
-    logo: 'ai-powered-chatbot-mark.svg',
-    technologies: ['Python', 'FastAPI', 'Azure OpenAI', 'RAG', 'Docker', 'Azure Container Apps'],
-    features: [
-      'RAG (Retrieval-Augmented Generation) system',
-      'Azure OpenAI integration',
-      'Enterprise security with JWT authentication',
-      'Redis caching for performance',
-      'Rate limiting and monitoring',
-      'Full Azure deployment with Container Apps'
-    ]
-  },
-  {
     name: 'AI Chat Assistant',
     description:
-      'Interactive conversational AI assistant built with Gradio and Google Gemini API, featuring multi-turn conversations with context retention, streaming responses, and an intuitive chat interface deployed on Hugging Face Spaces.',
+      'Conversational AI interface focused on responsive user experience, context-aware dialogue, and lightweight deployment for fast iteration and demoability.',
     link: { href: 'https://github.com/scott-ai-maker/ai-chat-assistant', label: 'github.com' },
     demoLink: { href: 'https://huggingface.co/spaces/scott-aiengineer/ai-chat-assistant', label: 'Live Demo' },
     logo: 'ai-chat-assistant-mark.svg',
@@ -97,23 +190,6 @@ const projects: Project[] = [
       'Modern Gradio chat interface',
       'Chat history and session management',
       'Deployed on Hugging Face Spaces'
-    ]
-  },
-  {
-    name: 'AI Image Analyzer',
-    description:
-      'Advanced computer vision application with real-time image processing, featuring drag-and-drop uploads, color analysis, object detection, and face detection with modern React frontend.',
-    link: { href: 'https://github.com/scott-ai-maker/ai-image-analyzer', label: 'github.com' },
-    demoLink: { href: 'https://web-image-analyzer.nicesea-5e74ee97.eastus2.azurecontainerapps.io/', label: 'Live Demo' },
-    logo: 'ai-image-analyzer-mark.svg',
-    technologies: ['Python', 'FastAPI', 'React', 'Computer Vision', 'PIL/OpenCV', 'Azure Container Apps'],
-    features: [
-      'Real computer vision processing',
-      'Drag-and-drop image uploads',
-      'Color analysis, object detection, face detection',
-      'Modern React frontend with portfolio styling',
-      'Enterprise patterns (RBAC, monitoring, auto-scaling)',
-      'CI/CD pipelines with GitHub Actions'
     ]
   }
 ]
@@ -132,15 +208,22 @@ function LinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 export default function ProjectsPage() {
   return (
     <SimpleLayout
-      title="Things I’ve made trying to put my dent in the universe."
-      intro="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
+      title="Projects focused on production AI and platform delivery."
+      intro="Selected work that demonstrates end-to-end execution: problem framing, architecture decisions, secure deployment, and operational readiness across AI and cloud platforms."
     >
       <ul
         role="list"
         className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
       >
-        {projects.map((project) => (
-          <Card as="li" key={project.name}>
+        {projects.map((project, projectIndex) => {
+          const isFlagship = projectIndex < 3
+
+          return (
+          <Card
+            as="li"
+            key={project.name}
+            className={isFlagship ? 'rounded-2xl border border-teal-200/60 bg-teal-50/20 p-4 ring-1 ring-teal-200/50 dark:border-teal-700/40 dark:bg-teal-950/10 dark:ring-teal-700/30' : ''}
+          >
             <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
               <Image
                 src={`/images/logos/${project.logo}`}
@@ -150,19 +233,24 @@ export default function ProjectsPage() {
                 className="h-8 w-8"
               />
             </div>
+            {isFlagship && (
+              <span className="relative z-10 mt-3 inline-flex items-center rounded-full bg-teal-100 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-teal-800 ring-1 ring-teal-200/70 dark:bg-teal-900/40 dark:text-teal-300 dark:ring-teal-700/50">
+                Flagship
+              </span>
+            )}
             <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
               {project.name}
             </h2>
             <Card.Description>{project.description}</Card.Description>
             
             {project.technologies && (
-              <div className="relative z-10 mt-4">
-                <h3 className="text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">Tech Stack:</h3>
+              <div className="relative z-10 mt-3">
+                <h3 className="text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1.5">Tech Stack:</h3>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
                     <span 
                       key={tech}
-                      className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-300"
+                      className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-300"
                     >
                       {tech}
                     </span>
@@ -172,9 +260,9 @@ export default function ProjectsPage() {
             )}
 
             {project.features && (
-              <div className="relative z-10 mt-4">
-                <h3 className="text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">Key Features:</h3>
-                <ul className="text-sm text-zinc-600 dark:text-zinc-400 space-y-1">
+              <div className="relative z-10 mt-3">
+                <h3 className="text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1.5">Highlights:</h3>
+                <ul className="text-[13px] text-zinc-600 dark:text-zinc-400 space-y-0.5">
                   {project.features.slice(0, 3).map((feature, index) => (
                     <li key={index} className="flex items-start">
                       <span className="text-teal-500 mr-2">✓</span>
@@ -190,12 +278,49 @@ export default function ProjectsPage() {
               </div>
             )}
 
-            <div className="relative z-30 mt-6 space-y-2">
+            {project.impactMetrics && (
+              <div className="relative z-10 mt-3">
+                <h3 className="text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1.5">Impact Metrics:</h3>
+                <ul className="text-[13px] text-zinc-600 dark:text-zinc-400 space-y-0.5">
+                  {project.impactMetrics.map((metric, index) => (
+                    <li key={index} className="flex items-start">
+                      <span className="text-teal-500 mr-2">•</span>
+                      {metric}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {project.architectureLinks && (
+              <div className="relative z-10 mt-3">
+                <h3 className="text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1.5">Architecture:</h3>
+                <ul className="text-[13px] text-zinc-600 dark:text-zinc-400 space-y-0.5">
+                  {project.architectureLinks.map((resource) => (
+                    <li key={resource.href}>
+                      <a
+                        href={resource.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300 transition-colors"
+                      >
+                        <span>{resource.label}</span>
+                        <span className="inline-flex items-center rounded-full bg-zinc-100 px-2 py-0.5 text-[10px] font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
+                          {resource.type}
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <div className="relative z-30 mt-5 space-y-1.5">
               <a 
                 href={project.link.href} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex text-sm font-medium text-zinc-600 hover:text-teal-600 dark:text-zinc-300 dark:hover:text-teal-400 transition-colors"
+                className="flex text-[13px] font-medium text-zinc-600 hover:text-teal-600 dark:text-zinc-300 dark:hover:text-teal-400 transition-colors"
               >
                 <LinkIcon className="h-6 w-6 flex-none" />
                 <span className="ml-2">{project.link.label}</span>
@@ -205,7 +330,7 @@ export default function ProjectsPage() {
                   href={project.demoLink.href} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex text-sm font-medium text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300 transition-colors"
+                  className="flex text-[13px] font-medium text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300 transition-colors"
                 >
                   <svg className="h-6 w-6 flex-none" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
@@ -215,7 +340,8 @@ export default function ProjectsPage() {
               )}
             </div>
           </Card>
-        ))}
+          )
+        })}
       </ul>
     </SimpleLayout>
   )

@@ -6,14 +6,14 @@ import { siteConfig } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Skills',
   description:
-    'Technical skills across AI engineering, cloud platforms, infrastructure as code, and DevOps automation.',
+    'Core skills across AI engineering, cloud platforms, MLOps delivery, and infrastructure automation for production systems.',
   alternates: {
     canonical: '/skills',
   },
   openGraph: {
     title: 'Skills | Scott Gordon Portfolio',
     description:
-      'AI, cloud, and DevOps skills used to build secure, scalable, production-ready systems.',
+      'AI, cloud, and platform engineering skills used to build secure, scalable, production-ready systems.',
     url: '/skills',
     siteName: siteConfig.name,
     type: 'website',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 const skills = [
   {
-    category: 'Generative AI & LLMs',
+    category: 'AI Engineering & Applied ML',
     items: [
       'LangChain',
       'LlamaIndex',
@@ -35,19 +35,19 @@ const skills = [
     ],
   },
   {
-    category: 'Cloud & Containerization',
-    items: ['Azure', 'AWS', 'GCP', 'Docker', 'Kubernetes'],
+    category: 'Platform & Cloud Systems',
+    items: ['Azure', 'AWS', 'Kubernetes', 'Docker', 'GCP'],
   },
   {
-    category: 'CI/CD & Version Control',
+    category: 'MLOps, CI/CD & Delivery',
     items: ['GitHub Actions', 'CircleCI', 'GitLab CI/CD', 'Git'],
   },
   {
-    category: 'IaC & Automation',
+    category: 'Infrastructure as Code & Automation',
     items: ['Terraform', 'Python', 'PowerShell', 'Bash'],
   },
   {
-    category: 'Monitoring & Operations',
+    category: 'Operations & Collaboration',
     items: ['Linux Administration', 'ServiceNow (SNOW)', 'Jira', 'Confluence'],
   },
 ]
@@ -72,7 +72,7 @@ export default function Skills() {
         </h1>
         <div className="mt-4 h-1.5 w-24 rounded-full bg-gradient-to-r from-teal-500 via-accent to-teal-400" />
         <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-          Technical capabilities across AI engineering, cloud architecture, infrastructure automation, and production delivery.
+          Core capabilities for building and operating production AI and cloud platform systems.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <span className="inline-flex items-center rounded-full bg-teal-100 px-3 py-1 text-xs font-medium text-teal-800 dark:bg-teal-900/30 dark:text-teal-300">
@@ -82,7 +82,7 @@ export default function Skills() {
             {totalSkills}+ Tools & Competencies
           </span>
           <span className="inline-flex items-center rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
-            AI, Cloud, DevOps
+            Mid-level AI + Platform Focus
           </span>
         </div>
       </header>

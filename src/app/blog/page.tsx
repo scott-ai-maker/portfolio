@@ -7,14 +7,14 @@ import { siteConfig } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Blog',
   description:
-    'Plain-language essays on AI, software engineering, and DevOps by Scott Gordon.',
+    'Practical writing on AI engineering, MLOps, platform reliability, and cloud delivery by Scott Gordon.',
   alternates: {
     canonical: '/blog',
   },
   openGraph: {
     title: 'Blog | Scott Gordon Portfolio',
     description:
-      'Plain-language essays on AI, software engineering, and DevOps by Scott Gordon.',
+      'Practical writing on AI engineering, MLOps, platform reliability, and cloud delivery by Scott Gordon.',
     url: '/blog',
     siteName: siteConfig.name,
     type: 'website',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Blog | Scott Gordon Portfolio',
     description:
-      'Plain-language essays on AI, software engineering, and DevOps by Scott Gordon.',
+      'Practical writing on AI engineering, MLOps, platform reliability, and cloud delivery by Scott Gordon.',
   },
 }
 
@@ -51,7 +51,7 @@ export default function Blog() {
         Blog
       </h1>
       <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-        Explore plain-language essays on AI, engineering, and building useful systems for people.
+        Practical notes on shipping AI and platform systems: architecture, delivery, reliability, and real-world tradeoffs.
       </p>
       <div className="mt-10 grid grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8">
         {blogPosts.map((article) => (
@@ -71,7 +71,7 @@ export default function Blog() {
             </Card.Eyebrow>
             <Card.Title href={`/blog/${article.slug}`}>{article.title}</Card.Title>
             <Card.Description>{article.description}</Card.Description>
-            <Card.Cta href={`/blog/${article.slug}`}>Read More</Card.Cta>
+            <Card.Cta href={`/blog/${article.slug}`}>Read article</Card.Cta>
           </Card>
         ))}
       </div>

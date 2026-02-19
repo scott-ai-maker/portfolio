@@ -6,14 +6,14 @@ import { siteConfig } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Experience',
   description:
-    'Professional experience across AI engineering, DevOps, and cloud platform modernization.',
+    'Professional experience delivering AI-enabled systems, cloud platform engineering, and production automation across enterprise and federal contexts.',
   alternates: {
     canonical: '/experience',
   },
   openGraph: {
     title: 'Experience | Scott Gordon Portfolio',
     description:
-      'Career highlights and delivery experience across cloud infrastructure, automation, and AI systems.',
+      'Career highlights across production AI systems, platform reliability, and cloud automation.',
     url: '/experience',
     siteName: siteConfig.name,
     type: 'website',
@@ -33,11 +33,11 @@ export default function Experience() {
       start: '2025',
       end: 'Present',
       description: [
-        'Develop and deliver AI literacy programs that help professionals build foundational and applied AI skills.',
-        'Design hands-on training in machine learning, data science, and emerging tools using practical workflows.',
-        'Advise organizations on AI strategy and workforce upskilling to align technical efforts with business value.',
-        'Build accessible learning paths that demystify AI concepts for technical and non-technical audiences.',
-        'Promote ethical and responsible AI practices aligned with organizational goals and compliance needs.',
+        'Designed and delivered applied AI training programs focused on practical implementation, not just theory.',
+        'Built hands-on labs for NLP, Transformers, retrieval workflows, and model-driven application design.',
+        'Advised stakeholders on AI adoption strategy, prioritization, and responsible-use guardrails.',
+        'Translated complex AI concepts into production-oriented workflows for technical and non-technical teams.',
+        'Standardized reusable learning paths that improved consistency of onboarding and AI upskilling.',
       ],
     },
     {
@@ -47,15 +47,14 @@ export default function Experience() {
       start: '2024',
       end: '2025',
       description: [
-        'Maintained and upgraded systems to ensure operational continuity, including troubleshooting and remediating bugs.',
-        'Developed and implemented scripts to automate processes, improving efficiency and reducing manual workload.',
-        'Assisted in migrating client systems from TFS to GitHub Enterprise Server (GHES).',
-        'Managed and resolved ServiceNow (SNOW) tickets, delivering timely issue resolution.',
-        'Designed and maintained Terraform infrastructure to ensure robust and scalable environments.',
-        'Created and optimized GitHub Actions workflows, streamlining CI/CD processes.',
-        'Participated in control board meetings to secure approval for system changes and maintain compliance and stability.',
-        'Conducted daily tests on backend operations servers to ensure functionality and performed necessary remediation.',
-        'Utilized PowerShell scripting and Azure to enhance system automation and cloud infrastructure management.',
+        'Owned day-to-day reliability for backend systems, troubleshooting incidents and driving remediation to closure.',
+        'Automated recurring operational tasks with PowerShell and cloud tooling to reduce manual effort and execution risk.',
+        'Helped migrate source control and delivery workflows from TFS to GitHub Enterprise Server.',
+        'Built and maintained Terraform-managed Azure infrastructure aligned to security and scalability requirements.',
+        'Implemented and refined GitHub Actions pipelines to improve delivery consistency across environments.',
+        'Supported change-control reviews and release governance for stable production rollouts.',
+        'Executed operational health checks and system validation to catch failures before downstream impact.',
+        'Managed ServiceNow ticket flow with a focus on response quality, turnaround, and incident follow-through.',
       ],
     },
     {
@@ -65,13 +64,13 @@ export default function Experience() {
       start: '2021',
       end: '2023',
       description: [
-        'Engineered cloud-native infrastructure solutions for a major gas pipeline operator, leveraging AWS services to modernize legacy systems and improve platform reliability.',
-        'Collaborated with cross-functional teams to design and implement scalable CI/CD pipelines using CircleCI, Terraform, and Docker.',
-        'Supported cloud migration efforts by provisioning secure, resilient environments across development, staging, and production using AWS IAM, EC2, S3, RDS, and CloudWatch.',
-        'Automated infrastructure deployment and configuration management, reducing manual overhead and accelerating delivery timelines.',
-        'Monitored system performance and resolved runtime issues to ensure high availability and compliance with industry standards.',
-        'Documented architecture decisions, operational workflows, and troubleshooting guides to support long-term maintainability and smooth client handoff.',
-        'Contributed to Slalom’s internal knowledge base by sharing best practices in platform engineering and cloud operations.',
+        'Engineered cloud-native AWS infrastructure for a major energy-sector client modernizing legacy systems.',
+        'Partnered with delivery teams to design CI/CD pipelines using CircleCI, Terraform, and Docker.',
+        'Provisioned secure multi-environment cloud foundations across development, staging, and production.',
+        'Automated infrastructure deployment and configuration workflows to speed up releases and reduce drift.',
+        'Monitored runtime health and resolved operational issues to maintain service reliability.',
+        'Documented architecture decisions, runbooks, and handoff guidance to improve long-term maintainability.',
+        'Shared platform engineering standards and best practices through internal knowledge contributions.',
       ],
     },
   ]
@@ -111,7 +110,7 @@ export default function Experience() {
         </h1>
         <div className="mt-4 h-1.5 w-24 rounded-full bg-gradient-to-r from-teal-500 via-accent to-teal-400" />
         <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-          Hands-on delivery across cloud infrastructure, automation, and AI-ready platform modernization.
+          Delivery experience across production AI enablement, platform reliability, and cloud automation.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <span className="inline-flex items-center rounded-full bg-teal-100 px-3 py-1 text-xs font-medium text-teal-800 dark:bg-teal-900/30 dark:text-teal-300">

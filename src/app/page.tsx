@@ -16,9 +16,9 @@ import { formatDate } from '../lib/formatDate.ts'
 import { absoluteUrl, siteConfig } from '@/lib/site'
 
 export const metadata: Metadata = {
-  title: 'AI Engineer | Cloud Platform Specialist',
+  title: 'AI Engineer | Platform & MLOps',
   description:
-    'Scott Gordon is an AI engineer and cloud platform specialist building production AI systems, resilient cloud infrastructure, and DevOps automation.',
+    'Scott Gordon builds production AI systems and cloud platforms with strong reliability, security, and delivery automation across Azure and AWS.',
   keywords: [
     'AI engineering',
     'DevOps',
@@ -31,18 +31,18 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Scott Gordon | AI Engineer and Cloud Platform Specialist',
+    title: 'Scott Gordon | AI Engineer and Platform Specialist',
     description:
-      'Explore AI engineering projects, cloud platform work, and technical writing by Scott Gordon.',
+      'Explore production AI projects, platform engineering work, and technical writing by Scott Gordon.',
     url: '/',
     siteName: siteConfig.name,
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Scott Gordon | AI Engineer and Cloud Platform Specialist',
+    title: 'Scott Gordon | AI Engineer and Platform Specialist',
     description:
-      'Explore AI engineering projects, cloud platform work, and technical writing by Scott Gordon.',
+      'Explore production AI projects, platform engineering work, and technical writing by Scott Gordon.',
   },
 }
 
@@ -182,7 +182,7 @@ function Resume() {
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
         <BriefcaseIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Work</span>
+        <span className="ml-3">Experience Snapshot</span>
       </h2>
       <ol className="mt-6 space-y-4">
         {resume.map((role) => (
@@ -190,7 +190,7 @@ function Resume() {
         ))}
       </ol>
       <Button href="/experience" variant="secondary" className="mt-6 w-full">
-        View full experience
+        See full experience
       </Button>
     </div>
   )
@@ -318,14 +318,14 @@ export default async function Home() {
       <Container className="mt-16 sm:mt-20">
         <div className="max-w-3xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            AI Engineer and Cloud Platform Specialist building reliable, production-grade systems.
+            AI Engineer and Platform Engineer building production systems that are reliable, secure, and scalable.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I deliver resilient cloud-native infrastructure and production AI
-            systems for commercial and federal use cases. My work combines
-            Azure and AWS platform engineering, CI/CD automation, Terraform,
-            and practical GenAI implementation with LangChain, Transformers,
-            and vector search.
+            I design and ship end-to-end AI applications and cloud platforms,
+            from model integration and retrieval workflows to API design,
+            CI/CD automation, and day-2 operations. My stack spans Azure and
+            AWS, Terraform, Kubernetes, FastAPI, and practical GenAI patterns
+            with LangChain, Transformers, and vector search.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
@@ -358,11 +358,11 @@ export default async function Home() {
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-16 lg:max-w-none lg:grid-cols-3 lg:gap-x-12">
           <div className="lg:col-span-2">
             <h2 id="latest-posts-heading" className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
-              Latest blog posts
+              Technical writing
             </h2>
             <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400">
-              Recent essays on AI engineering, DevOps, cloud architecture, and
-              practical software delivery.
+              Practical essays on AI engineering, MLOps, cloud architecture,
+              and reliable software delivery.
             </p>
             <div className="mt-10 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-8">
               {featuredPosts.map((post) => (
@@ -379,9 +379,14 @@ export default async function Home() {
 
             <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
               <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-                Explore
+                Start here
               </h2>
               <ul className="mt-4 space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
+                <li>
+                  <Link className="transition hover:text-teal-500" href="/projects">
+                    Projects
+                  </Link>
+                </li>
                 <li>
                   <Link className="transition hover:text-teal-500" href="/about">
                     About
