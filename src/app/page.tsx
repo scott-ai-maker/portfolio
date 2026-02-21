@@ -94,6 +94,31 @@ function SocialLink({
   )
 }
 
+function ResumeSpotlight() {
+  return (
+    <div className="mt-8 rounded-2xl border border-teal-200/70 bg-teal-50/40 p-5 ring-1 ring-teal-200/60 dark:border-teal-700/40 dark:bg-teal-950/20 dark:ring-teal-700/30">
+      <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+        Resume spotlight
+      </h2>
+      <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+        View a focused summary of my AI, platform engineering, and DevOps experience.
+      </p>
+      <div className="mt-4">
+        <Button
+          href={siteConfig.resumeUrl}
+          variant="primary"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-analytics-event="outbound_click"
+          data-analytics-label="home_resume_spotlight"
+        >
+          View resume ↗
+        </Button>
+      </div>
+    </div>
+  )
+}
+
 type FeaturedPost = {
   slug: string
   title: string
@@ -350,6 +375,7 @@ export default async function Home() {
               MTTR: ~18–25 min
             </span>
           </div>
+          <ResumeSpotlight />
           <div className="mt-6 flex gap-6">
             <SocialLink
               href={siteConfig.social.github}
@@ -373,16 +399,6 @@ export default async function Home() {
           <div className="mt-8 flex flex-wrap gap-4">
             <Button href="/projects" variant="primary">Explore projects</Button>
             <Button href="/blog" variant="secondary">Read blog posts</Button>
-            <Button
-              href={siteConfig.resumeUrl}
-              variant="secondary"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-analytics-event="outbound_click"
-              data-analytics-label="home_resume"
-            >
-              View resume ↗
-            </Button>
           </div>
           <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-zinc-600 dark:text-zinc-400">
             <Link className="transition hover:text-teal-500 dark:hover:text-teal-400" href="/projects">
