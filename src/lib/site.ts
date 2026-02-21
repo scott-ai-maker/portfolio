@@ -8,8 +8,8 @@ export const siteConfig = {
   social: {
     github: 'https://github.com/scott-ai-maker',
     linkedin: 'https://www.linkedin.com/in/sagordon-dev/',
-    linkedinEndorsements:
-      'https://www.linkedin.com/in/sagordon-dev/details/skills/',
+    linkedinRecommendations:
+      'https://www.linkedin.com/in/sagordon-dev/details/recommendations/',
     credly: 'https://www.credly.com/users/scott-gordon.1dfe2f10',
   },
   keywords: [

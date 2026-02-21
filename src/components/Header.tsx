@@ -152,7 +152,7 @@ function MobileNavigation(
               <LinkedInIcon className="h-5 w-5 fill-current" />
             </Link>
             <Link
-              href={siteConfig.social.linkedinEndorsements}
+              href={siteConfig.social.linkedinRecommendations}
               className="text-sm transition hover:text-teal-500 dark:hover:text-teal-400"
               target="_blank"
               rel="noopener noreferrer"

@@ -6,6 +6,7 @@ import type { Metadata } from 'next'
 import { Button } from '../components/Button.tsx'
 import { Card } from '../components/Card.tsx'
 import { Container } from '../components/Container.tsx'
+import { Testimonials } from '../components/Testimonials.tsx'
 import {
   GitHubIcon,
   LinkedInIcon,
@@ -380,13 +381,14 @@ export default async function Home() {
             </Link>
             <Link
               className="transition hover:text-teal-500 dark:hover:text-teal-400"
-              href={siteConfig.social.linkedinEndorsements}
+              href={siteConfig.social.linkedinRecommendations}
               target="_blank"
               rel="noopener noreferrer"
             >
               LinkedIn endorsements ↗
             </Link>
           </div>
+          <Testimonials className="mt-8" />
         </div>
       </Container>
 

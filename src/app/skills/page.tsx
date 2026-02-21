@@ -139,7 +139,7 @@ export default function Skills() {
           </Button>
           <Button
             variant="secondary"
-            href={siteConfig.social.linkedinEndorsements}
+            href={siteConfig.social.linkedinRecommendations}
             target="_blank"
             rel="noopener noreferrer"
           >

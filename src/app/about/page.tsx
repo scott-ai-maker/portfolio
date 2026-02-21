@@ -4,6 +4,8 @@ import clsx from 'clsx'
 import type { Metadata } from 'next'
 
 import { Container } from '../../components/Container.tsx'
+import { RecommendedBy } from '../../components/RecommendedBy.tsx'
+import { Testimonials } from '../../components/Testimonials.tsx'
 import { GitHubIcon, LinkedInIcon, CredlyIcon } from '../../components/SocialIcons.tsx'
 import portraitImage from '../../../public/images/avatar.jpg'
 import { siteConfig } from '@/lib/site'
@@ -102,6 +104,8 @@ export default function About() {
           </ul>
         </div>
       </div>
+      <Testimonials className="mt-16 max-w-3xl" />
+      <RecommendedBy className="mt-8 max-w-3xl" />
     </Container>
   )
 }
