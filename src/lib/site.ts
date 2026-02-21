@@ -7,7 +7,7 @@ export const siteConfig = {
   contactEmail: 'scott.gordon.ai@gmail.com',
   resumeUrl:
     process.env.NEXT_PUBLIC_RESUME_URL ??
-    'https://www.linkedin.com/in/sagordon-dev/',
+    '/resume/scott-gordon-ai-engineer-resume.pdf',
   ogImage: '/images/avatar.jpg',
   social: {
     github: 'https://github.com/scott-ai-maker',
