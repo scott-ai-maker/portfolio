@@ -82,7 +82,7 @@ export default function Skills() {
             {totalSkills}+ Tools & Competencies
           </span>
           <span className="inline-flex items-center rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
-            Mid-level AI + Platform Focus
+            AI + Platform Engineering Focus
           </span>
         </div>
       </header>
@@ -128,12 +128,22 @@ export default function Skills() {
         <p className="mt-5 text-sm text-zinc-600 dark:text-zinc-400">
           Visible Edge Institute – Artificial Intelligence Technologies Program (Oct 2025 – Jan 2026, 375 hours) and B.S. in Information Technology from the University of Phoenix.
         </p>
-        <div className="mt-4">
+        <div className="mt-4 flex flex-wrap gap-3">
           <Button
             variant="secondary"
             href={siteConfig.social.credly}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            View Credentials on Credly
+            View credentials on Credly ↗
+          </Button>
+          <Button
+            variant="secondary"
+            href={siteConfig.social.linkedinEndorsements}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View LinkedIn endorsements ↗
           </Button>
         </div>
       </section>

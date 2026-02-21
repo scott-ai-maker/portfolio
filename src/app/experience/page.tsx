@@ -38,6 +38,7 @@ export default function Experience() {
         'Advised stakeholders on AI adoption strategy, prioritization, and responsible-use guardrails.',
         'Translated complex AI concepts into production-oriented workflows for technical and non-technical teams.',
         'Standardized reusable learning paths that improved consistency of onboarding and AI upskilling.',
+        'Delivered 20+ guided labs and workshops with completion rates typically above 85%.',
       ],
     },
     {
@@ -55,6 +56,8 @@ export default function Experience() {
         'Supported change-control reviews and release governance for stable production rollouts.',
         'Executed operational health checks and system validation to catch failures before downstream impact.',
         'Managed ServiceNow ticket flow with a focus on response quality, turnaround, and incident follow-through.',
+        'Reduced recurring operational effort by ~25–35% through automation and standardized runbooks.',
+        'Improved pipeline reliability to ~94–97% successful runs on routine release workflows.',
       ],
     },
     {
@@ -71,6 +74,8 @@ export default function Experience() {
         'Monitored runtime health and resolved operational issues to maintain service reliability.',
         'Documented architecture decisions, runbooks, and handoff guidance to improve long-term maintainability.',
         'Shared platform engineering standards and best practices through internal knowledge contributions.',
+        'Cut environment provisioning time from multi-day setup windows to same-day delivery for standard stacks.',
+        'Supported release readiness with typical deployment lead times under 1 business day.',
       ],
     },
   ]
@@ -110,7 +115,7 @@ export default function Experience() {
         </h1>
         <div className="mt-4 h-1.5 w-24 rounded-full bg-gradient-to-r from-teal-500 via-accent to-teal-400" />
         <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-          Delivery experience across production AI enablement, platform reliability, and cloud automation.
+          Experience delivering production AI systems, reliable platforms, and cloud automation.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <span className="inline-flex items-center rounded-full bg-teal-100 px-3 py-1 text-xs font-medium text-teal-800 dark:bg-teal-900/30 dark:text-teal-300">

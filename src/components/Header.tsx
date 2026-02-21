@@ -14,7 +14,9 @@ import {
 import clsx from 'clsx'
 
 import { Container } from './Container.tsx'
+import { GitHubIcon, LinkedInIcon } from './SocialIcons.tsx'
 import avatarImage from 'public/images/avatar.jpg'
+import { siteConfig } from '@/lib/site'
 
 function CloseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -121,6 +123,7 @@ function MobileNavigation(
         </div>
         <nav className="mt-6">
           <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
+            <MobileNavItem href="/">Home</MobileNavItem>
             <MobileNavItem href="/about">About</MobileNavItem>
             <MobileNavItem href="/projects">Projects</MobileNavItem>
             <MobileNavItem href="/experience">Experience</MobileNavItem>
@@ -128,6 +131,36 @@ function MobileNavigation(
             <MobileNavItem href="/blog">Blog</MobileNavItem>
           </ul>
         </nav>
+        <div className="mt-6 border-t border-zinc-100 pt-6 dark:border-zinc-800">
+          <div className="flex items-center gap-4 text-zinc-600 dark:text-zinc-400">
+            <Link
+              href={siteConfig.social.github}
+              aria-label="GitHub (opens in new tab)"
+              className="transition hover:text-teal-500 dark:hover:text-teal-400"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GitHubIcon className="h-5 w-5 fill-current" />
+            </Link>
+            <Link
+              href={siteConfig.social.linkedin}
+              aria-label="LinkedIn (opens in new tab)"
+              className="transition hover:text-teal-500 dark:hover:text-teal-400"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedInIcon className="h-5 w-5 fill-current" />
+            </Link>
+            <Link
+              href={siteConfig.social.linkedinEndorsements}
+              className="text-sm transition hover:text-teal-500 dark:hover:text-teal-400"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn endorsements ↗
+            </Link>
+          </div>
+        </div>
       </PopoverPanel>
     </Popover>
   )
@@ -166,6 +199,7 @@ function DesktopNavigation(props: React.ComponentPropsWithoutRef<'nav'>) {
   return (
     <nav {...props}>
       <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
+        <NavItem href="/">Home</NavItem>
         <NavItem href="/about">About</NavItem>
         <NavItem href="/projects">Projects</NavItem>
         <NavItem href="/experience">Experience</NavItem>
@@ -173,6 +207,28 @@ function DesktopNavigation(props: React.ComponentPropsWithoutRef<'nav'>) {
         <NavItem href="/blog">Blog</NavItem>
       </ul>
     </nav>
+  )
+}
+
+function HeaderSocialLink({
+  href,
+  label,
+  icon: Icon,
+}: {
+  href: string
+  label: string
+  icon: React.ComponentType<{ className?: string }>
+}) {
+  return (
+    <Link
+      href={href}
+      aria-label={`${label} (opens in new tab)`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group rounded-full bg-white/90 p-2 shadow-lg ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm transition hover:ring-zinc-900/10 dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
+    >
+      <Icon className="h-5 w-5 fill-zinc-500 transition group-hover:fill-teal-500 dark:fill-zinc-400 dark:group-hover:fill-teal-400" />
+    </Link>
   )
 }
 
@@ -429,7 +485,17 @@ export function Header() {
                 <DesktopNavigation className="pointer-events-auto hidden md:block" />
               </div>
               <div className="flex justify-end md:flex-1">
-                <div className="pointer-events-auto">
+                <div className="pointer-events-auto flex items-center gap-3">
+                  <HeaderSocialLink
+                    href={siteConfig.social.github}
+                    label="GitHub"
+                    icon={GitHubIcon}
+                  />
+                  <HeaderSocialLink
+                    href={siteConfig.social.linkedin}
+                    label="LinkedIn"
+                    icon={LinkedInIcon}
+                  />
                   <ThemeToggle />
                 </div>
               </div>

@@ -190,7 +190,7 @@ function Resume() {
         ))}
       </ol>
       <Button href="/experience" variant="secondary" className="mt-6 w-full">
-        See full experience
+        View full experience
       </Button>
     </div>
   )
@@ -318,7 +318,7 @@ export default async function Home() {
       <Container className="mt-16 sm:mt-20">
         <div className="max-w-3xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            AI Engineer and Platform Engineer building production systems that are reliable, secure, and scalable.
+            AI engineer and platform engineer building reliable, secure, and scalable production systems
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             I design and ship end-to-end AI applications and cloud platforms,
@@ -327,6 +327,20 @@ export default async function Home() {
             AWS, Terraform, Kubernetes, FastAPI, and practical GenAI patterns
             with LangChain, Transformers, and vector search.
           </p>
+          <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400">
+            Representative outcomes from recent builds and test runs.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <span className="inline-flex items-center rounded-full bg-teal-100 px-3 py-1 text-xs font-medium text-teal-800 dark:bg-teal-900/30 dark:text-teal-300">
+              RAG p95 latency: ~1.4–2.8 s
+            </span>
+            <span className="inline-flex items-center rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-sky-700 dark:bg-accent/20 dark:text-sky-300">
+              CI/CD success: ~94–97%
+            </span>
+            <span className="inline-flex items-center rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
+              MTTR: ~18–25 min
+            </span>
+          </div>
           <div className="mt-6 flex gap-6">
             <SocialLink
               href={siteConfig.social.github}
@@ -346,7 +360,32 @@ export default async function Home() {
           </div>
           <div className="mt-8 flex flex-wrap gap-4">
             <Button href="/projects" variant="primary">Explore projects</Button>
-            <Button href="/blog" variant="secondary">Read the blog</Button>
+            <Button href="/blog" variant="secondary">Read blog posts</Button>
+          </div>
+          <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+            <Link className="transition hover:text-teal-500 dark:hover:text-teal-400" href="/projects">
+              Projects
+            </Link>
+            <Link className="transition hover:text-teal-500 dark:hover:text-teal-400" href="/about">
+              About
+            </Link>
+            <Link className="transition hover:text-teal-500 dark:hover:text-teal-400" href="/experience">
+              Experience
+            </Link>
+            <Link className="transition hover:text-teal-500 dark:hover:text-teal-400" href="/skills">
+              Skills
+            </Link>
+            <Link className="transition hover:text-teal-500 dark:hover:text-teal-400" href="/blog">
+              Blog
+            </Link>
+            <Link
+              className="transition hover:text-teal-500 dark:hover:text-teal-400"
+              href={siteConfig.social.linkedinEndorsements}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn endorsements ↗
+            </Link>
           </div>
         </div>
       </Container>

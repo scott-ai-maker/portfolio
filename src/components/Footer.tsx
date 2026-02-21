@@ -33,7 +33,7 @@ function SocialLink({
   return (
     <Link
       href={href}
-      aria-label={label}
+      aria-label={`${label} (opens in new tab)`}
       target="_blank"
       rel="noopener noreferrer"
       className="group -m-1 p-1"
