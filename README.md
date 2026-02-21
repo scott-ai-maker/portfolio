@@ -125,6 +125,7 @@ Create a local `.env.local` file for runtime metadata and verification tags.
 | Variable | Required | Purpose |
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Yes (for production) | Canonical base URL used by metadata, sitemap, and feed |
+| `NEXT_PUBLIC_RESUME_URL` | Optional | External URL used by the homepage resume CTA |
 | `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Optional | Google Search Console verification token |
 | `NEXT_PUBLIC_BING_SITE_VERIFICATION` | Optional | Bing Webmaster verification token |
 
@@ -132,9 +133,16 @@ Example:
 
 ```bash
 NEXT_PUBLIC_SITE_URL=https://your-domain.example
+NEXT_PUBLIC_RESUME_URL=https://example.com/your-resume.pdf
 NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=your-google-token
 NEXT_PUBLIC_BING_SITE_VERIFICATION=your-bing-token
 ```
+
+## Security Notes
+
+- Never commit API keys, tokens, or secrets into source code, shell history snippets, issues, or pull requests.
+- If a secret is ever exposed, rotate it immediately in the provider dashboard and replace it in your secret store.
+- Prefer environment variables and platform secret stores (`.env.local` for local only, deployment secrets for hosted environments).
 
 ## Content Workflow
 

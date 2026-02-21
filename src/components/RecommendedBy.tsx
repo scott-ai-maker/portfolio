@@ -29,6 +29,9 @@ export function RecommendedBy({ className }: { className?: string }) {
           >
             View LinkedIn recommendations ↗
           </Button>
+          <p className="mt-2 text-xs text-zinc-500 dark:text-zinc-400">
+            LinkedIn may require sign-in to view recommendations.
+          </p>
         </div>
       </section>
     )
@@ -55,6 +58,9 @@ export function RecommendedBy({ className }: { className?: string }) {
           Verify on LinkedIn ↗
         </Link>
       </div>
+      <p className="mt-2 text-xs text-zinc-500 dark:text-zinc-400">
+        LinkedIn may require sign-in to view recommendations.
+      </p>
       <ul className="mt-4 space-y-4">
         {testimonials.map((testimonial) => (
           <li

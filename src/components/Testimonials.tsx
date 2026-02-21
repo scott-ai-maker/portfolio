@@ -37,6 +37,9 @@ export function Testimonials({
         >
           View LinkedIn recommendations ↗
         </Button>
+        <p className="mt-2 text-xs text-zinc-500 dark:text-zinc-400">
+          LinkedIn may require sign-in to view recommendations.
+        </p>
       </div>
     </section>
   )

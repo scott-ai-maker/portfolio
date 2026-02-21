@@ -4,6 +4,10 @@ export const siteConfig = {
   description:
     'Portfolio of Scott Gordon featuring production AI systems, platform engineering, and practical writing on MLOps, cloud architecture, and reliable delivery.',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
+  contactEmail: 'scott.gordon.ai@gmail.com',
+  resumeUrl:
+    process.env.NEXT_PUBLIC_RESUME_URL ??
+    'https://www.linkedin.com/in/sagordon-dev/',
   ogImage: '/images/avatar.jpg',
   social: {
     github: 'https://github.com/scott-ai-maker',

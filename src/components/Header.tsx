@@ -139,6 +139,8 @@ function MobileNavigation(
               className="transition hover:text-teal-500 dark:hover:text-teal-400"
               target="_blank"
               rel="noopener noreferrer"
+              data-analytics-event="outbound_click"
+              data-analytics-label="header_github"
             >
               <GitHubIcon className="h-5 w-5 fill-current" />
             </Link>
@@ -148,6 +150,8 @@ function MobileNavigation(
               className="transition hover:text-teal-500 dark:hover:text-teal-400"
               target="_blank"
               rel="noopener noreferrer"
+              data-analytics-event="outbound_click"
+              data-analytics-label="header_linkedin"
             >
               <LinkedInIcon className="h-5 w-5 fill-current" />
             </Link>
@@ -156,6 +160,8 @@ function MobileNavigation(
               className="text-sm transition hover:text-teal-500 dark:hover:text-teal-400"
               target="_blank"
               rel="noopener noreferrer"
+              data-analytics-event="outbound_click"
+              data-analytics-label="header_linkedin_recommendations"
             >
               LinkedIn endorsements ↗
             </Link>
@@ -225,6 +231,8 @@ function HeaderSocialLink({
       aria-label={`${label} (opens in new tab)`}
       target="_blank"
       rel="noopener noreferrer"
+      data-analytics-event="outbound_click"
+      data-analytics-label={`header_${label.toLowerCase()}`}
       className="group rounded-full bg-white/90 p-2 shadow-lg ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm transition hover:ring-zinc-900/10 dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
     >
       <Icon className="h-5 w-5 fill-zinc-500 transition group-hover:fill-teal-500 dark:fill-zinc-400 dark:group-hover:fill-teal-400" />

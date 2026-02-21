@@ -76,12 +76,19 @@ function BriefcaseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 
 function SocialLink({
   icon: Icon,
+  trackingLabel,
   ...props
 }: React.ComponentPropsWithoutRef<typeof Link> & {
   icon: React.ComponentType<{ className?: string }>
+  trackingLabel?: string
 }) {
   return (
-    <Link className="group -m-1 p-1" {...props}>
+    <Link
+      className="group -m-1 p-1"
+      data-analytics-event="outbound_click"
+      data-analytics-label={trackingLabel}
+      {...props}
+    >
       <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
     </Link>
   )
@@ -346,22 +353,35 @@ export default async function Home() {
             <SocialLink
               href={siteConfig.social.github}
               aria-label="Follow on GitHub"
+              trackingLabel="home_github"
               icon={GitHubIcon}
             />
             <SocialLink
               href={siteConfig.social.linkedin}
               aria-label="Follow on LinkedIn"
+              trackingLabel="home_linkedin"
               icon={LinkedInIcon}
             />
             <SocialLink
               href={siteConfig.social.credly}
               aria-label="View Credly profile"
+              trackingLabel="home_credly"
               icon={CredlyIcon}
             />
           </div>
           <div className="mt-8 flex flex-wrap gap-4">
             <Button href="/projects" variant="primary">Explore projects</Button>
             <Button href="/blog" variant="secondary">Read blog posts</Button>
+            <Button
+              href={siteConfig.resumeUrl}
+              variant="secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-analytics-event="outbound_click"
+              data-analytics-label="home_resume"
+            >
+              View resume ↗
+            </Button>
           </div>
           <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-zinc-600 dark:text-zinc-400">
             <Link className="transition hover:text-teal-500 dark:hover:text-teal-400" href="/projects">
@@ -384,6 +404,8 @@ export default async function Home() {
               href={siteConfig.social.linkedinRecommendations}
               target="_blank"
               rel="noopener noreferrer"
+              data-analytics-event="outbound_click"
+              data-analytics-label="home_linkedin_recommendations"
             >
               LinkedIn endorsements ↗
             </Link>
