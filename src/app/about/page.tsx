@@ -78,6 +78,7 @@ export default function About() {
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
             I’m Scott Gordon, and I build production AI systems and platform foundations
           </h1>
+          <div className="mt-4 h-1.5 w-24 rounded-full bg-gradient-to-r from-teal-500 via-accent to-teal-400" />
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
               I’m an AI and platform engineer focused on shipping systems that hold up in production. My work spans cloud infrastructure, API services, retrieval workflows, and delivery automation, with an emphasis on reliability, security, and operational clarity.

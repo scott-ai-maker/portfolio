@@ -50,6 +50,7 @@ export default function Blog() {
       <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
         Blog
       </h1>
+      <div className="mt-4 h-1.5 w-24 rounded-full bg-gradient-to-r from-teal-500 via-accent to-teal-400" />
       <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
         Practical notes on shipping AI and platform systems: architecture, delivery, reliability, and real-world tradeoffs.
       </p>
