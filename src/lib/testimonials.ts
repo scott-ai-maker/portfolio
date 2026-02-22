@@ -25,4 +25,13 @@ export const testimonials: Testimonial[] = [
     sourceUrl:
       'https://www.linkedin.com/in/sagordon-dev/details/recommendations/',
   },
+  {
+    quote:
+      'When Scott and I worked together at Vivsoft, you could tell the drive to continually grow was strong. He brought fresh ideas and the grit to stay on task and figure out problems. Our team productivity hurt significantly when his position was cut for budget reasons.',
+    name: 'Blaine Whited',
+    role: 'Principal Technologist / Full-Stack Developer – Container Evangelist – CI/CD Mastermind',
+    company: 'VivSoft · Senior peer (Feb 2026)',
+    sourceUrl:
+      'https://www.linkedin.com/in/sagordon-dev/details/recommendations/',
+  },
 ]
